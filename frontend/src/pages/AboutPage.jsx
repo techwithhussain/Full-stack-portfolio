@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Download, Award, Shield, Heart, Zap, Sparkles, GraduationCap, Calendar, Mail, MessageSquare } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
-import { personSchema } from '@/utils/schema'
+import { aboutPageSchema, breadcrumbSchema } from '@/utils/schema'
 import styles from './AboutPage.module.css'
 
 const VALUES = [
@@ -44,7 +44,7 @@ export default function AboutPage() {
         title="About Hussain Lone, Web Developer"
         description="Meet Hussain Lone, a web developer in Srinagar, J&K. Expert in web development, SEO, Meta Ads & digital marketing, serving clients worldwide."
         canonical="/about"
-        schema={[personSchema()]}
+        schema={[aboutPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
       />
 
       <div className={styles.aboutPage}>

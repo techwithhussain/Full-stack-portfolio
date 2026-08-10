@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Search, SlidersHorizontal, ExternalLink, ArrowRight } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
-import { websiteSchema } from '@/utils/schema'
+import { projectsPageSchema, breadcrumbSchema } from '@/utils/schema'
 import axios from 'axios'
 import styles from './ProjectsPage.module.css'
 
@@ -304,7 +304,7 @@ export default function ProjectsPage() {
         title="Projects Portfolio · Hussain Lone"
         description="Explore Hussain Lone's software development portfolio, highlighting AI workflow integrations, WordPress themes, and search engine optimization case studies."
         canonical="/projects"
-        schema={[websiteSchema()]}
+        schema={[projectsPageSchema(projectsList), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])]}
       />
 
       <div className={styles.projectsPage}>

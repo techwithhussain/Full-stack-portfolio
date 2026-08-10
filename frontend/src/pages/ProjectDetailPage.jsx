@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { ArrowLeft, ExternalLink, CheckCircle2, AlertCircle, Quote, Calendar, User, Compass } from 'lucide-react'
 import { IconGithub } from '@/components/common/SocialIcons'
 import SEOMeta from '@/components/common/SEOMeta'
+import { breadcrumbSchema } from '@/utils/schema'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import styles from './ProjectDetailPage.module.css'
@@ -105,8 +106,24 @@ export default function ProjectDetailPage() {
     <>
       <SEOMeta
         title={`${project.title} · Case Study`}
-        description={project.desc}
+        description={project.excerpt || project.desc}
         canonical={`/projects/${slug}`}
+        ogImage={project.image ? `https://techwithhussain.online${project.image}` : undefined}
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': project.category === 'WordPress' ? 'WebSite' : 'CreativeWork',
+            name: project.title,
+            description: project.problem || project.desc,
+            url: `https://techwithhussain.online/projects/${slug}`,
+            author: { '@id': 'https://techwithhussain.online/#person' },
+          },
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Projects', path: '/projects' },
+            { name: project.title, path: `/projects/${slug}` },
+          ]),
+        ]}
       />
 
       <div className={styles.projectDetail}>

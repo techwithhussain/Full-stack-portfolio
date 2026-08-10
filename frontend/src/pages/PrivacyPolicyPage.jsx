@@ -1,12 +1,17 @@
 import SEOMeta from '@/components/common/SEOMeta'
+import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 
 export default function PrivacyPolicyPage() {
   return (
     <>
       <SEOMeta
         title="Privacy Policy · Tech With Hussain"
-        description="Review the privacy policies and data collection guidelines for Tech With Hussain."
+        description="Privacy policy and data protection terms for Tech With Hussain — Hussain Lone."
         canonical="/privacy-policy"
+        schema={[
+          webPageSchema({ title: 'Privacy Policy · Tech With Hussain', description: 'Privacy policy for Tech With Hussain.', path: '/privacy-policy' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Privacy Policy', path: '/privacy-policy' }]),
+        ]}
       />
 
       <div style={{ paddingTop: '160px', paddingBottom: '80px', maxWidth: '800px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px' }}>

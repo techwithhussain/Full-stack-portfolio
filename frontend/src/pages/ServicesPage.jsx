@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Check, HelpCircle, MessageSquare, Loader2 } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
-import { professionalServiceSchema, faqSchema } from '@/utils/schema'
+import { servicesPageSchema, faqSchema, breadcrumbSchema } from '@/utils/schema'
 import { api } from '@/context/AuthContext'
 import ServiceIcon from '@/components/common/ServiceIcon'
 import { DEFAULT_SERVICES } from '@/data/servicesData'
@@ -49,7 +49,7 @@ export default function ServicesPage() {
         title="Web Dev & SEO Services in Kashmir, J&K"
         description="Web development, SEO, Meta Ads & digital marketing services in Srinagar, J&K from Hussain Lone. Transparent pricing, guaranteed results."
         canonical="/services"
-        schema={[professionalServiceSchema(), faqSchema(GENERAL_FAQS)]}
+        schema={[servicesPageSchema(services), faqSchema(GENERAL_FAQS), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }])]}
       />
 
       <div className={styles.servicesPage}>

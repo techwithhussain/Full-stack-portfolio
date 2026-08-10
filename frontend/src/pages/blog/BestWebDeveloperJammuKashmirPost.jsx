@@ -29,19 +29,8 @@ const blogPostingSchema = {
   headline: 'Best Web Developer in Jammu And Kashmir',
   description: "Looking for the best web developer in Jammu and Kashmir? Here's what qualities to look for, which services matter, and what to check before you hire one.",
   image: `${SITE.url}${THUMBNAIL}`,
-  author: {
-    '@type': 'Organization',
-    name: SITE.name,
-    url: SITE.url,
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: SITE.name,
-    logo: {
-      '@type': 'ImageObject',
-      url: `${SITE.url}/favicon.png`,
-    },
-  },
+  author: { '@id': 'https://techwithhussain.online/#person' },
+  publisher: { '@id': 'https://techwithhussain.online/#business' },
   datePublished: PUBLISH_DATE,
   dateModified: PUBLISH_DATE,
   mainEntityOfPage: {
@@ -99,60 +88,6 @@ const faqPageSchema = {
   ],
 }
 
-const professionalServiceSchemaLocal = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: SITE.name,
-  image: `${SITE.url}/favicon.png`,
-  url: SITE.url,
-  telephone: SITE.phone,
-  email: SITE.email,
-  priceRange: '$$',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Srinagar',
-    addressLocality: 'Srinagar',
-    addressRegion: 'Jammu and Kashmir',
-    postalCode: '190001',
-    addressCountry: 'IN',
-  },
-  areaServed: [
-    { '@type': 'City', name: 'Srinagar' },
-    { '@type': 'City', name: 'Jammu' },
-    { '@type': 'City', name: 'Anantnag' },
-    { '@type': 'City', name: 'Baramulla' },
-    { '@type': 'City', name: 'Kupwara' },
-    { '@type': 'City', name: 'Pulwama' },
-  ],
-  sameAs: Object.values(SOCIAL),
-}
-
-// Only the two service mentions with a real corresponding page on this site
-// are included here — the article names nine services in total, but the
-// other seven don't have a matching page to point to yet.
-const serviceOfferCatalogSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Web Development Services',
-  provider: {
-    '@type': 'ProfessionalService',
-    name: SITE.name,
-    url: SITE.url,
-  },
-  areaServed: {
-    '@type': 'State',
-    name: 'Jammu and Kashmir',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Web Development Services',
-    itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'WordPress Website Development', url: `${SITE.url}/services/wordpress-development` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Friendly Website Development', url: `${SITE.url}/services/seo-services` } },
-    ],
-  },
-}
-
 export default function BestWebDeveloperJammuKashmirPost() {
   return (
     <>
@@ -164,7 +99,7 @@ export default function BestWebDeveloperJammuKashmirPost() {
         ogImage={`${SITE.url}${THUMBNAIL}`}
         ogType="article"
         keywords="best web developer in Jammu and Kashmir, web development services in Jammu and Kashmir, website designer in Srinagar, eCommerce website development Jammu, WordPress development services, SEO friendly website development"
-        schema={[blogPostingSchema, faqPageSchema, professionalServiceSchemaLocal, serviceOfferCatalogSchema, breadcrumbSchema([
+        schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
           { name: 'Blog', path: '/blog' },
           { name: 'Best Web Developer in Jammu And Kashmir', path: CANONICAL },

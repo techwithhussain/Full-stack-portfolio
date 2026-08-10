@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { Mail, Phone, MapPin, Send, Upload, CheckCircle2, AlertCircle, HelpCircle, MessageSquare } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
+import { contactPageSchema, breadcrumbSchema } from '@/utils/schema'
 import { SITE } from '@/data/constants'
 import styles from './ContactPage.module.css'
 
@@ -94,6 +95,7 @@ export default function ContactPage() {
         title="Contact Me · Tech With Hussain"
         description="Get in touch with Hussain Lone for custom AI development, WordPress setups, speed optimization audits, or retainer services."
         canonical="/contact"
+        schema={[contactPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]}
       />
 
       <div className={styles.contactPage}>

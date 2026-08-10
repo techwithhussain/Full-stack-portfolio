@@ -3,7 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, Clock, RotateCcw, Check, MessageSquare, Loader2 } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
-import { servicePageSchema } from '@/utils/schema'
+import { servicePageSchema, breadcrumbSchema } from '@/utils/schema'
 import { api } from '@/context/AuthContext'
 import ServiceIcon from '@/components/common/ServiceIcon'
 import { DEFAULT_SERVICES } from '@/data/servicesData'
@@ -62,7 +62,14 @@ export default function ServiceDetailPage() {
         title={`${service.title} · Pricing & Packages`}
         description={service.description || service.short_desc}
         canonical={`/services/${slug}`}
-        schema={[servicePageSchema({ title: service.title, slug, description: service.description || service.short_desc })]}
+        schema={[
+          servicePageSchema({ title: service.title, slug, description: service.description || service.short_desc }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: service.title, path: `/services/${slug}` },
+          ]),
+        ]}
       />
 
       <div className={styles.serviceDetail}>

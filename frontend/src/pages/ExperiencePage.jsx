@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Briefcase, GraduationCap, Calendar, Compass, ArrowRight, CheckCircle2 } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
+import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 import styles from './ExperiencePage.module.css'
 
 const WORK_ITEMS = [
@@ -46,6 +47,10 @@ export default function ExperiencePage() {
         title="Experience & Education · Hussain Lone"
         description="Browse the detailed professional timeline of Hussain Lone. Read about freelance achievements, agency web works, and BCA curriculum details."
         canonical="/experience"
+        schema={[
+          webPageSchema({ title: 'Experience & Education · Hussain Lone', description: 'Professional timeline of Hussain Lone.', path: '/experience' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }]),
+        ]}
       />
 
       <div className={styles.experiencePage}>

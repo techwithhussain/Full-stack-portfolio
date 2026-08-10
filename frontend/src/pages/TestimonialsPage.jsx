@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Star, Quote, Play, CheckCircle2, MessageSquare, ArrowRight } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
-import { aggregateRatingSchema } from '@/utils/schema'
+import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 import styles from './TestimonialsPage.module.css'
 
 const REVIEWS = [
@@ -65,10 +65,13 @@ export default function TestimonialsPage() {
   return (
     <>
       <SEOMeta
-        title="Client Reviews · Hussain Lone"
-        description="See what verified business owners, founders, and agency directors say about working with Hussain Lone on AI integration and web systems."
+        title="Client Testimonials · Tech With Hussain"
+        description="Read client reviews and feedback from business owners and founders who worked with Hussain Lone on web development and SEO."
         canonical="/testimonials"
-        schema={[aggregateRatingSchema()]}
+        schema={[
+          webPageSchema({ title: 'Client Testimonials · Tech With Hussain', description: 'Client reviews and feedback.', path: '/testimonials' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Testimonials', path: '/testimonials' }]),
+        ]}
       />
 
       <div className={styles.testimonialsPage}>

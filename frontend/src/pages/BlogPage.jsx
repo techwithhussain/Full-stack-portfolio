@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Sparkles, Mail, Send, CheckCircle2, Clock, Calendar, ArrowRight } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
-import { websiteSchema } from '@/utils/schema'
+import { blogPageSchema, breadcrumbSchema } from '@/utils/schema'
 import axios from 'axios'
 import styles from './BlogPage.module.css'
 
@@ -39,7 +39,7 @@ export default function BlogPage() {
         title="Blog · Tech Insights Coming Soon"
         description="In-depth articles, case studies, and guides on AI workflows, SEO strategies, and modern web development are coming soon."
         canonical="/blog"
-        schema={[websiteSchema()]}
+        schema={[blogPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }])]}
       />
 
       <div className={styles.blogPage}>

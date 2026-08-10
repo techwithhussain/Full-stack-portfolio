@@ -1,5 +1,6 @@
 import { Download, Mail, Phone, MapPin, Printer, ExternalLink, ArrowRight } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
+import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 import { SITE } from '@/data/constants'
 import { getEmail } from '@/utils/obfuscateEmail'
 import styles from './ResumePage.module.css'
@@ -12,9 +13,13 @@ export default function ResumePage() {
   return (
     <>
       <SEOMeta
-        title="Resume · Hussain Lone"
-        description="View and download Hussain Lone's resume. Professional full-stack developer, WordPress customizer, and automation engineer."
+        title="Interactive Resume · Hussain Lone"
+        description="Curriculum Vitae of Hussain Lone. Web developer, SEO expert, and AI workflow specialist in Srinagar, J&K."
         canonical="/resume"
+        schema={[
+          webPageSchema({ title: 'Interactive Resume · Hussain Lone', description: 'Curriculum Vitae of Hussain Lone.', path: '/resume' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Resume', path: '/resume' }]),
+        ]}
       />
 
       <div className={styles.resumePage}>
