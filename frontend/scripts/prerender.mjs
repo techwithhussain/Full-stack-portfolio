@@ -26,7 +26,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DIST_DIR = join(__dirname, '..', 'dist')
 const PORT = 4173
-const BASE_URL = `http://localhost:${PORT}`
+const BASE_URL = `http://127.0.0.1:${PORT}`
 
 const STATIC_ROUTES = [
   '/',
@@ -72,7 +72,7 @@ function waitForServer(url, timeoutMs = 30000) {
 }
 
 async function renderRoute(page, route) {
-  await page.goto(`${BASE_URL}${route}`, { waitUntil: 'networkidle' })
+  await page.goto(`${BASE_URL}${route}`, { waitUntil: 'domcontentloaded' })
   // Wait for App.jsx's readiness flag (set once the loading gate clears and
   // the route has actually rendered) instead of guessing a fixed delay.
   await page.waitForFunction(() => window.__APP_READY__ === true, { timeout: 15000 })
@@ -105,7 +105,7 @@ async function main() {
   const viteBin = join(__dirname, '..', 'node_modules', 'vite', 'bin', 'vite.js')
   const previewProcess = spawn(
     process.execPath,
-    [viteBin, 'preview', '--port', String(PORT), '--strictPort'],
+    [viteBin, 'preview', '--host', '127.0.0.1', '--port', String(PORT), '--strictPort'],
     { cwd: join(__dirname, '..'), stdio: 'pipe' },
   )
   previewProcess.on('error', (err) => {

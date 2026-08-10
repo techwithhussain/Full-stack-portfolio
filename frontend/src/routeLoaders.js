@@ -8,6 +8,7 @@ export const ROUTE_LOADERS = {
   '/blog/best-web-developer-in-jammu-and-kashmir': () => import('@/pages/blog/BestWebDeveloperJammuKashmirPost'),
   '/about': () => import('@/pages/AboutPage'),
   '/services': () => import('@/pages/ServicesPage'),
+  '/skills': () => import('@/pages/HomePage'),
   '/projects': () => import('@/pages/ProjectsPage'),
   '/blog': () => import('@/pages/BlogPage'),
   '/testimonials': () => import('@/pages/TestimonialsPage'),

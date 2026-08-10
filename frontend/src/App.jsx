@@ -161,6 +161,7 @@ export default function App() {
             <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
             <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
             <Route path="/services" element={<PageWrapper><ServicesPage /></PageWrapper>} />
+            <Route path="/skills" element={<PageWrapper><HomePage /></PageWrapper>} />
             <Route path="/services/:slug" element={<PageWrapper><ServiceDetailPage /></PageWrapper>} />
             <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
             <Route path="/projects/:slug" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />
