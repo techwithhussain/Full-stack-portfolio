@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { SITE } from '@/data/constants'
@@ -42,31 +41,6 @@ export default function SEOMeta({
   }
 
   const canonUrl = getCanonicalUrl()
-
-  // Direct DOM canonical sync for static Playwright prerenderer and instant view-source presence
-  if (typeof document !== 'undefined' && canonUrl) {
-    let linkEl = document.querySelector('link[rel="canonical"]')
-    if (!linkEl) {
-      linkEl = document.createElement('link')
-      linkEl.setAttribute('rel', 'canonical')
-      document.head.appendChild(linkEl)
-    }
-    linkEl.setAttribute('href', canonUrl)
-    linkEl.removeAttribute('data-default-seo')
-  }
-
-  useEffect(() => {
-    if (canonUrl && typeof document !== 'undefined') {
-      let linkEl = document.querySelector('link[rel="canonical"]')
-      if (!linkEl) {
-        linkEl = document.createElement('link')
-        linkEl.setAttribute('rel', 'canonical')
-        document.head.appendChild(linkEl)
-      }
-      linkEl.setAttribute('href', canonUrl)
-      linkEl.removeAttribute('data-default-seo')
-    }
-  }, [canonUrl])
 
   // Default keywords for all pages (location-based)
   const defaultKeywords = 'best web developer in J&K, web developer in Kashmir, best web developer in Jammu and Kashmir, web developer Srinagar, SEO expert Kashmir, freelance web developer Kashmir, website designer Srinagar, digital marketing J&K, Hussain Lone, Tech With Hussain'
