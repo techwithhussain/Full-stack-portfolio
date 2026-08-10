@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FF9D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc7d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="#0B0F19" rx="64"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.06" stroke="#00FF9D" stroke-width="1">
+    <line x1="0" y1="128" x2="512" y2="128"/>
+    <line x1="0" y1="256" x2="512" y2="256"/>
+    <line x1="0" y1="384" x2="512" y2="384"/>
+    <line x1="128" y1="0" x2="128" y2="512"/>
+    <line x1="256" y1="0" x2="256" y2="512"/>
+    <line x1="384" y1="0" x2="384" y2="512"/>
+  </g>
+
+  <!-- Glow orb behind text -->
+  <ellipse cx="256" cy="256" rx="160" ry="100" fill="#00FF9D" opacity="0.04"/>
+
+  <!-- === T === -->
+  <!-- T horizontal bar -->
+  <rect x="48" y="148" width="120" height="28" fill="url(#glowGrad)" filter="url(#glow)" rx="3"/>
+  <!-- T vertical stem -->
+  <rect x="95" y="148" width="28" height="130" fill="url(#glowGrad)" filter="url(#glow)" rx="3"/>
+  <!-- T circuit traces on stem -->
+  <rect x="72" y="218" width="23" height="4" fill="#00FF9D" opacity="0.7" rx="2"/>
+  <rect x="58" y="218" width="10" height="10" fill="none" stroke="#00FF9D" stroke-width="2" opacity="0.7" rx="2"/>
+  <circle cx="52" cy="223" r="4" fill="#00FF9D" opacity="0.6"/>
+  <rect x="72" y="248" width="23" height="4" fill="#00FF9D" opacity="0.5" rx="2"/>
+  <circle cx="58" cy="250" r="3" fill="none" stroke="#00FF9D" stroke-width="2" opacity="0.5"/>
+
+  <!-- === W === -->
+  <!-- W left diagonal down -->
+  <polygon points="176,148 204,148 226,258 210,258" fill="url(#glowGrad)" filter="url(#glow)"/>
+  <!-- W right diagonal down -->
+  <polygon points="308,148 336,148 314,258 298,258" fill="url(#glowGrad)" filter="url(#glow)"/>
+  <!-- W center peak up-left -->
+  <polygon points="210,258 226,258 256,158 242,158" fill="url(#glowGrad)" filter="url(#glow)"/>
+  <!-- W center peak up-right -->
+  <polygon points="256,158 270,158 298,258 314,258" fill="url(#glowGrad)" filter="url(#glow)"/>
+
+  <!-- </> code symbol above W center -->
+  <g filter="url(#glow)" opacity="0.9">
+    <text x="256" y="148" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="#00FF9D">&lt;/&gt;</text>
+  </g>
+
+  <!-- === H === -->
+  <!-- H left pillar -->
+  <rect x="352" y="148" width="28" height="130" fill="url(#glowGrad)" filter="url(#glow)" rx="3"/>
+  <!-- H right pillar -->
+  <rect x="436" y="148" width="28" height="130" fill="url(#glowGrad)" filter="url(#glow)" rx="3"/>
+  <!-- H crossbar -->
+  <rect x="352" y="198" width="112" height="24" fill="url(#glowGrad)" filter="url(#glow)" rx="3"/>
+  <!-- H circuit traces on right pillar -->
+  <rect x="464" y="198" width="20" height="4" fill="#00FF9D" opacity="0.7" rx="2"/>
+  <rect x="478" y="192" width="10" height="10" fill="none" stroke="#00FF9D" stroke-width="2" opacity="0.7" rx="2"/>
+  <circle cx="493" cy="197" r="3" fill="#00FF9D" opacity="0.6"/>
+  <rect x="464" y="228" width="15" height="4" fill="#00FF9D" opacity="0.5" rx="2"/>
+  <circle cx="484" cy="230" r="3" fill="none" stroke="#00FF9D" stroke-width="2" opacity="0.5"/>
+
+  <!-- Bottom separator line -->
+  <line x1="48" y1="310" x2="464" y2="310" stroke="#00FF9D" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- "TECH WITH HUSSAIN" text -->
+  <text x="256" y="348" text-anchor="middle" font-family="'Arial', sans-serif" font-size="36" font-weight="700" fill="#00FF9D" letter-spacing="8" filter="url(#glow)" opacity="0.9">TWH</text>
+  <text x="256" y="388" text-anchor="middle" font-family="'Arial', sans-serif" font-size="18" font-weight="400" fill="#00FF9D" letter-spacing="5" opacity="0.55">TECH WITH HUSSAIN</text>
+
+  <!-- Corner accents -->
+  <g stroke="#00FF9D" stroke-width="2" fill="none" opacity="0.3">
+    <path d="M 32 80 L 32 32 L 80 32"/>
+    <path d="M 432 32 L 480 32 L 480 80"/>
+    <path d="M 32 432 L 32 480 L 80 480"/>
+    <path d="M 432 480 L 480 480 L 480 432"/>
+  </g>
+</svg>

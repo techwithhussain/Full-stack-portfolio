@@ -1,19 +1,76 @@
+# ============================================================
+# Tech With Hussain — Frontend SPA .htaccess
+# Hostinger Shared Hosting | Apache
+# Enables clean URL routing for React Router (BrowserRouter)
+# ============================================================
+
+Options -Indexes
+ServerSignature Off
+
+# Real prerendered 404 page (see frontend/scripts/prerender.mjs) — served for
+# genuinely missing files; unmatched app routes still fall through to the SPA
+# below and resolve client-side via React Router.
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+    RewriteEngine On
+    RewriteBase /
 
-  # 1. Direct API requests to backend/api/
-  RewriteRule ^api/(.*)$ backend/api/$1 [L,QSA]
+    # ── Redirect www → non-www (HTTPS) ──────────────────────
+    RewriteCond %{HTTP_HOST} ^www\.techwithhussain\.online$ [NC]
+    RewriteRule ^ https://techwithhussain.online%{REQUEST_URI} [R=301,L]
 
-  # 2. Serve static files directly if they exist in frontend/dist/
-  RewriteCond %{DOCUMENT_ROOT}/frontend/dist%{REQUEST_URI} -f
-  RewriteRule ^(.*)$ frontend/dist/$1 [L]
+    # ── Force HTTPS ──────────────────────────────────────────
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # 3. Fallback all SPA routes (e.g. /about, /projects, /services) to frontend/dist/index.html
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ frontend/dist/index.html [L]
+    # ── Serve existing files/directories as-is ───────────────
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # ── All other requests → index.html (SPA) ────────────────
+    RewriteRule . /index.html [L]
 </IfModule>
 
-# Options
-Options -Indexes +FollowSymLinks
+# ── Browser Caching ──────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg          "access plus 1 year"
+    ExpiresByType image/png           "access plus 1 year"
+    ExpiresByType image/webp          "access plus 1 year"
+    ExpiresByType image/gif           "access plus 1 year"
+    ExpiresByType image/svg+xml       "access plus 1 year"
+    ExpiresByType text/css            "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/json    "access plus 0 seconds"
+    ExpiresByType text/html           "access plus 0 seconds"
+</IfModule>
+
+# ── Compression (Gzip) ───────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript
+    AddOutputFilterByType DEFLATE application/json text/xml image/svg+xml
+    AddOutputFilterByType DEFLATE font/woff font/woff2
+</IfModule>
+
+# ── Security Headers ─────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+    # HSTS — tell browsers to always use HTTPS (improves trust signals)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    # Remove X-Powered-By for security
+    Header unset X-Powered-By
+    Header unset Server
+</IfModule>
+
+# ── ETag & Keep-Alive ────────────────────────────────────────
+FileETag MTime Size
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0B0F19" />
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="lGWrPfTaqKof7IORX31wzucOg6VmouHS2417UjA_Vto" />
+
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5ZSJZPQ0K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5ZSJZPQ0K');
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://techwithhussain.online" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+    <!-- Web fonts (moved from a CSS @import in globals.css so the browser discovers
+         the request immediately from the HTML parse, instead of after fetching the
+         app's CSS bundle first) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+    <!-- Favicon / Site Icon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Default SEO — visible only to crawlers that don't execute JS. Every
+         page renders its own <SEOMeta> (react-helmet-async), which only
+         manages tags it creates itself and won't remove these pre-existing
+         ones — so main.jsx strips everything marked data-default-seo as
+         soon as the JS bundle runs, before Helmet ever mounts, to avoid
+         shipping duplicate title/meta/JSON-LD in the prerendered HTML. -->
+    <title data-default-seo>Best Web Developer &amp; SEO Expert in J&amp;K | Tech With Hussain</title>
+    <meta data-default-seo name="description" content="Top-rated web developer &amp; SEO expert in Srinagar, J&amp;K. Web development, SEO, Meta Ads &amp; digital marketing. Trusted by 30+ clients worldwide." />
+    <meta data-default-seo name="keywords" content="best web developer in J&K, web developer in Kashmir, best web developer in Jammu and Kashmir, web developer Srinagar, SEO expert Kashmir, freelance web developer Kashmir, website designer Srinagar, digital marketing J&K, Hussain Lone, Tech With Hussain" />
+    <meta data-default-seo name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta data-default-seo name="author" content="Hussain Lone" />
+    <meta data-default-seo name="copyright" content="Tech With Hussain" />
+    <meta data-default-seo name="language" content="English" />
+    <meta data-default-seo name="revisit-after" content="7 days" />
+
+    <!-- Geo / Location Meta Tags -->
+    <meta data-default-seo name="geo.region" content="IN-JK" />
+    <meta data-default-seo name="geo.placename" content="Srinagar, Jammu &amp; Kashmir, India" />
+    <meta data-default-seo name="geo.position" content="34.0837;74.7973" />
+    <meta data-default-seo name="ICBM" content="34.0837, 74.7973" />
+
+    <!-- Canonical handled per-page by React Helmet (SEOMeta.jsx) -->
+
+    <!-- Open Graph (React Helmet overrides) -->
+    <meta data-default-seo property="og:type"        content="website" />
+    <meta data-default-seo property="og:site_name"   content="Tech With Hussain" />
+    <meta data-default-seo property="og:title"       content="Best Web Developer &amp; SEO Expert in J&amp;K | Tech With Hussain" />
+    <meta data-default-seo property="og:description" content="Top-rated web developer &amp; SEO expert in Srinagar, J&amp;K. Web development, SEO, Meta Ads &amp; digital marketing. Trusted by 30+ clients worldwide." />
+    <meta data-default-seo property="og:image"       content="https://techwithhussain.online/og-default.png" />
+    <meta data-default-seo property="og:image:width"  content="1200" />
+    <meta data-default-seo property="og:image:height" content="630" />
+    <meta data-default-seo property="og:image:alt"   content="Hussain Lone - Best Web Developer in J&K, Kashmir" />
+    <meta data-default-seo property="og:url"         content="https://techwithhussain.online/" />
+    <meta data-default-seo property="og:locale"      content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta data-default-seo name="twitter:card"        content="summary_large_image" />
+    <meta data-default-seo name="twitter:site"        content="@techwithhussain" />
+    <meta data-default-seo name="twitter:creator"     content="@techwithhussain" />
+    <meta data-default-seo name="twitter:title"       content="Best Web Developer &amp; SEO Expert in J&amp;K | Tech With Hussain" />
+    <meta data-default-seo name="twitter:description" content="Top-rated web developer &amp; SEO expert in Srinagar, J&amp;K. Web development, SEO, Meta Ads &amp; digital marketing. Trusted by 30+ clients worldwide." />
+    <meta data-default-seo name="twitter:image"       content="https://techwithhussain.online/og-default.png" />
+
+    <!-- JSON-LD: Local Business (fallback before React hydrates) -->
+    <script data-default-seo type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "name": "Tech With Hussain",
+      "alternateName": "Hussain Lone Web Developer",
+      "description": "Best web developer in J&K, Srinagar. Expert in web development, SEO, Meta Ads and digital marketing serving Jammu & Kashmir and worldwide.",
+      "url": "https://techwithhussain.online",
+      "telephone": "+91-6005401734",
+      "email": "contact@techwithhussain.online",
+      "founder": {
+        "@type": "Person",
+        "name": "Hussain Lone",
+        "jobTitle": "Web Developer & SEO Expert",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Srinagar",
+          "addressRegion": "Jammu & Kashmir",
+          "addressCountry": "IN"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Srinagar",
+        "addressRegion": "Jammu & Kashmir",
+        "postalCode": "190001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "34.0837",
+        "longitude": "74.7973"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Srinagar"},
+        {"@type": "State", "name": "Jammu & Kashmir"},
+        {"@type": "Country", "name": "India"}
+      ],
+      "serviceType": ["Web Development", "SEO Services", "Digital Marketing", "Meta Ads", "WordPress Development"],
+      "priceRange": "$$",
+      "openingHours": "Mo-Sa 09:00-20:00",
+      "sameAs": [
+        "https://www.facebook.com/techwithhussain",
+        "https://www.instagram.com/tech.withhussain",
+        "https://youtube.com/@tech.withhussain",
+        "https://www.linkedin.com/in/techwithhussain",
+        "https://github.com/techwithhussain"
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-BELG4Qac.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Cyuzqnbw.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-CPaySKT9.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-motion-D3pfR_E6.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-DWtFJoW9.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-axios-CMlPL3nW.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CQvIYrKW.css">
+  </head>
+  <body>
+    <!-- Static content for AI/LLM crawlers (ChatGPT, Perplexity, Google AI) -->
+    <!-- This matches visible content — not cloaking -->
+    <div id="seo-static" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;" aria-hidden="true">
+      <p><strong>Best Web Developer &amp; SEO Expert in Srinagar, J&amp;K, India</strong></p>
+      <p>Tech With Hussain provides top-rated web development, SEO, Meta Ads, WordPress development and AI automation services in Srinagar, Jammu &amp; Kashmir, India. Contact: +91 6005401734 | contact@techwithhussain.online</p>
+      <h2>Services</h2>
+      <ul>
+        <li>Web Development (React, WordPress, PHP)</li>
+        <li>SEO Services (Local SEO, Technical SEO, On-Page SEO)</li>
+        <li>Meta Ads Management (Facebook &amp; Instagram Ads)</li>
+        <li>WordPress Development &amp; WooCommerce</li>
+        <li>AI Automation (n8n, Make.com, Zapier)</li>
+        <li>Digital Marketing</li>
+      </ul>
+      <h2>Location</h2>
+      <address>Srinagar, Jammu &amp; Kashmir, India 190001</address>
+      <h2>Contact</h2>
+      <p>Phone: +91 6005401734 | Email: contact@techwithhussain.online</p>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
