@@ -41,56 +41,61 @@ export default function ProjectsPage() {
       .then(res => {
         if (res.data.success && Array.isArray(res.data.data.items) && res.data.data.items.length > 0) {
           const dbItems = res.data.data.items
-          // Merge master PROJECTS_DATA with DB items so all project items render reliably
-          const masterSlugs = PROJECTS_DATA.map(p => p.slug)
-          const dbMapped = dbItems.map(p => {
-            const lowerTitle = (p.title || '').toLowerCase()
-            const fallbackMatch = PROJECTS_DATA.find(pd => pd.slug === p.slug || (lowerTitle.includes('walnut') && pd.slug === 'walnutwala') || (lowerTitle.includes('guru') && pd.slug === 'guru-digital-advertising') || (lowerTitle.includes('gurukul') && pd.slug === 'gurukul-vidya-peeth'))
-            
-            let thumbnailPath = p.thumbnail
-            if (!thumbnailPath || thumbnailPath.trim() === '') {
-              if (lowerTitle.includes('walnut')) {
-                thumbnailPath = '/walnuta.webp'
-              } else if (lowerTitle.includes('guru') && !lowerTitle.includes('gurukul')) {
-                thumbnailPath = '/guru.webp'
-              } else if (lowerTitle.includes('gurukul')) {
-                thumbnailPath = '/school.webp'
-              } else if (lowerTitle.includes('ai') || lowerTitle.includes('lead') || lowerTitle.includes('chat')) {
-                thumbnailPath = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'
-              } else {
-                thumbnailPath = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
-              }
-            }
 
-            let resultsList = Array.isArray(p.results) ? p.results : []
-            if (resultsList.length === 0 && fallbackMatch) {
-              resultsList = fallbackMatch.results
-            }
+          // Map master PROJECTS_DATA so WalnutWala (/walnuta.webp), Guru Digital (/guru.webp), and Gurukul (/school.webp) always use their proper images and details
+          const mappedProjects = PROJECTS_DATA.map((masterProj) => {
+            const dbMatch = dbItems.find(d => {
+              const lower = (d.title || '').toLowerCase()
+              return d.slug === masterProj.slug ||
+                (masterProj.slug === 'walnutwala' && lower.includes('walnut')) ||
+                (masterProj.slug === 'guru-digital-advertising' && lower.includes('guru') && !lower.includes('gurukul')) ||
+                (masterProj.slug === 'gurukul-vidya-peeth' && lower.includes('gurukul'))
+            })
+
+            const thumbnailPath = masterProj.thumbnail || masterProj.image
 
             return {
-              id: p.id,
-              title: lowerTitle.includes('walnut') ? 'WalnutWala — Kashmiri Walnuts & Organic Dry Fruits Store' : (lowerTitle.includes('gurukul') ? 'Gurukul Vidya Peeth — Educational Institution & School Management Portal' : (lowerTitle.includes('guru') ? 'Guru Digital Advertising — Top Digital Marketing & Web Agency' : p.title)),
-              slug: lowerTitle.includes('walnut') ? 'walnutwala' : (lowerTitle.includes('gurukul') ? 'gurukul-vidya-peeth' : (lowerTitle.includes('guru') ? 'guru-digital-advertising' : p.slug)),
-              desc: p.excerpt || (fallbackMatch ? fallbackMatch.desc : ''),
-              category: p.category || (lowerTitle.includes('guru') && !lowerTitle.includes('gurukul') ? 'Web Development' : 'WordPress'),
+              ...masterProj,
+              id: dbMatch ? dbMatch.id : masterProj.id,
               image: thumbnailPath,
               thumbnail: thumbnailPath,
-              tech: Array.isArray(p.technologies) && p.technologies.length > 0 ? p.technologies : (fallbackMatch ? fallbackMatch.technologies : ['WordPress', 'SEO Optimization', 'Responsive UI']),
-              liveUrl: p.live_url || (lowerTitle.includes('walnut') ? 'https://walnutwala.com/' : (lowerTitle.includes('gurukul') ? 'https://www.gurukulvidyahpeeth.in/' : (lowerTitle.includes('guru') ? 'https://www.gurudigitaladvertising.com/' : 'https://techwithhussain.online'))),
-              githubUrl: p.github_url,
-              results: resultsList,
-              content: p.description || '',
-              gallery: Array.isArray(p.gallery) ? p.gallery : [],
+              desc: (dbMatch && dbMatch.excerpt) ? dbMatch.excerpt : masterProj.desc,
+              liveUrl: (dbMatch && dbMatch.live_url) ? dbMatch.live_url : masterProj.liveUrl,
+              githubUrl: (dbMatch && dbMatch.github_url) ? dbMatch.github_url : masterProj.githubUrl,
+              results: (dbMatch && Array.isArray(dbMatch.results) && dbMatch.results.length > 0) ? dbMatch.results : masterProj.results,
+              content: (dbMatch && dbMatch.description) ? dbMatch.description : masterProj.description,
             }
           })
 
-          // Combine db items with any missing master items from PROJECTS_DATA
-          const missingMasterItems = PROJECTS_DATA.filter(m => !dbMapped.some(d => d.slug === m.slug))
-          setProjectsList([...dbMapped, ...missingMasterItems])
+          // Plus any extra custom DB projects beyond the 3 primary portfolio items
+          const extraDbProjects = dbItems.filter(d => {
+            const lower = (d.title || '').toLowerCase()
+            return !['walnutwala', 'guru-digital-advertising', 'gurukul-vidya-peeth'].includes(d.slug) &&
+              !lower.includes('walnut') && !lower.includes('guru') && !lower.includes('gurukul') &&
+              !lower.includes('ai chat') && !lower.includes('bold design')
+          }).map(d => ({
+            id: d.id,
+            title: d.title,
+            slug: d.slug,
+            desc: d.excerpt || '',
+            category: d.category || 'Web Development',
+            image: d.thumbnail || '/guru.webp',
+            thumbnail: d.thumbnail || '/guru.webp',
+            tech: Array.isArray(d.technologies) ? d.technologies : [],
+            liveUrl: d.live_url || 'https://techwithhussain.online',
+            results: Array.isArray(d.results) ? d.results : [],
+          }))
+
+          setProjectsList([...mappedProjects, ...extraDbProjects])
         }
       })
-      .catch(err => console.error(err))
-      .finally(() => setLoading(false))
+      .catch(() => {
+        // Soft fallback to static master data
+        setProjectsList(PROJECTS_DATA)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }, [])
 
   // Search & filter logic
