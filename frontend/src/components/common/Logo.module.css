@@ -1,0 +1,67 @@
+.logoHorizontal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.logoStacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.logoHorizontal:hover,
+.logoStacked:hover {
+  transform: scale(1.02);
+}
+
+.iconSvg {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.textSvg {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* Sizing default variants */
+.horizontalIcon {
+  height: 40px;
+}
+
+.horizontalText {
+  height: 20px;
+  margin-top: 4px;
+}
+
+.stackedIcon {
+  height: 90px;
+}
+
+.stackedText {
+  height: 26px;
+}
+
+/* ── Responsive Logo Collapse ── */
+@media (max-width: 540px) {
+  .logoHorizontal {
+    gap: 0;
+  }
+  
+  .horizontalText {
+    display: none !important;
+  }
+  
+  .horizontalIcon {
+    height: 38px;
+  }
+}

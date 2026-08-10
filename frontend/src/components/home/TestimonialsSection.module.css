@@ -1,0 +1,137 @@
+.sliderWrapper {
+  position: relative;
+  margin-top: 48px;
+  padding-bottom: 50px;
+}
+
+.swiperContainer {
+  padding: 10px 4px 40px;
+}
+
+.slide {
+  height: auto;
+}
+
+.testCard {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.ratingRow {
+  display: flex;
+  gap: 4px;
+}
+
+.platformBadge {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-muted);
+  font-weight: 600;
+}
+
+.quoteIcon {
+  color: var(--clr-primary);
+  opacity: 0.15;
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  pointer-events: none;
+}
+
+.testText {
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: var(--clr-text-muted);
+  font-style: italic;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+  color: #0B0F19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  box-shadow: var(--glow-primary);
+}
+
+.slide:nth-child(even) .avatar {
+  background: linear-gradient(135deg, var(--clr-secondary), var(--clr-purple));
+  box-shadow: var(--glow-secondary);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.clientName {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--clr-text);
+  line-height: 1.2;
+}
+
+.clientRole {
+  font-size: var(--text-xs);
+  color: var(--clr-text-dim);
+  margin-top: 4px;
+}
+
+/* Custom Swiper Pagination Styling */
+.customPagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.customPagination :global(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.customPagination :global(.swiper-pagination-bullet-active) {
+  background: var(--clr-primary);
+  width: 24px;
+  border-radius: 5px;
+  box-shadow: var(--glow-primary);
+}
+
+@media (max-width: 480px) {
+  .testCard { padding: 24px 20px; }
+  .testText { font-size: var(--text-sm); }
+  .sliderWrapper { margin-top: 32px; }
+}

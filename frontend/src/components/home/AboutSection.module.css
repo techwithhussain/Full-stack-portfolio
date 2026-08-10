@@ -1,0 +1,207 @@
+.mainGrid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+/* ── Left Column: Profile Card ── */
+.profileCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.imgWrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: visible;
+  aspect-ratio: 1 / 1;
+  background: var(--clr-bg-secondary);
+}
+
+.glowingBorder {
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-lg) + 2px);
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary), var(--clr-purple));
+  z-index: -1;
+  opacity: 0.75;
+  filter: blur(8px);
+  animation: borderGlow 6s linear infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% { filter: blur(6px); opacity: 0.6; }
+  100% { filter: blur(12px); opacity: 0.9; }
+}
+
+.profileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experienceBadge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--clr-primary);
+  box-shadow: var(--glow-primary);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+}
+
+.expNum {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--clr-primary);
+  line-height: 1;
+}
+
+.expText {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clr-text);
+  line-height: 1.2;
+}
+
+.infoCard {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.infoItem h4 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--clr-text);
+  margin-bottom: 2px;
+}
+
+.infoItem p {
+  font-size: var(--text-xs);
+  color: var(--clr-text-muted);
+}
+
+/* ── Right Column: Content Col ── */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.bioBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bioTitle {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.bioText {
+  font-size: var(--text-base);
+  color: var(--clr-text-muted);
+}
+
+.actionRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+/* Traits Grid */
+.traitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.traitCard {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.traitIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition);
+}
+
+.traitCard:hover .traitIconWrap {
+  transform: scale(1.1) rotate(5deg);
+  border-color: currentColor;
+}
+
+.traitTitle {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.traitDesc {
+  font-size: var(--text-sm);
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .profileCol {
+    max-width: 450px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .traitsGrid {
+    grid-template-columns: 1fr;
+  }
+  .experienceBadge {
+    right: 8px;
+    bottom: -16px;
+  }
+}

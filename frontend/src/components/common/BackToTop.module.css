@@ -1,0 +1,23 @@
+.btn {
+  position: fixed;
+  bottom: 96px;
+  right: 28px;
+  z-index: calc(var(--z-overlay) - 1);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  color: var(--clr-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--glass-shadow), var(--glow-primary);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.btn:hover {
+  background: rgba(0, 255, 157, 0.1);
+  border-color: var(--clr-primary);
+}
