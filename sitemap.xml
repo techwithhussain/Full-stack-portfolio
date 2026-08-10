@@ -4,10 +4,10 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage — highest priority -->
+  <!-- Homepage -->
   <url>
     <loc>https://techwithhussain.online/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- About page -->
   <url>
     <loc>https://techwithhussain.online/about</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -23,39 +23,97 @@
   <!-- Services page -->
   <url>
     <loc>https://techwithhussain.online/services</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Service Detail Pages -->
+  <url>
+    <loc>https://techwithhussain.online/services/web-development</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techwithhussain.online/services/seo-services</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techwithhussain.online/services/ai-development</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techwithhussain.online/services/wordpress-development</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techwithhussain.online/services/content-creation</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techwithhussain.online/services/website-optimization</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Projects page -->
   <url>
     <loc>https://techwithhussain.online/projects</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Project Detail Pages -->
+  <url>
+    <loc>https://techwithhussain.online/projects/walnutwala</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techwithhussain.online/projects/guru-digital-advertising</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techwithhussain.online/projects/gurukul-vidya-peeth</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Blog page -->
   <url>
     <loc>https://techwithhussain.online/blog</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Blog post: Best Web Developer in Jammu And Kashmir -->
+  <!-- Featured Blog post -->
   <url>
     <loc>https://techwithhussain.online/blog/best-web-developer-in-jammu-and-kashmir</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Testimonials page -->
   <url>
     <loc>https://techwithhussain.online/testimonials</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -63,7 +121,7 @@
   <!-- Experience page -->
   <url>
     <loc>https://techwithhussain.online/experience</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -71,7 +129,7 @@
   <!-- Contact page -->
   <url>
     <loc>https://techwithhussain.online/contact</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -79,23 +137,31 @@
   <!-- Resume page -->
   <url>
     <loc>https://techwithhussain.online/resume</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- HTML Sitemap page -->
+  <url>
+    <loc>https://techwithhussain.online/sitemap</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Privacy Policy -->
   <url>
     <loc>https://techwithhussain.online/privacy-policy</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Terms -->
+  <!-- Terms of Service -->
   <url>
     <loc>https://techwithhussain.online/terms</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

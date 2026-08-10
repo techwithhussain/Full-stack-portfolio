@@ -1,21 +1,15 @@
+import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { SITE } from '@/data/constants'
 import { truncateForSEO } from '@/utils/seo'
 
 /**
  * SEOMeta — drop-in Helmet wrapper for every page.
- *
- * Usage:
- *   <SEOMeta
- *     title="Projects"
- *     description="Browse all projects..."
- *     keywords="web developer Kashmir, best web developer J&K"
- *     schema={blogPostSchema(post)}
- *   />
+ * Guarantees self-referencing canonical URLs (HTTPS, NON-WWW, Trailing Slash policy).
  */
 export default function SEOMeta({
   title,
-  titleAsIs = false, // use `title` verbatim as the <title> tag — skips the " | Tech With Hussain" suffix and length truncation, for pages that specify an exact, final meta title
+  titleAsIs = false,
   description,
   keywords,
   canonical,
@@ -25,12 +19,27 @@ export default function SEOMeta({
   schema,
   breadcrumbs,
 }) {
+  const location = useLocation()
+
   const fullTitle = titleAsIs && title
     ? title
     : truncateForSEO(title ? `${title} | ${SITE.name}` : SITE.name, 60)
   const metaDesc  = truncateForSEO(description || SITE.tagline, 160)
   const ogImg     = ogImage || `${SITE.url}/og-default.png`
-  const canonUrl  = canonical ? `${SITE.url}${canonical}` : undefined
+
+  // Format canonical URL: HTTPS, NON-WWW, homepage ending with '/', subpages without trailing slash
+  const getCanonicalUrl = () => {
+    if (noIndex) return undefined
+    let path = canonical !== undefined ? canonical : location.pathname
+    if (!path) path = '/'
+    if (!path.startsWith('/')) path = '/' + path
+    if (path === '/') return 'https://techwithhussain.online/'
+    // Strip trailing slash for subpages
+    path = path.replace(/\/+$/, '')
+    return `https://techwithhussain.online${path}`
+  }
+
+  const canonUrl = getCanonicalUrl()
 
   // Default keywords for all pages (location-based)
   const defaultKeywords = 'best web developer in J&K, web developer in Kashmir, best web developer in Jammu and Kashmir, web developer Srinagar, SEO expert Kashmir, freelance web developer Kashmir, website designer Srinagar, digital marketing J&K, Hussain Lone, Tech With Hussain'
