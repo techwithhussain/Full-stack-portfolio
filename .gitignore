@@ -4,8 +4,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build outputs & temp deployment packages
-dist/
+# Temp deployment packages
 _deploy/
 *.zip
 .env

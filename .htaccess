@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Direct API requests to backend/api/
+  RewriteRule ^api/(.*)$ backend/api/$1 [L,QSA]
+
+  # 2. Serve static files directly if they exist in frontend/dist/
+  RewriteCond %{DOCUMENT_ROOT}/frontend/dist%{REQUEST_URI} -f
+  RewriteRule ^(.*)$ frontend/dist/$1 [L]
+
+  # 3. Fallback all SPA routes (e.g. /about, /projects, /services) to frontend/dist/index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ frontend/dist/index.html [L]
+</IfModule>
+
+# Options
+Options -Indexes +FollowSymLinks
