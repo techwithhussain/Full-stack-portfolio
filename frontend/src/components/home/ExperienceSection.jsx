@@ -15,7 +15,7 @@ const TIMELINE = [
     type: 'work',
     role: 'SEO & Web Developer',
     company: 'Local Digital Agency',
-    period: '2022 - 2023',
+    period: '2022 - Present',
     desc: 'Implemented schema integrations, executed advanced site audits (Core Web Vitals optimizations), and grew local business site rankings on search results by 200%.',
   },
   {

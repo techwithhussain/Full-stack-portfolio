@@ -115,7 +115,7 @@ export default function ResumePage() {
                       <div className={styles.jobItem}>
                         <div className={styles.jobHeader}>
                           <h4>SEO & Web Specialist</h4>
-                          <span>2022 - 2023</span>
+                          <span>2022 - Present</span>
                         </div>
                         <h5>Local Digital Agency</h5>
                         <ul>

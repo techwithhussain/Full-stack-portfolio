@@ -18,7 +18,7 @@ const WORK_ITEMS = [
   {
     role: 'SEO & Web Development Specialist',
     company: 'Local Digital Agency',
-    period: '2022 - 2023',
+    period: '2022 - Present',
     desc: 'Conducted core optimizations and keyword research mapping. Conducted deep technical crawlers audits to eliminate duplicate markup parameters. Implemented Local Business schema JSON-LD scripts to grow Map Pack visibility.',
     highlights: [
       'Successfully passed Google Core Web Vitals targets for 15+ client portals.',
