@@ -29,7 +29,15 @@ ErrorDocument 404 /404.html
     # ── 3. DIRECT API ROUTING ────────────────────────────────────
     RewriteRule ^api/(.*)$ backend/api/$1 [L,QSA]
 
-    # ── 4. SPA FALLBACK ROUTING ──────────────────────────────────
+    # ── 4. PRERENDERED ROUTE FILE SERVING ────────────────────────
+    # Serve prerendered HTML file directly for clean URLs (e.g. /about -> about.html or about/index.html)
+    RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+    RewriteRule ^([^/]+)$ $1.html [L]
+
+    RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+    RewriteRule ^([^/]+)/?$ $1/index.html [L]
+
+    # ── 5. SPA FALLBACK ROUTING ──────────────────────────────────
     RewriteRule ^index\.html$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d

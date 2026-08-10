@@ -10,13 +10,13 @@ import BlogPreview from '@/components/home/BlogPreview'
 import ContactSection from '@/components/home/ContactSection'
 import { personSchema, websiteSchema, localBusinessSchema } from '@/utils/schema'
 
-export default function HomePage() {
+export default function HomePage({ canonical = '/' }) {
   return (
     <>
       <SEOMeta
         title="Best Web Developer &amp; SEO Expert in J&amp;K"
         description="Top-rated web developer &amp; SEO expert in Srinagar, J&amp;K. Web development, SEO, Meta Ads &amp; digital marketing. Trusted by 30+ clients worldwide."
-        canonical="/"
+        canonical={canonical}
         schema={[personSchema(), websiteSchema(), localBusinessSchema()]}
       />
       <HeroSection />
