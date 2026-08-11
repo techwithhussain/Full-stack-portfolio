@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
+import SocialShare from '@/components/common/SocialShare'
 import { SITE, SOCIAL } from '@/data/constants'
 import { breadcrumbSchema } from '@/utils/schema'
 import styles from './BestWebDeveloperJammuKashmirPost.module.css'
@@ -374,6 +375,11 @@ export default function BestWebDeveloperJammuKashmirPost() {
 
               <h4>Do I need website maintenance after my website is launched?</h4>
               <p>Yes, once you have established your business site online, it needs constant maintenance and updating to give your visitors a flawless experience. The maintenance will include the following: Updating plugins, bug fixes, security audit of your website, WordPress core update, and website speed optimization.</p>
+
+              <SocialShare
+                title="Best Web Developer in Jammu And Kashmir"
+                url={`https://techwithhussain.online${CANONICAL}`}
+              />
 
               <h3>Ready to Build a Website That Works for Your Business?</h3>
               <div className={styles.ctaBox}>

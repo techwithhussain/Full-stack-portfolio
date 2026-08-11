@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
+import SocialShare from '@/components/common/SocialShare'
 import { SITE } from '@/data/constants'
 import { breadcrumbSchema } from '@/utils/schema'
 import styles from './BestWebDeveloperJammuKashmirPost.module.css'
@@ -348,6 +349,11 @@ export default function ChooseBestWebDevCompanyPost() {
 
                 <h3>What makes a website professional?</h3>
                 <p>A professional website is a website that is easy to navigate, has a good performance, is mobile-friendly and visually attractive. It should tell the visitor what the company is about, offer and how to contact them at the same time provide a pleasant and safe experience. It is important for a website to look good but it should be useful, easy and quick to use too.</p>
+
+                <SocialShare
+                  title="How to Choose the Best Website Development Company in Kashmir"
+                  url={`https://techwithhussain.online${CANONICAL}`}
+                />
 
                 <div className={styles.ctaBox}>
                   <h3>Ready to Build a Better Website for Your Business?</h3>

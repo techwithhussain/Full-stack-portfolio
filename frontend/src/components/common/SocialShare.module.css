@@ -1,0 +1,118 @@
+.shareContainer {
+  margin: 48px 0 36px;
+  padding: 24px clamp(20px, 4vw, 32px);
+  background: var(--clr-glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shareHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--clr-text);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.shareIcon {
+  color: var(--clr-primary);
+}
+
+.shareLabel {
+  letter-spacing: -0.01em;
+}
+
+.shareButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.shareBtn:hover {
+  transform: translateY(-2px);
+  color: var(--clr-text);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Brand-specific hover styles */
+.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.15);
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25D366;
+}
+
+.twitter:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+}
+
+.linkedin:hover {
+  background: rgba(10, 102, 194, 0.15);
+  border-color: rgba(10, 102, 194, 0.4);
+  color: #0A66C2;
+}
+
+.facebook:hover {
+  background: rgba(24, 119, 242, 0.15);
+  border-color: rgba(24, 119, 242, 0.4);
+  color: #1877F2;
+}
+
+.copyBtn:hover {
+  background: rgba(0, 255, 157, 0.1);
+  border-color: rgba(0, 255, 157, 0.4);
+  color: var(--clr-primary);
+}
+
+.copied {
+  background: rgba(0, 255, 157, 0.15) !important;
+  border-color: rgba(0, 255, 157, 0.5) !important;
+  color: var(--clr-primary) !important;
+}
+
+.nativeBtn:hover {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+}
+
+@media (max-width: 640px) {
+  .shareContainer {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+  
+  .shareButtons {
+    gap: 8px;
+  }
+
+  .shareBtn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
