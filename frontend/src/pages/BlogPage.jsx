@@ -74,11 +74,13 @@ export default function BlogPage() {
                   className={styles.featuredThumb}
                   loading="lazy"
                 />
-                <span className={styles.catBadge}>Web Development</span>
               </div>
               <div className={styles.featuredInfo}>
-                <div className={styles.postMeta}>
-                  <span><Calendar size={12} /> Aug 11, 2026</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
+                  <span className={styles.catBadgeInline}>Web Development</span>
+                  <div className={styles.postMeta}>
+                    <span><Calendar size={12} /> Aug 11, 2026</span>
+                  </div>
                 </div>
                 <h2>How to Choose the Best Website Development Company in Kashmir</h2>
                 <p>Looking for the best website development company in Kashmir? Learn how to compare web developers based on experience, mobile design, SEO, speed, security, pricing and post-launch support.</p>
@@ -99,11 +101,13 @@ export default function BlogPage() {
                   className={styles.featuredThumb}
                   loading="lazy"
                 />
-                <span className={styles.catBadge}>Web Development</span>
               </div>
               <div className={styles.featuredInfo}>
-                <div className={styles.postMeta}>
-                  <span><Calendar size={12} /> Aug 4, 2026</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
+                  <span className={styles.catBadgeInline}>Web Development</span>
+                  <div className={styles.postMeta}>
+                    <span><Calendar size={12} /> Aug 4, 2026</span>
+                  </div>
                 </div>
                 <h2>Best Web Developer in Jammu And Kashmir</h2>
                 <p>Looking for the best web developer in Jammu and Kashmir? Here's what qualities to look for, which services matter, and what to check before you hire one.</p>
