@@ -58,9 +58,35 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Latest Article */}
+        {/* Featured Articles */}
         <div className="container">
-          <div style={{ maxWidth: 1100, margin: '0 auto 48px' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto 48px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            {/* Newest Post */}
+            <Link
+              to="/blog/how-to-choose-the-best-website-development-company-in-kashmir"
+              className={`glass-card ${styles.featuredCard}`}
+              data-cursor="hover"
+            >
+              <div className={styles.featuredImgWrapper}>
+                <img
+                  src="/best-website-development.webp"
+                  alt="Best website development company in Kashmir - professional web development team"
+                  className={styles.featuredThumb}
+                  loading="lazy"
+                />
+                <span className={styles.catBadge}>Web Development</span>
+              </div>
+              <div className={styles.featuredInfo}>
+                <div className={styles.postMeta}>
+                  <span><Calendar size={12} /> Aug 11, 2026</span>
+                </div>
+                <h2>How to Choose the Best Website Development Company in Kashmir</h2>
+                <p>Looking for the best website development company in Kashmir? Learn how to compare web developers based on experience, mobile design, SEO, speed, security, pricing and post-launch support.</p>
+                <span className={styles.readMore}>Read Article <ArrowRight size={14} /></span>
+              </div>
+            </Link>
+
+            {/* Previous Post */}
             <Link
               to="/blog/best-web-developer-in-jammu-and-kashmir"
               className={`glass-card ${styles.featuredCard}`}

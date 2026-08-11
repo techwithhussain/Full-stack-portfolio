@@ -40,10 +40,8 @@ const SITEMAP_SECTIONS = [
     color: 'var(--clr-primary)',
     links: [
       { label: 'All Articles', href: '/blog' },
-      { label: 'n8n Automation Guide', href: '/blog/mastering-n8n-automation' },
-      { label: 'Core Web Vitals Fix', href: '/blog/fixing-wordpress-core-web-vitals' },
-      { label: 'Local SEO Guide', href: '/blog/local-seo-ranking-google-maps' },
-      { label: 'JWT Security in PHP', href: '/blog/secure-jwt-cookies-php' },
+      { label: 'How to Choose the Best Website Development Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir' },
+      { label: 'Best Web Developer in Jammu and Kashmir', href: '/blog/best-web-developer-in-jammu-and-kashmir' },
     ],
   },
   {

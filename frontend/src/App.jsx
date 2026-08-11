@@ -27,6 +27,7 @@ const ProjectDetailPage = lazy(() => import('@/pages/ProjectDetailPage'))
 const BlogPage = lazy(ROUTE_LOADERS['/blog'])
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'))
 const BestWebDeveloperJammuKashmirPost = lazy(ROUTE_LOADERS['/blog/best-web-developer-in-jammu-and-kashmir'])
+const ChooseBestWebDevCompanyPost = lazy(ROUTE_LOADERS['/blog/how-to-choose-the-best-website-development-company-in-kashmir'])
 const TestimonialsPage = lazy(ROUTE_LOADERS['/testimonials'])
 const ExperiencePage = lazy(ROUTE_LOADERS['/experience'])
 const ResumePage = lazy(ROUTE_LOADERS['/resume'])
@@ -167,6 +168,7 @@ export default function App() {
             <Route path="/projects/:slug" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
             <Route path="/blog/best-web-developer-in-jammu-and-kashmir" element={<PageWrapper><BestWebDeveloperJammuKashmirPost /></PageWrapper>} />
+            <Route path="/blog/how-to-choose-the-best-website-development-company-in-kashmir" element={<PageWrapper><ChooseBestWebDevCompanyPost /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPostPage /></PageWrapper>} />
             <Route path="/testimonials" element={<PageWrapper><TestimonialsPage /></PageWrapper>} />
             <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />

@@ -42,6 +42,7 @@ const STATIC_ROUTES = [
   '/projects',
   '/blog',
   '/blog/best-web-developer-in-jammu-and-kashmir',
+  '/blog/how-to-choose-the-best-website-development-company-in-kashmir',
   '/testimonials',
   '/experience',
   '/resume',
