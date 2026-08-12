@@ -13,8 +13,6 @@ import {
   Search,
   Mail,
   MessageSquare,
-  GraduationCap,
-  Calendar,
 } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
 import { aboutPageSchema, breadcrumbSchema } from '@/utils/schema'
@@ -25,35 +23,35 @@ const JOURNEY_STEPS = [
     step: '01',
     title: 'The 18-Year-Old Spark',
     tag: 'Age 18 · The Beginning',
-    desc: 'My tech journey started at 18 years old. Driven by intense curiosity, I began learning how code works. The unforgettable feeling of taking my first project from localhost to a live URL on the internet ignited my lifelong passion for web development.',
+    desc: 'My tech journey started at 18 years old. Driven by intense curiosity, I began learning how code works. Taking my first project from localhost to a live URL ignited my passion to become a dedicated website developer in Srinagar.',
     icon: <Code size={20} className="text-primary" />,
   },
   {
     step: '02',
     title: 'Localhost to Live Web Apps',
-    tag: 'Engineering & Code',
-    desc: 'I moved rapidly from basic HTML/CSS to custom PHP, WordPress setups, React frameworks, and e-commerce platforms. I learned to build full-stack web applications that are responsive, secure, lightning-fast, and built to handle real traffic.',
+    tag: 'Engineering & E-Commerce',
+    desc: 'I expanded from custom PHP to modern React frameworks, WordPress, and Shopify setups. Whether you need a skilled WordPress developer in Srinagar, an experienced WordPress developer in Kashmir, or an expert Shopify developer in Kashmir for high-converting ecommerce website development in Kashmir, I engineer solutions that rival any top web development company in Srinagar.',
     icon: <Globe size={20} className="text-secondary" />,
   },
   {
     step: '03',
     title: 'Tech With Hussain & Content Creation',
     tag: 'Creator & Educator',
-    desc: 'To empower beginners, students, and local business owners, I launched Tech With Hussain on YouTube and Instagram. Creating practical tech guides, website series, and AI tool tutorials built a thriving, trusted tech community in J&K and across India.',
+    desc: 'To empower local entrepreneurs and tech enthusiasts, I launched Tech With Hussain on YouTube and Instagram. Operating with more personal care than a generic website development company in Kashmir, I share practical web tutorials, AI tools, and digital growth strategies.',
     icon: <Video size={20} className="text-purple" />,
   },
   {
     step: '04',
     title: 'SEO & Full-Funnel Digital Marketing',
-    tag: 'Organic Reach & Paid Ads',
-    desc: 'Realizing that beautiful websites need targeted traffic, I mastered Technical & Local SEO, Meta Ads (Facebook & Instagram), and Google Ads. I turned websites into automated lead-generation hubs that rank #1 on search engines.',
+    tag: 'Search Dominance & Paid Ads',
+    desc: 'Realizing that great websites need organic traffic, I established myself as a trusted SEO expert in Srinagar and an authoritative SEO expert in Jammu and Kashmir. Delivering powerful SEO services in Srinagar and strategies matching a full-scale digital marketing agency in Srinagar, I turn websites into automated revenue engines.',
     icon: <TrendingUp size={20} className="text-primary" />,
   },
   {
     step: '05',
     title: 'Recognized Digital Brand',
     tag: 'Google Search & Global Reach',
-    desc: 'Today, "Tech With Hussain" is recognized directly on Google Search & AI Overviews as a top digital platform for web development and SEO in Jammu & Kashmir—helping local brands and international clients achieve digital growth.',
+    desc: 'Today, "Tech With Hussain" is recognized directly on Google Search & AI Overviews for comprehensive web development services in Kashmir. I help local brands in Srinagar and international clients achieve long-term search visibility and digital growth.',
     icon: <Search size={20} className="text-secondary" />,
   },
 ]
@@ -95,10 +93,11 @@ export default function AboutPage() {
   return (
     <>
       <SEOMeta
-        title="About Hussain Lone | Web Developer & SEO Specialist in Jammu and Kashmir"
+        title="About Hussain Lone | Web Developer & SEO Expert in Srinagar, J&K"
         titleAsIs
-        description="Learn the story of Hussain Lone (Tech With Hussain) — starting code at age 18, taking localhost to live web apps, content creation, and full-stack SEO & digital marketing in J&K."
+        description="Learn about Hussain Lone (Tech With Hussain), a leading web developer in Srinagar & SEO expert in Jammu and Kashmir. Full-stack web development services, WordPress, Shopify, and digital marketing in Kashmir."
         canonical="/about"
+        keywords="web developer in Srinagar, web developer in Jammu and Kashmir, website developer in Srinagar, web development company in Srinagar, web development services in Kashmir, website development company in Kashmir, SEO expert in Srinagar, SEO services in Srinagar, SEO expert in Jammu and Kashmir, WordPress developer in Srinagar, WordPress developer in Kashmir, digital marketing agency in Srinagar, digital marketing services in Kashmir, Shopify developer in Kashmir, ecommerce website development in Kashmir"
         schema={[aboutPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
       />
 
@@ -120,7 +119,7 @@ export default function AboutPage() {
                   From 18-Year-Old Coder to <span>Tech Creator & Digital Strategist</span>
                 </h1>
                 <p className={styles.heroDesc}>
-                  I started coding at age 18, taking projects from local host to live web platforms. Today, I build high-converting websites, create tech content, and engineer search-engine-dominant SEO campaigns in Jammu & Kashmir.
+                  I started coding at age 18, taking projects from local host to live web platforms. Today, as an experienced <strong>web developer in Srinagar</strong> and a trusted <strong>web developer in Jammu and Kashmir</strong>, I build high-converting websites, create tech content, and provide performance-driven <strong>digital marketing services in Kashmir</strong>.
                 </p>
 
                 {/* Social Badges */}
@@ -235,43 +234,14 @@ export default function AboutPage() {
                 <Search size={18} /> Recognized on Google Search & AI Overview
               </div>
               <p>
-                "Tech With Hussain" is recognized on Google Search & AI Overviews as a digital resource hub and service provider run by web developers and SEO specialists based in Jammu & Kashmir—offering web development, WordPress setups, technical search engine optimization, and tech education.
+                "Tech With Hussain" is explicitly indexed on Google Search & AI Overviews as a premier digital platform operated by a leading <strong>web developer in Jammu and Kashmir</strong> and <strong>SEO expert in Srinagar</strong>, offering professional <strong>web development services in Kashmir</strong>, <strong>digital marketing services in Kashmir</strong>, and high-performance <strong>ecommerce website development in Kashmir</strong>.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Education Highlight */}
-        <section className="section">
-          <div className="container">
-            <div className="text-center mb-md">
-              <span className="section-label">Background & Learning</span>
-              <h2 className="section-title">Education & <span>Qualifications</span></h2>
-            </div>
-            <div className={styles.eduCardWrapper}>
-              <div className={`glass-card ${styles.eduCard}`}>
-                <div className={styles.eduIcon}>
-                  <GraduationCap size={28} className="text-primary" />
-                </div>
-                <div className={styles.eduContent}>
-                  <div className={styles.eduMeta}>
-                    <span className={styles.dateBadge}>
-                      <Calendar size={12} /> IGNOU
-                    </span>
-                    <span className={styles.instBadge}>Indira Gandhi National Open University</span>
-                  </div>
-                  <h3 className={styles.degreeTitle}>Tech-Savvy Problem Solver & Web Specialist</h3>
-                  <p className={styles.degreeDesc}>
-                    Continuous hands-on specialization in full-stack web development, WordPress architecture, technical search engine optimization (SEO), and digital marketing workflows.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Core Values / Philosophy */}
-        <section className="section" style={{ background: 'var(--clr-bg-secondary)' }}>
+        <section className="section">
           <div className="container">
             <div className="text-center mb-md">
               <span className="section-label">Philosophy</span>
