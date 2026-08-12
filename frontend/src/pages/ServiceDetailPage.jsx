@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Clock, RotateCcw, Check, MessageSquare, Loader2 } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowLeft, Check, MessageSquare, Loader2, Sparkles } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
-import { servicePageSchema, breadcrumbSchema } from '@/utils/schema'
+import { servicePageSchema, breadcrumbSchema, faqSchema } from '@/utils/schema'
 import { api } from '@/context/AuthContext'
 import ServiceIcon from '@/components/common/ServiceIcon'
 import { DEFAULT_SERVICES } from '@/data/servicesData'
@@ -11,7 +11,6 @@ import styles from './ServiceDetailPage.module.css'
 
 export default function ServiceDetailPage() {
   const { slug } = useParams()
-  const [activeTier, setActiveTier] = useState('standard') // 'basic' | 'standard' | 'premium'
   const defaultFound = DEFAULT_SERVICES.find(s => s.slug === slug || s.slug.includes(slug) || slug.includes(s.slug))
   const [service, setService] = useState(defaultFound || null)
   const [loading, setLoading] = useState(!defaultFound)
@@ -38,7 +37,7 @@ export default function ServiceDetailPage() {
     return (
       <div style={{ textAlign: 'center', padding: '120px 0', color: 'var(--clr-text-muted)' }}>
         <Loader2 className="spin" size={40} style={{ margin: '0 auto 20px' }} />
-        <p>Loading package details...</p>
+        <p>Loading service details...</p>
       </div>
     )
   }
@@ -47,23 +46,27 @@ export default function ServiceDetailPage() {
     return <Navigate to="/404" replace />
   }
 
-  const activePackage = service.packages?.[activeTier] || {
-    name: '',
-    price: '',
-    delivery: '',
-    revisions: '',
-    desc: '',
-    features: []
+  const keywordsMap = {
+    'web-development': 'web development services in Kashmir, web developer in Srinagar, website developer in Srinagar, web development company in Srinagar, website development company in Kashmir, WordPress developer in Srinagar, WordPress developer in Kashmir, Shopify developer in Kashmir, ecommerce website development in Kashmir',
+    'seo-services': 'SEO expert in Srinagar, SEO services in Srinagar, SEO expert in Jammu and Kashmir, local SEO Jammu and Kashmir, technical SEO services, SEO audit Jammu and Kashmir, SEO consultant Srinagar',
+    'application-development': 'custom web application Kashmir, SaaS developer Srinagar, full stack developer Jammu and Kashmir, web development services in Kashmir, web developer in Srinagar',
+    'meta-ads': 'digital marketing agency in Srinagar, digital marketing services in Kashmir, Meta Ads expert in Srinagar, Facebook Ads agency Kashmir, Instagram Ads management Srinagar',
+    'google-ads': 'digital marketing agency in Srinagar, digital marketing services in Kashmir, Google Ads specialist in Srinagar, PPC agency Kashmir, Google Ads consultant Srinagar',
+    'social-media-marketing': 'digital marketing agency in Srinagar, digital marketing services in Kashmir, social media marketing in Srinagar, content creator Srinagar, social media manager Kashmir'
   }
+
+  const metaKeywords = keywordsMap[slug] || 'web development services in Kashmir, web developer in Srinagar, SEO expert in Srinagar'
 
   return (
     <>
       <SEOMeta
-        title={`${service.title} · Pricing & Packages`}
+        title={`${service.title} | Tech With Hussain Srinagar J&K`}
         description={service.description || service.short_desc}
         canonical={`/services/${slug}`}
+        keywords={metaKeywords}
         schema={[
           servicePageSchema({ title: service.title, slug, description: service.description || service.short_desc }),
+          faqSchema(service.faqs ? service.faqs.map(f => ({ question: f.q, answer: f.a })) : []),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
             { name: 'Services', path: '/services' },
@@ -76,7 +79,7 @@ export default function ServiceDetailPage() {
         <div className="container">
           {/* Back Button */}
           <Link to="/services" className={styles.backBtn} data-cursor="hover">
-            <ArrowLeft size={16} /> Back to Services
+            <ArrowLeft size={16} /> Back to All Services
           </Link>
 
           {/* Main Title Banner */}
@@ -88,9 +91,23 @@ export default function ServiceDetailPage() {
               <h1 className={styles.serviceTitle}>{service.title}</h1>
               <p className={styles.serviceDesc}>{service.description || service.short_desc}</p>
 
+              {/* Service Key Pillars / Overview */}
+              {Array.isArray(service.overview) && service.overview.length > 0 && (
+                <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <h3 style={{ fontSize: '1.1rem', color: 'var(--clr-text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={16} className="text-primary" /> Key Service Highlights:
+                  </h3>
+                  {service.overview.map((item, idx) => (
+                    <div key={idx} style={{ color: 'var(--clr-text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                      • {item}
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {Array.isArray(service.tools) && service.tools.length > 0 && (
-                <div className={styles.toolsList}>
-                  <span className={styles.toolsLabel}>Tools:</span>
+                <div className={styles.toolsList} style={{ marginTop: '24px' }}>
+                  <span className={styles.toolsLabel}>Technologies & Tools:</span>
                   {service.tools.map((t, idx) => (
                     <span key={idx} className={styles.toolBadge}>{t}</span>
                   ))}
@@ -104,7 +121,7 @@ export default function ServiceDetailPage() {
                 <div className={styles.tierHeader}>
                   <h3>What's Included & Deliverables</h3>
                   <span className={styles.badgeLabel} style={{ background: `${service.color || 'var(--clr-primary)'}22`, color: service.color || 'var(--clr-primary)' }}>
-                    Guaranteed Quality
+                    Verified Quality
                   </span>
                 </div>
 
@@ -115,7 +132,7 @@ export default function ServiceDetailPage() {
                 <div className={styles.divider} />
 
                 <ul className={styles.featuresList}>
-                  {(service.features || service.packages?.basic?.features || []).map((feat, idx) => (
+                  {(service.features || []).map((feat, idx) => (
                     <li key={idx}>
                       <Check size={16} className={styles.checkIcon} style={{ color: service.color || 'var(--clr-primary)' }} />
                       <span>{feat}</span>
@@ -171,7 +188,7 @@ export default function ServiceDetailPage() {
             <section className={styles.faqSection}>
               <div className="text-center mb-md">
                 <span className="section-label">Questions</span>
-                <h2>Service <span>FAQs</span></h2>
+                <h2>Frequently Asked <span>Questions</span></h2>
               </div>
 
               <div className={styles.faqGrid}>

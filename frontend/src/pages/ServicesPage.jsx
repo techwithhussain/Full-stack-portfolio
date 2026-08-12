@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { ArrowRight, Check, HelpCircle, MessageSquare, Loader2 } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
 import { servicesPageSchema, faqSchema, breadcrumbSchema } from '@/utils/schema'
@@ -12,19 +11,19 @@ import styles from './ServicesPage.module.css'
 const GENERAL_FAQS = [
   {
     question: 'How do we get started on a project?',
-    answer: 'We begin with a discovery call or a detailed brief. Once the scope of work and price tier are agreed upon, I require a 50% deposit to initiate milestones, with the remainder due upon project delivery.',
+    answer: 'We begin with a discovery call or a detailed brief. Once the scope of work and milestones are agreed upon, I require a deposit to initiate development, with the remainder due upon project testing and delivery.',
   },
   {
-    question: 'Do you offer monthly maintenance packages?',
-    answer: 'Yes! I offer retainer contracts for continuous SEO monitoring, social media management, ad campaigns, and site speed updates.',
+    question: 'Do you offer monthly website maintenance & SEO retainer packages?',
+    answer: 'Yes! I offer monthly retainers for continuous SEO monitoring, technical site updates, speed optimizations, Meta Ads management, Google Ads bidding, and social media content growth.',
   },
   {
-    question: 'Can you integrate custom AI models or webhooks into my site?',
-    answer: 'Absolutely. I connect custom chatbots, n8n automation pipelines, and AI API endpoints (OpenAI/Claude API) to React, WordPress, or custom PHP apps.',
+    question: 'Can you integrate custom AI tools or automation into my existing website?',
+    answer: 'Absolutely. I integrate custom AI chatbots (OpenAI/Claude API), n8n workflow automation pipelines, and third-party CRM webhooks into React, WordPress, Shopify, or custom PHP applications.',
   },
   {
-    question: 'What is your refund policy?',
-    answer: 'Due to the customized nature of development and marketing campaigns, refunds are not offered after development milestones are signed off. However, I offer revisions as specified in the service package to ensure satisfaction.',
+    question: 'What separates your web development services in Kashmir from generic agencies?',
+    answer: 'Unlike traditional agencies that use slow, generic themes, every site I build is engineered for 95+ Core Web Vitals speed scores, built-in technical SEO, conversion-focused UI/UX, and complete owner control with no hidden lock-in fees.',
   },
 ]
 
@@ -46,9 +45,10 @@ export default function ServicesPage() {
   return (
     <>
       <SEOMeta
-        title="Web Dev & SEO Services in Kashmir, J&K"
-        description="Web development, SEO, Meta Ads & digital marketing services in Srinagar, J&K from Hussain Lone. Transparent pricing, guaranteed results."
+        title="Web Development & SEO Services in Srinagar, Kashmir | J&K"
+        description="High-performance web development services in Kashmir, SEO services in Srinagar, WordPress & Shopify development, Meta Ads & Google Ads by Hussain Lone. Rank #1 on search engines."
         canonical="/services"
+        keywords="web development services in Kashmir, web developer in Srinagar, website developer in Srinagar, web development company in Srinagar, website development company in Kashmir, SEO expert in Srinagar, SEO services in Srinagar, SEO expert in Jammu and Kashmir, WordPress developer in Srinagar, WordPress developer in Kashmir, digital marketing agency in Srinagar, digital marketing services in Kashmir, Shopify developer in Kashmir, ecommerce website development in Kashmir"
         schema={[servicesPageSchema(services), faqSchema(GENERAL_FAQS), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }])]}
       />
 
@@ -57,12 +57,12 @@ export default function ServicesPage() {
         <section className={styles.heroSection}>
           <div className="container">
             <div className="text-center">
-              <span className="section-label">Web Developer in Kashmir | J&K</span>
+              <span className="section-label">Web Developer & SEO Expert in Srinagar, J&K</span>
               <h1 className={styles.mainTitle}>
-                Best <span>Web Development & SEO Services</span> in J&K
+                Best <span>Web Development & SEO Services</span> in Kashmir
               </h1>
               <p className={styles.heroDesc}>
-                Hussain Lone — Best freelance web developer & SEO expert in Srinagar, Kashmir. Transparent pricing, structured deliverables, and guaranteed results. Serving businesses in J&K and worldwide.
+                Hussain Lone (Tech With Hussain) — Premier web developer in Srinagar & SEO expert in Jammu and Kashmir. Delivering high-speed websites, custom WordPress/Shopify portals, technical SEO, Meta Ads, and Google Ads designed to rank on Google and scale revenues.
               </p>
             </div>
           </div>
@@ -147,32 +147,6 @@ export default function ServicesPage() {
                   <p className={styles.faqAnswer}>{faq.answer}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Custom Project Request CTA */}
-        <section className="section" style={{ background: 'var(--clr-bg-secondary)' }}>
-          <div className="container">
-            <div className={styles.customQuoteBox}>
-              <h2>Need a Custom Solution?</h2>
-              <p>
-                If you have a complex enterprise project, need custom API development, or require multiple retainers combined, contact me for a custom discovery session and scope breakdown.
-              </p>
-              <div className={styles.quoteActions}>
-                <Link to="/contact" className="btn btn-primary btn-lg" data-cursor="hover">
-                  Request Custom Quote
-                </Link>
-                <a
-                  href="https://wa.me/916005401734"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-ghost btn-lg"
-                  data-cursor="hover"
-                >
-                  <MessageSquare size={16} /> Chat on WhatsApp
-                </a>
-              </div>
             </div>
           </div>
         </section>
