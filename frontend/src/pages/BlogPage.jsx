@@ -64,6 +64,31 @@ export default function BlogPage() {
             <div className={styles.postsGrid}>
               {/* Blog 1 (Newest) */}
               <Link
+                to="/blog/seo-expert-in-jammu-and-kashmir"
+                className={`glass-card ${styles.postCard}`}
+                data-cursor="hover"
+              >
+                <div className={styles.imgWrapper}>
+                  <img
+                    src="/SEO Expert in Jammu and Kashmir.webp"
+                    alt="SEO expert in Jammu and Kashmir analyzing website performance and search rankings"
+                    className={styles.thumb}
+                    loading="lazy"
+                  />
+                  <span className={styles.catBadge}>SEO</span>
+                </div>
+                <div className={styles.info}>
+                  <div className={styles.postMeta}>
+                    <span><Calendar size={12} /> Aug 13, 2026</span>
+                  </div>
+                  <h3>SEO Expert in Jammu and Kashmir</h3>
+                  <p>Looking for an SEO expert in Jammu and Kashmir? Learn what SEO professionals do, which services matter, how local SEO works, and what to check before hiring an SEO expert.</p>
+                  <span className={styles.readMore}>Read Article <ArrowRight size={14} /></span>
+                </div>
+              </Link>
+
+              {/* Blog 2 */}
+              <Link
                 to="/blog/how-to-choose-the-best-website-development-company-in-kashmir"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
