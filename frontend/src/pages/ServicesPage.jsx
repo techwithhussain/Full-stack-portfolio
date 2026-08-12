@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Check, HelpCircle, MessageSquare, Loader2 } from 'lucide-react'
+import { ArrowRight, Check, HelpCircle, MessageSquare } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
 import { servicesPageSchema, faqSchema, breadcrumbSchema } from '@/utils/schema'
-import { api } from '@/context/AuthContext'
 import ServiceIcon from '@/components/common/ServiceIcon'
 import { DEFAULT_SERVICES } from '@/data/servicesData'
 import styles from './ServicesPage.module.css'
@@ -28,19 +26,7 @@ const GENERAL_FAQS = [
 ]
 
 export default function ServicesPage() {
-  const [services, setServices] = useState(DEFAULT_SERVICES)
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    api.get('/services/index.php')
-      .then(res => {
-        if (res.data.success && Array.isArray(res.data.data.items) && res.data.data.items.length > 0) {
-          setServices(res.data.data.items)
-        }
-      })
-      .catch(err => console.error(err))
-      .finally(() => setLoading(false))
-  }, [])
+  const services = DEFAULT_SERVICES
 
   return (
     <>
@@ -71,61 +57,54 @@ export default function ServicesPage() {
         {/* Services Grid */}
         <section className="section">
           <div className="container">
-            {loading ? (
-              <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--clr-text-muted)' }}>
-                <Loader2 className="spin" size={32} style={{ margin: '0 auto 16px' }} />
-                <p>Loading services...</p>
-              </div>
-            ) : (
-              <div className={styles.servicesGrid}>
-                {services.map((srv, idx) => {
-                  const featuresList = srv.features || (srv.packages?.basic?.features) || []
-                  const waUrl = `https://wa.me/916005401734?text=${encodeURIComponent(`Hi Hussain, I am interested in your ${srv.title} service. Let's discuss details.`)}`
+            <div className={styles.servicesGrid}>
+              {services.map((srv, idx) => {
+                const featuresList = srv.features || []
+                const waUrl = `https://wa.me/916005401734?text=${encodeURIComponent(`Hi Hussain, I am interested in your ${srv.title} service. Let's discuss details.`)}`
 
-                  return (
-                    <div key={srv.id || idx} className={`glass-card ${styles.srvCard}`} data-cursor="hover">
-                      <div className={styles.cardHeader}>
-                        <div className={styles.iconBox} style={{ color: srv.color || 'var(--clr-primary)' }}>
-                          <ServiceIcon name={srv.icon} size={32} />
-                        </div>
-                        <span className={styles.badgeLabel} style={{ background: `${srv.color || 'var(--clr-primary)'}18`, color: srv.color || 'var(--clr-primary)' }}>
-                          Verified Expertise
-                        </span>
+                return (
+                  <div key={srv.id || idx} className={`glass-card ${styles.srvCard}`} data-cursor="hover">
+                    <div className={styles.cardHeader}>
+                      <div className={styles.iconBox} style={{ color: srv.color || 'var(--clr-primary)' }}>
+                        <ServiceIcon name={srv.icon} size={32} />
                       </div>
-
-                      <h3 className={styles.srvTitle}>{srv.title}</h3>
-                      <p className={styles.srvDesc}>{srv.short_desc}</p>
-
-                      {featuresList.length > 0 && (
-                        <ul className={styles.featuresList}>
-                          {featuresList.slice(0, 5).map((feat, fIdx) => (
-                            <li key={fIdx}>
-                              <Check size={16} className={styles.checkIcon} style={{ color: srv.color || 'var(--clr-primary)' }} />
-                              <span>{feat}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      <div className={styles.cardFooter}>
-                        <a
-                          href={waUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.waBtn}
-                          data-cursor="hover"
-                        >
-                          <MessageSquare size={16} /> Chat on WhatsApp
-                        </a>
-                        <Link to={`/services/${srv.slug}`} className={styles.detailBtn} data-cursor="hover">
-                          Learn Details <ArrowRight size={14} />
-                        </Link>
-                      </div>
+                      <span className={styles.badgeLabel} style={{ background: `${srv.color || 'var(--clr-primary)'}18`, color: srv.color || 'var(--clr-primary)' }}>
+                        Verified Expertise
+                      </span>
                     </div>
-                  )
-                })}
-              </div>
-            )}
+
+                    <h3 className={styles.srvTitle}>{srv.title}</h3>
+                    <p className={styles.srvDesc}>{srv.short_desc}</p>
+
+                    {featuresList.length > 0 && (
+                      <ul className={styles.featuresList}>
+                        {featuresList.slice(0, 5).map((feat, fIdx) => (
+                          <li key={fIdx}>
+                            <Check size={16} className={styles.checkIcon} style={{ color: srv.color || 'var(--clr-primary)' }} />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <div className={styles.cardFooter}>
+                      <a
+                        href={waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.waBtn}
+                        data-cursor="hover"
+                      >
+                        <MessageSquare size={16} /> Chat on WhatsApp
+                      </a>
+                      <Link to={`/services/${srv.slug}`} className={styles.detailBtn} data-cursor="hover">
+                        Learn Details <ArrowRight size={14} />
+                      </Link>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </section>
 

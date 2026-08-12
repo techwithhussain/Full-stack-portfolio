@@ -1,49 +1,30 @@
-import { useState, useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { ArrowLeft, Check, MessageSquare, Loader2, Sparkles } from 'lucide-react'
+import { ArrowLeft, Check, MessageSquare, Sparkles } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
 import { servicePageSchema, breadcrumbSchema, faqSchema } from '@/utils/schema'
-import { api } from '@/context/AuthContext'
 import ServiceIcon from '@/components/common/ServiceIcon'
 import { DEFAULT_SERVICES } from '@/data/servicesData'
 import styles from './ServiceDetailPage.module.css'
 
+const SLUG_ALIAS_MAP = {
+  'ai-development': 'application-development',
+  'ai-web-development': 'application-development',
+  'wordpress-development': 'web-development',
+  'seo-full-project': 'seo-services',
+  'content-creation': 'social-media-marketing',
+  'website-optimization': 'web-development'
+}
+
 export default function ServiceDetailPage() {
   const { slug } = useParams()
-  const defaultFound = DEFAULT_SERVICES.find(s => s.slug === slug || s.slug.includes(slug) || slug.includes(s.slug))
-  const [service, setService] = useState(defaultFound || null)
-  const [loading, setLoading] = useState(!defaultFound)
-
-  useEffect(() => {
-    const found = DEFAULT_SERVICES.find(s => s.slug === slug || s.slug.includes(slug) || slug.includes(s.slug))
-    api.get(`/services/index.php?slug=${slug}`)
-      .then(res => {
-        if (res.data.success && res.data.data) {
-          setService(res.data.data)
-        } else if (found) {
-          setService(found)
-        }
-      })
-      .catch(() => {
-        if (found) setService(found)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [slug])
-
-  if (loading) {
-    return (
-      <div style={{ textAlign: 'center', padding: '120px 0', color: 'var(--clr-text-muted)' }}>
-        <Loader2 className="spin" size={40} style={{ margin: '0 auto 20px' }} />
-        <p>Loading service details...</p>
-      </div>
-    )
-  }
+  
+  const targetSlug = SLUG_ALIAS_MAP[slug] || slug
+  const service = DEFAULT_SERVICES.find(
+    s => s.slug === targetSlug || s.slug.includes(targetSlug) || targetSlug.includes(s.slug)
+  )
 
   if (!service) {
-    return <Navigate to="/404" replace />
+    return <Navigate to="/services" replace />
   }
 
   const keywordsMap = {
@@ -55,22 +36,22 @@ export default function ServiceDetailPage() {
     'social-media-marketing': 'digital marketing agency in Srinagar, digital marketing services in Kashmir, social media marketing in Srinagar, content creator Srinagar, social media manager Kashmir'
   }
 
-  const metaKeywords = keywordsMap[slug] || 'web development services in Kashmir, web developer in Srinagar, SEO expert in Srinagar'
+  const metaKeywords = keywordsMap[service.slug] || 'web development services in Kashmir, web developer in Srinagar, SEO expert in Srinagar'
 
   return (
     <>
       <SEOMeta
         title={`${service.title} | Tech With Hussain Srinagar J&K`}
         description={service.description || service.short_desc}
-        canonical={`/services/${slug}`}
+        canonical={`/services/${service.slug}`}
         keywords={metaKeywords}
         schema={[
-          servicePageSchema({ title: service.title, slug, description: service.description || service.short_desc }),
+          servicePageSchema({ title: service.title, slug: service.slug, description: service.description || service.short_desc }),
           faqSchema(service.faqs ? service.faqs.map(f => ({ question: f.q, answer: f.a })) : []),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
             { name: 'Services', path: '/services' },
-            { name: service.title, path: `/services/${slug}` },
+            { name: service.title, path: `/services/${service.slug}` },
           ]),
         ]}
       />
@@ -91,7 +72,7 @@ export default function ServiceDetailPage() {
               <h1 className={styles.serviceTitle}>{service.title}</h1>
               <p className={styles.serviceDesc}>{service.description || service.short_desc}</p>
 
-              {/* Service Key Pillars / Overview */}
+              {/* Service Key Highlights / Overview */}
               {Array.isArray(service.overview) && service.overview.length > 0 && (
                 <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <h3 style={{ fontSize: '1.1rem', color: 'var(--clr-text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
