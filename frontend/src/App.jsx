@@ -27,6 +27,7 @@ const ProjectDetailPage = lazy(() => import('@/pages/ProjectDetailPage'))
 const BlogPage = lazy(ROUTE_LOADERS['/blog'])
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'))
 const BestWebDeveloperJammuKashmirPost = lazy(ROUTE_LOADERS['/blog/best-web-developer-in-jammu-and-kashmir'])
+const DigitalMarketingServicesKashmirPost = lazy(ROUTE_LOADERS['/blog/digital-marketing-services-in-kashmir'])
 const ChooseBestWebDevCompanyPost = lazy(ROUTE_LOADERS['/blog/how-to-choose-the-best-website-development-company-in-kashmir'])
 const SeoExpertJammuKashmirPost = lazy(ROUTE_LOADERS['/blog/seo-expert-in-jammu-and-kashmir'])
 const TestimonialsPage = lazy(ROUTE_LOADERS['/testimonials'])
@@ -168,6 +169,7 @@ export default function App() {
             <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
             <Route path="/projects/:slug" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
+            <Route path="/blog/digital-marketing-services-in-kashmir" element={<PageWrapper><DigitalMarketingServicesKashmirPost /></PageWrapper>} />
             <Route path="/blog/best-web-developer-in-jammu-and-kashmir" element={<PageWrapper><BestWebDeveloperJammuKashmirPost /></PageWrapper>} />
             <Route path="/blog/how-to-choose-the-best-website-development-company-in-kashmir" element={<PageWrapper><ChooseBestWebDevCompanyPost /></PageWrapper>} />
             <Route path="/blog/seo-expert-in-jammu-and-kashmir" element={<PageWrapper><SeoExpertJammuKashmirPost /></PageWrapper>} />

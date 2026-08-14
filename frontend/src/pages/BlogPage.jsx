@@ -62,7 +62,32 @@ export default function BlogPage() {
         <div className="container">
           <div style={{ maxWidth: 1100, margin: '0 auto 48px' }}>
             <div className={styles.postsGrid}>
-              {/* Blog 1 (Newest) */}
+              {/* Blog (Newest - Digital Marketing) */}
+              <Link
+                to="/blog/digital-marketing-services-in-kashmir"
+                className={`glass-card ${styles.postCard}`}
+                data-cursor="hover"
+              >
+                <div className={styles.imgWrapper}>
+                  <img
+                    src="/digital-marketing-services-in-kashmir.webp"
+                    alt="Digital marketing services in Kashmir for business growth"
+                    className={styles.thumb}
+                    loading="lazy"
+                  />
+                  <span className={styles.catBadge}>Digital Marketing</span>
+                </div>
+                <div className={styles.info}>
+                  <div className={styles.postMeta}>
+                    <span><Calendar size={12} /> Aug 15, 2026</span>
+                  </div>
+                  <h3>Digital Marketing Services in Kashmir</h3>
+                  <p>Get professional digital marketing services in Kashmir including SEO, social media, PPC, content marketing and website optimization to grow your business online.</p>
+                  <span className={styles.readMore}>Read Article <ArrowRight size={14} /></span>
+                </div>
+              </Link>
+
+              {/* Blog 1 */}
               <Link
                 to="/blog/seo-expert-in-jammu-and-kashmir"
                 className={`glass-card ${styles.postCard}`}
