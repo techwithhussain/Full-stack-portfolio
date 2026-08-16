@@ -45,6 +45,7 @@ const STATIC_ROUTES = [
   '/blog/seo-expert-in-jammu-and-kashmir',
   '/blog/best-web-developer-in-jammu-and-kashmir',
   '/blog/how-to-choose-the-best-website-development-company-in-kashmir',
+  '/blog/web-developer-srinagar-techwithhussain',
   '/testimonials',
   '/experience',
   '/resume',
