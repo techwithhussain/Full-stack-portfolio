@@ -6,6 +6,7 @@
 export const ROUTE_LOADERS = {
   '/': () => import('@/pages/HomePage'),
   '/blog/best-web-developer-in-jammu-and-kashmir': () => import('@/pages/blog/BestWebDeveloperJammuKashmirPost'),
+  '/blog/web-developer-srinagar-techwithhussain': () => import('@/pages/blog/TechWithHussainPost'),
   '/blog/digital-marketing-services-in-kashmir': () => import('@/pages/blog/DigitalMarketingServicesKashmirPost'),
   '/blog/how-to-choose-the-best-website-development-company-in-kashmir': () => import('@/pages/blog/ChooseBestWebDevCompanyPost'),
   '/blog/seo-expert-in-jammu-and-kashmir': () => import('@/pages/blog/SeoExpertJammuKashmirPost'),

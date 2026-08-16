@@ -62,7 +62,32 @@ export default function BlogPage() {
         <div className="container">
           <div style={{ maxWidth: 1100, margin: '0 auto 48px' }}>
             <div className={styles.postsGrid}>
-              {/* Blog (Newest - Digital Marketing) */}
+              {/* Blog (Newest - TechWithHussain profile) */}
+              <Link
+                to="/blog/web-developer-srinagar-techwithhussain"
+                className={`glass-card ${styles.postCard}`}
+                data-cursor="hover"
+              >
+                <div className={styles.imgWrapper}>
+                  <img
+                    src="/TechWithHussain.webp"
+                    alt="TechWithHussain — best web developer in Jammu and Kashmir"
+                    className={styles.thumb}
+                    loading="lazy"
+                  />
+                  <span className={styles.catBadge}>Web Development</span>
+                </div>
+                <div className={styles.info}>
+                  <div className={styles.postMeta}>
+                    <span><Calendar size={12} /> Aug 17, 2026</span>
+                  </div>
+                  <h3>Best Web Developer in Jammu and Kashmir — TechWithHussain</h3>
+                  <p>TechWithHussain is a Srinagar-based web developer with 3+ years of experience and 50+ websites delivered, specialising in e-commerce, SEO, Meta Ads and Google Ads for J&K businesses.</p>
+                  <span className={styles.readMore}>Read Article <ArrowRight size={14} /></span>
+                </div>
+              </Link>
+
+              {/* Blog (Digital Marketing) */}
               <Link
                 to="/blog/digital-marketing-services-in-kashmir"
                 className={`glass-card ${styles.postCard}`}
