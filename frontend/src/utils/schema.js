@@ -156,8 +156,8 @@ export const servicesPageSchema = (services = []) => ({
   '@graph': [
     {
       '@type': 'CollectionPage',
-      '@id': `${SITE.url}/services#webpage`,
-      url: `${SITE.url}/services`,
+      '@id': `${SITE.url}/services/#webpage`,
+      url: `${SITE.url}/services/`,
       name: 'Web Dev & SEO Services in Kashmir, J&K',
       description: 'Web development, SEO, Meta Ads & digital marketing services in Srinagar, J&K from Hussain Lone.',
       isPartOf: { '@id': ENTITY_IDS.website },
@@ -170,7 +170,7 @@ export const servicesPageSchema = (services = []) => ({
               '@type': 'ListItem',
               position: idx + 1,
               name: s.title || s.name,
-              url: s.slug ? `${SITE.url}/services/${s.slug}` : `${SITE.url}/services`,
+              url: s.slug ? `${SITE.url}/services/${s.slug}/` : `${SITE.url}/services/`,
               description: s.description || s.short_desc || '',
             })),
           },
@@ -187,10 +187,10 @@ export const servicePageSchema = (service) => ({
   '@graph': [
     {
       '@type': 'Service',
-      '@id': `${SITE.url}/services/${service.slug}#service`,
+      '@id': `${SITE.url}/services/${service.slug}/#service`,
       name: service.title,
       description: service.description || service.short_desc || '',
-      url: `${SITE.url}/services/${service.slug}`,
+      url: `${SITE.url}/services/${service.slug}/`,
       serviceType: service.title,
       provider: { '@id': ENTITY_IDS.business },
       areaServed: [
@@ -210,8 +210,8 @@ export const projectsPageSchema = (projects = []) => ({
   '@graph': [
     {
       '@type': 'CollectionPage',
-      '@id': `${SITE.url}/projects#webpage`,
-      url: `${SITE.url}/projects`,
+      '@id': `${SITE.url}/projects/#webpage`,
+      url: `${SITE.url}/projects/`,
       name: 'Projects Portfolio · Hussain Lone',
       description: 'Explore web development, WordPress e-commerce, and SEO project case studies.',
       isPartOf: { '@id': ENTITY_IDS.website },
@@ -226,7 +226,7 @@ export const projectsPageSchema = (projects = []) => ({
               item: {
                 '@type': p.category === 'WordPress' ? 'WebSite' : 'CreativeWork',
                 name: p.title,
-                url: p.liveUrl || `${SITE.url}/projects`,
+                url: p.liveUrl || `${SITE.url}/projects/`,
                 description: p.desc || p.excerpt || '',
               },
             })),
@@ -244,8 +244,8 @@ export const blogPageSchema = (posts = []) => ({
   '@graph': [
     {
       '@type': 'Blog',
-      '@id': `${SITE.url}/blog#blog`,
-      url: `${SITE.url}/blog`,
+      '@id': `${SITE.url}/blog/#blog`,
+      url: `${SITE.url}/blog/`,
       name: 'Blog · Tech Insights Coming Soon',
       description: 'Articles on web development, SEO strategies, Meta Ads, and digital growth in Kashmir.',
       isPartOf: { '@id': ENTITY_IDS.website },
@@ -258,7 +258,7 @@ export const blogPageSchema = (posts = []) => ({
             itemListElement: posts.map((post, idx) => ({
               '@type': 'ListItem',
               position: idx + 1,
-              url: `${SITE.url}/blog/${post.slug}`,
+              url: `${SITE.url}/blog/${post.slug}/`,
               name: post.title,
             })),
           },
@@ -280,7 +280,7 @@ export const blogPostSchema = (post) => {
     '@graph': [
       {
         '@type': 'BlogPosting',
-        '@id': `${SITE.url}/blog/${post.slug}#post`,
+        '@id': `${SITE.url}/blog/${post.slug}/#post`,
         headline: post.title,
         description: post.excerpt || post.description || '',
         image: thumbUrl,
@@ -288,8 +288,8 @@ export const blogPostSchema = (post) => {
         publisher: { '@id': ENTITY_IDS.business },
         datePublished: post.datePublished || post.published_at || '2026-08-04',
         ...(post.dateModified || post.updated_at ? { dateModified: post.dateModified || post.updated_at } : {}),
-        url: `${SITE.url}/blog/${post.slug}`,
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${post.slug}` },
+        url: `${SITE.url}/blog/${post.slug}/`,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${post.slug}/` },
       },
     ],
   }
@@ -303,8 +303,8 @@ export const contactPageSchema = () => ({
   '@graph': [
     {
       '@type': 'ContactPage',
-      '@id': `${SITE.url}/contact#webpage`,
-      url: `${SITE.url}/contact`,
+      '@id': `${SITE.url}/contact/#webpage`,
+      url: `${SITE.url}/contact/`,
       name: 'Contact Me · Tech With Hussain',
       description: 'Get in touch with Hussain Lone for custom web development, SEO audits, or digital marketing in Srinagar, J&K.',
       isPartOf: { '@id': ENTITY_IDS.website },

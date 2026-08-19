@@ -15,20 +15,21 @@ import { getEmail } from '@/utils/obfuscateEmail'
 import styles from './Footer.module.css'
 
 const SERVICES_LINKS = [
-  { label: 'AI Development',       href: '/services/ai-development' },
-  { label: 'WordPress Development', href: '/services/wordpress-development' },
-  { label: 'SEO Services',          href: '/services/seo-services' },
-  { label: 'Content Creation',      href: '/services/content-creation' },
-  { label: 'Website Optimization',  href: '/services/website-optimization' },
+  { label: 'Web Development',       href: '/services/web-development/' },
+  { label: 'SEO Services',          href: '/services/seo-services/' },
+  { label: 'Application Dev',       href: '/services/application-development/' },
+  { label: 'Meta Ads',              href: '/services/meta-ads/' },
+  { label: 'Google Ads',            href: '/services/google-ads/' },
+  { label: 'Social Media Marketing', href: '/services/social-media-marketing/' },
 ]
 
 const QUICK_LINKS = [
   { label: 'Home',           href: '/' },
-  { label: 'About',          href: '/about' },
-  { label: 'Projects',       href: '/projects' },
-  { label: 'Blog',           href: '/blog' },
-  { label: 'Experience',     href: '/experience' },
-  { label: 'Contact',        href: '/contact' },
+  { label: 'About',          href: '/about/' },
+  { label: 'Projects',       href: '/projects/' },
+  { label: 'Blog',           href: '/blog/' },
+  { label: 'Experience',     href: '/experience/' },
+  { label: 'Contact',        href: '/contact/' },
 ]
 
 const SOCIAL_ICONS = {
@@ -177,11 +178,11 @@ export default function Footer() {
             Made with <Heart size={12} className={styles.heart} /> by Hussain Lone
           </p>
           <div className={styles.legalLinks}>
-            <Link to="/privacy-policy" className={styles.legalLink}>Privacy Policy</Link>
+            <Link to="/privacy-policy/" className={styles.legalLink}>Privacy Policy</Link>
             <span className={styles.dot}>·</span>
-            <Link to="/terms" className={styles.legalLink}>Terms & Conditions</Link>
+            <Link to="/terms/" className={styles.legalLink}>Terms & Conditions</Link>
             <span className={styles.dot}>·</span>
-            <Link to="/sitemap" className={styles.legalLink}>Sitemap</Link>
+            <Link to="/sitemap/" className={styles.legalLink}>Sitemap</Link>
           </div>
         </div>
       </div>

@@ -28,7 +28,9 @@ async function boot() {
     // markup and report a hydration mismatch. Awaiting the same import
     // specifier here first means it's already resolved by the time lazy()
     // asks for it during the real hydration pass.
-    const loader = ROUTE_LOADERS[window.location.pathname]
+    const path = window.location.pathname
+    const normalizedPath = path === '/' ? '/' : path.replace(/\/$/, '')
+    const loader = ROUTE_LOADERS[path] || ROUTE_LOADERS[normalizedPath]
     if (loader) await loader()
     hydrateRoot(container, appTree)
   } else {

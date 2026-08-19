@@ -80,7 +80,7 @@ export default function ServicesSection() {
                   >
                     <MessageSquare size={16} /> Chat on WhatsApp
                   </a>
-                  <Link to={`/services/${srv.slug}`} className={styles.detailBtn} data-cursor="hover">
+                  <Link to={`/services/${srv.slug}/`} className={styles.detailBtn} data-cursor="hover">
                     Learn Details <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -90,7 +90,7 @@ export default function ServicesSection() {
         </motion.div>
 
         <div className="text-center mt-lg">
-          <Link to="/services" className="btn btn-primary btn-lg" data-cursor="hover">
+          <Link to="/services/" className="btn btn-primary btn-lg" data-cursor="hover">
             Explore All Services & Capabilities <ArrowRight size={16} />
           </Link>
         </div>

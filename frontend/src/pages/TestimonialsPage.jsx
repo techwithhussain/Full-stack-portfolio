@@ -67,10 +67,10 @@ export default function TestimonialsPage() {
       <SEOMeta
         title="Client Testimonials · Tech With Hussain"
         description="Read client reviews and feedback from business owners and founders who worked with Hussain Lone on web development and SEO."
-        canonical="/testimonials"
+        canonical="/testimonials/"
         schema={[
-          webPageSchema({ title: 'Client Testimonials · Tech With Hussain', description: 'Client reviews and feedback.', path: '/testimonials' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Testimonials', path: '/testimonials' }]),
+          webPageSchema({ title: 'Client Testimonials · Tech With Hussain', description: 'Client reviews and feedback.', path: '/testimonials/' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Testimonials', path: '/testimonials/' }]),
         ]}
       />
 
@@ -162,7 +162,7 @@ export default function TestimonialsPage() {
               <h2>Ready to be my next success story?</h2>
               <p>Let's schedule a call to explore how we can automate your tasks and rank your platform.</p>
               <div className={styles.ctaActions}>
-                <Link to="/contact" className="btn btn-primary btn-lg" data-cursor="hover">
+                <Link to="/contact/" className="btn btn-primary btn-lg" data-cursor="hover">
                   Book Discovery Session <ArrowRight size={16} />
                 </Link>
                 <button

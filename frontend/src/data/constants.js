@@ -23,21 +23,22 @@ export const API_BASE = '/api'
 
 export const NAV_LINKS = [
   { label: 'Home',           href: '/' },
-  { label: 'About',          href: '/about' },
-  { label: 'Services',       href: '/services' },
+  { label: 'About',          href: '/about/' },
+  { label: 'Services',       href: '/services/' },
   { label: 'Skills',         href: '/#skills' },
-  { label: 'Projects',       href: '/projects' },
-  { label: 'Blog',           href: '/blog' },
-  { label: 'Experience',     href: '/experience' },
-  { label: 'Contact',        href: '/contact' },
+  { label: 'Projects',       href: '/projects/' },
+  { label: 'Blog',           href: '/blog/' },
+  { label: 'Experience',     href: '/experience/' },
+  { label: 'Contact',        href: '/contact/' },
 ]
 
 export const SERVICE_SLUGS = [
-  'ai-development',
-  'wordpress-development',
+  'web-development',
   'seo-services',
-  'content-creation',
-  'website-optimization',
+  'application-development',
+  'meta-ads',
+  'google-ads',
+  'social-media-marketing',
 ]
 
 export const SKILLS = {

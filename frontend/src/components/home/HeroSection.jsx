@@ -162,10 +162,10 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className={styles.ctaGroup}>
-              <Link to="/contact" className={`btn btn-primary btn-lg ${styles.btnHire}`} data-cursor="hover">
+              <Link to="/contact/" className={`btn btn-primary btn-lg ${styles.btnHire}`} data-cursor="hover">
                 Hire Me <ArrowRight size={18} />
               </Link>
-              <Link to="/projects" className={`btn btn-outline btn-lg ${styles.btnProjects}`} data-cursor="hover">
+              <Link to="/projects/" className={`btn btn-outline btn-lg ${styles.btnProjects}`} data-cursor="hover">
                 <Eye size={18} /> View Projects
               </Link>
             </motion.div>

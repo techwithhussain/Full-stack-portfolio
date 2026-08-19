@@ -28,15 +28,15 @@ export default function SEOMeta({
   const metaDesc  = truncateForSEO(description || SITE.tagline, 160)
   const ogImg     = ogImage || `${SITE.url}/og-default.png`
 
-  // Format canonical URL: HTTPS, NON-WWW, homepage ending with '/', subpages without trailing slash
+  // Format canonical URL: HTTPS, NON-WWW, homepage ending with '/', subpages ending with trailing slash
   const getCanonicalUrl = () => {
     if (noIndex) return undefined
     let path = canonical !== undefined ? canonical : location.pathname
     if (!path) path = '/'
     if (!path.startsWith('/')) path = '/' + path
     if (path === '/') return 'https://techwithhussain.online/'
-    // Strip trailing slash for subpages
-    path = path.replace(/\/+$/, '')
+    // Ensure single trailing slash for subpages
+    path = path.replace(/\/+$/, '') + '/'
     return `https://techwithhussain.online${path}`
   }
 

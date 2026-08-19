@@ -62,7 +62,7 @@ export default function BlogPreview() {
             I am working on publishing comprehensive guides on n8n automation, Core Web Vitals optimization, and AI chatbot integration.
           </p>
 
-          <Link to="/blog" className="btn btn-primary btn-md" data-cursor="hover">
+          <Link to="/blog/" className="btn btn-primary btn-md" data-cursor="hover">
             Visit Knowledge Hub <ArrowRight size={16} />
           </Link>
         </motion.div>

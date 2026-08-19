@@ -38,7 +38,6 @@ const STATIC_ROUTES = [
   '/services/meta-ads',
   '/services/google-ads',
   '/services/social-media-marketing',
-  '/skills',
   '/projects',
   '/blog',
   '/blog/digital-marketing-services-in-kashmir',
@@ -96,16 +95,10 @@ function writeRouteHtml(route, html) {
     return outPath
   }
 
-  const subPath = route.replace(/^\//, '')
+  const subPath = route.replace(/^\//, '').replace(/\/$/, '')
   const dirPath = join(DIST_DIR, subPath, 'index.html')
   mkdirSync(dirname(dirPath), { recursive: true })
   writeFileSync(dirPath, html, 'utf-8')
-
-  // If top-level route (e.g. /about, /services, /skills), also write about.html, services.html, etc.
-  if (!subPath.includes('/')) {
-    const filePath = join(DIST_DIR, `${subPath}.html`)
-    writeFileSync(filePath, html, 'utf-8')
-  }
 
   return dirPath
 }

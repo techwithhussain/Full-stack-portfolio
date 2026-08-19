@@ -107,7 +107,7 @@ export default function ProjectDetailPage() {
       <SEOMeta
         title={`${project.title} · Case Study`}
         description={project.excerpt || project.desc}
-        canonical={`/projects/${slug}`}
+        canonical={`/projects/${slug}/`}
         ogImage={project.image ? `https://techwithhussain.online${project.image}` : undefined}
         schema={[
           {
@@ -115,13 +115,13 @@ export default function ProjectDetailPage() {
             '@type': project.category === 'WordPress' ? 'WebSite' : 'CreativeWork',
             name: project.title,
             description: project.problem || project.desc,
-            url: `https://techwithhussain.online/projects/${slug}`,
+            url: `https://techwithhussain.online/projects/${slug}/`,
             author: { '@id': 'https://techwithhussain.online/#person' },
           },
           breadcrumbSchema([
             { name: 'Home', path: '/' },
-            { name: 'Projects', path: '/projects' },
-            { name: project.title, path: `/projects/${slug}` },
+            { name: 'Projects', path: '/projects/' },
+            { name: project.title, path: `/projects/${slug}/` },
           ]),
         ]}
       />
@@ -129,7 +129,7 @@ export default function ProjectDetailPage() {
       <div className={styles.projectDetail}>
         <div className="container">
           {/* Back button */}
-          <Link to="/projects" className={styles.backBtn} data-cursor="hover">
+          <Link to="/projects/" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Projects
           </Link>
 

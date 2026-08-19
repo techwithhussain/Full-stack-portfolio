@@ -18,7 +18,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG         = 'web-developer-srinagar-techwithhussain'
-const CANONICAL    = `/blog/${SLUG}`
+const CANONICAL    = `/blog/${SLUG}/`
 const THUMBNAIL    = '/TechWithHussain.webp'
 const PUBLISH_DATE = '2026-08-17'
 
@@ -221,7 +221,7 @@ export default function TechWithHussainPost() {
                   will not rank on Google, and a site with no marketing strategy will sit idle with no
                   traffic. If you want to understand how marketing and web development work together,
                   the guide on{' '}
-                  <Link to="/blog/digital-marketing-services-in-kashmir">
+                  <Link to="/blog/digital-marketing-services-in-kashmir/">
                     digital marketing services in Kashmir
                   </Link>{' '}
                   covers this in detail.
@@ -232,7 +232,7 @@ export default function TechWithHussainPost() {
                   Creating an online store means more than listing products — there must be a smooth
                   checkout process, secure payment integration, and a structured site that search engines
                   can crawl and rank. You can review{' '}
-                  <Link to="/projects">past projects</Link> to see the range of work delivered.
+                  <Link to="/projects/">past projects</Link> to see the range of work delivered.
                 </p>
 
                 {/* ── Services ── */}
@@ -260,7 +260,7 @@ export default function TechWithHussainPost() {
                   service covers site structure, on-page optimisation, page speed improvements, and
                   content strategy. For businesses that want to understand what this involves in more
                   depth, this guide on finding the right{' '}
-                  <Link to="/blog/seo-expert-in-jammu-and-kashmir">
+                  <Link to="/blog/seo-expert-in-jammu-and-kashmir/">
                     SEO expert in Jammu and Kashmir
                   </Link>{' '}
                   is a good starting point.
@@ -428,7 +428,7 @@ export default function TechWithHussainPost() {
                     Ready to get a fast, mobile-friendly, and SEO-ready website for your business in
                     Jammu &amp; Kashmir? Get in touch with TechWithHussain today.
                   </p>
-                  <Link to="/contact" className="btn btn-primary" data-cursor="hover">
+                  <Link to="/contact/" className="btn btn-primary" data-cursor="hover">
                     Get a Free Quote <ArrowRight size={16} />
                   </Link>
                 </div>

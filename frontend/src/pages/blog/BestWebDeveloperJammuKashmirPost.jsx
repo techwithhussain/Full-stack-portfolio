@@ -20,7 +20,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG = 'best-web-developer-in-jammu-and-kashmir'
-const CANONICAL = `/blog/${SLUG}`
+const CANONICAL = `/blog/${SLUG}/`
 const THUMBNAIL = '/best-web-developer-jammu-kashmir.webp'
 const PUBLISH_DATE = '2026-08-04'
 
@@ -384,7 +384,7 @@ export default function BestWebDeveloperJammuKashmirPost() {
               <h3>Ready to Build a Website That Works for Your Business?</h3>
               <div className={styles.ctaBox}>
                 <p>If you are searching for the Best Web Developer to create a business website for your local business, start-up, educational institute, travel agency, hotel, or eCommerce store, it is the perfect time to invest in a professional website. A professional website not only looks good but also delivers outstanding results for your business.</p>
-                <Link to="/contact" className="btn btn-primary" data-cursor="hover">
+                <Link to="/contact/" className="btn btn-primary" data-cursor="hover">
                   Talk to Tech With Hussain <ArrowRight size={16} />
                 </Link>
               </div>

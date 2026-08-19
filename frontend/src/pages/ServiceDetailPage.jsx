@@ -43,15 +43,15 @@ export default function ServiceDetailPage() {
       <SEOMeta
         title={`${service.title} | Tech With Hussain Srinagar J&K`}
         description={service.description || service.short_desc}
-        canonical={`/services/${service.slug}`}
+        canonical={`/services/${service.slug}/`}
         keywords={metaKeywords}
         schema={[
           servicePageSchema({ title: service.title, slug: service.slug, description: service.description || service.short_desc }),
           faqSchema(service.faqs ? service.faqs.map(f => ({ question: f.q, answer: f.a })) : []),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services' },
-            { name: service.title, path: `/services/${service.slug}` },
+            { name: 'Services', path: '/services/' },
+            { name: service.title, path: `/services/${service.slug}/` },
           ]),
         ]}
       />
@@ -59,7 +59,7 @@ export default function ServiceDetailPage() {
       <div className={styles.serviceDetail}>
         <div className="container">
           {/* Back Button */}
-          <Link to="/services" className={styles.backBtn} data-cursor="hover">
+          <Link to="/services/" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to All Services
           </Link>
 
@@ -133,7 +133,7 @@ export default function ServiceDetailPage() {
                     <MessageSquare size={16} /> Contact on WhatsApp
                   </a>
                   <Link
-                    to={`/contact?service=${encodeURIComponent(service.title)}`}
+                    to={`/contact/?service=${encodeURIComponent(service.title)}`}
                     className={styles.detailBtn}
                     data-cursor="hover"
                   >

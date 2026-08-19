@@ -25,7 +25,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG = 'how-to-choose-the-best-website-development-company-in-kashmir'
-const CANONICAL = `/blog/${SLUG}`
+const CANONICAL = `/blog/${SLUG}/`
 const THUMBNAIL = '/best-website-development.webp'
 const PUBLISH_DATE = '2026-08-11'
 
@@ -358,7 +358,7 @@ export default function ChooseBestWebDevCompanyPost() {
                 <div className={styles.ctaBox}>
                   <h3>Ready to Build a Better Website for Your Business?</h3>
                   <p>If you’re planning a new website or looking to improve your existing one, let’s discuss what your business actually needs. From website development and SEO to performance and ongoing support, I can help you build a website that is designed for both your customers and search engines.</p>
-                  <Link to="/contact" className="btn btn-primary" data-cursor="hover">
+                  <Link to="/contact/" className="btn btn-primary" data-cursor="hover">
                     Talk to Tech With Hussain <ArrowRight size={16} />
                   </Link>
                 </div>

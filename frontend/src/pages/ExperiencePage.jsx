@@ -46,10 +46,10 @@ export default function ExperiencePage() {
       <SEOMeta
         title="Experience & Education · Hussain Lone"
         description="Browse the detailed professional timeline of Hussain Lone. Read about freelance achievements, agency web works, and BCA curriculum details."
-        canonical="/experience"
+        canonical="/experience/"
         schema={[
-          webPageSchema({ title: 'Experience & Education · Hussain Lone', description: 'Professional timeline of Hussain Lone.', path: '/experience' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }]),
+          webPageSchema({ title: 'Experience & Education · Hussain Lone', description: 'Professional timeline of Hussain Lone.', path: '/experience/' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience/' }]),
         ]}
       />
 
@@ -112,7 +112,7 @@ export default function ExperiencePage() {
             <div className={styles.ctaBox}>
               <h2>Ready to scale your digital presence?</h2>
               <p>Let's talk about how my skills in development, automation, and SEO can grow your business.</p>
-              <Link to="/contact" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
+              <Link to="/contact/" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
                 Connect with Hussain <ArrowRight size={16} />
               </Link>
             </div>

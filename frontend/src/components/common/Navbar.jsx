@@ -115,7 +115,7 @@ export default function Navbar() {
             >
               {mode === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <Link to="/contact" className="btn btn-primary btn-sm">
+            <Link to="/contact/" className="btn btn-primary btn-sm">
               Hire Me
             </Link>
           </div>
@@ -175,7 +175,7 @@ export default function Navbar() {
 
                 {/* Mobile CTA */}
                 <motion.div custom={NAV_LINKS.length} variants={linkVariants} initial="closed" animate="open" className={styles.mobileCta}>
-                  <Link to="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                  <Link to="/contact/" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                     Hire Me
                   </Link>
                   <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ width: '100%', justifyContent: 'center', gap: 8 }}>

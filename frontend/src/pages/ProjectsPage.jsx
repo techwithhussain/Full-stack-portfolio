@@ -303,8 +303,8 @@ export default function ProjectsPage() {
       <SEOMeta
         title="Projects Portfolio · Hussain Lone"
         description="Explore Hussain Lone's software development portfolio, highlighting AI workflow integrations, WordPress themes, and search engine optimization case studies."
-        canonical="/projects"
-        schema={[projectsPageSchema(projectsList), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])]}
+        canonical="/projects/"
+        schema={[projectsPageSchema(projectsList), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects/' }])]}
       />
 
       <div className={styles.projectsPage}>

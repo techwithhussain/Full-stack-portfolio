@@ -7,60 +7,61 @@ const SITEMAP_SECTIONS = [
     color: 'var(--clr-primary)',
     links: [
       { label: 'Home', href: '/' },
-      { label: 'About', href: '/about' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Resume', href: '/resume' },
+      { label: 'About', href: '/about/' },
+      { label: 'Contact', href: '/contact/' },
+      { label: 'Resume', href: '/resume/' },
     ],
   },
   {
     title: 'Services',
     color: 'var(--clr-secondary)',
     links: [
-      { label: 'All Services', href: '/services' },
-      { label: 'AI Development', href: '/services/ai-development' },
-      { label: 'WordPress Dev', href: '/services/wordpress-development' },
-      { label: 'SEO Services', href: '/services/seo-services' },
-      { label: 'Content Creation', href: '/services/content-creation' },
-      { label: 'Performance Optimization', href: '/services/website-optimization' },
+      { label: 'All Services', href: '/services/' },
+      { label: 'Web Development', href: '/services/web-development/' },
+      { label: 'SEO Services', href: '/services/seo-services/' },
+      { label: 'Application Development', href: '/services/application-development/' },
+      { label: 'Meta Ads', href: '/services/meta-ads/' },
+      { label: 'Google Ads', href: '/services/google-ads/' },
+      { label: 'Social Media Marketing', href: '/services/social-media-marketing/' },
     ],
   },
   {
     title: 'Portfolio',
     color: 'var(--clr-purple)',
     links: [
-      { label: 'All Projects', href: '/projects' },
-      { label: 'WalnutWala SEO', href: '/projects/walnutwala-seo' },
-      { label: 'AI Chat Agent', href: '/projects/ai-chat-agent' },
-      { label: 'Bold Agency Website', href: '/projects/bold-design-agency' },
-      { label: 'Rank Tracker SaaS', href: '/projects/keyword-rank-tracker' },
+      { label: 'All Projects', href: '/projects/' },
+      { label: 'WalnutWala — E-Commerce Store', href: '/projects/walnutwala/' },
+      { label: 'Guru Digital Advertising', href: '/projects/guru-digital-advertising/' },
+      { label: 'Gurukul Vidya Peeth Portal', href: '/projects/gurukul-vidya-peeth/' },
     ],
   },
   {
     title: 'Blog & Resources',
     color: 'var(--clr-primary)',
     links: [
-      { label: 'All Articles', href: '/blog' },
-      { label: 'Digital Marketing Services in Kashmir', href: '/blog/digital-marketing-services-in-kashmir' },
-      { label: 'SEO Expert in Jammu and Kashmir', href: '/blog/seo-expert-in-jammu-and-kashmir' },
-      { label: 'How to Choose the Best Website Development Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir' },
-      { label: 'Best Web Developer in Jammu and Kashmir', href: '/blog/best-web-developer-in-jammu-and-kashmir' },
+      { label: 'All Articles', href: '/blog/' },
+      { label: 'Digital Marketing Services in Kashmir', href: '/blog/digital-marketing-services-in-kashmir/' },
+      { label: 'SEO Expert in Jammu and Kashmir', href: '/blog/seo-expert-in-jammu-and-kashmir/' },
+      { label: 'How to Choose the Best Website Development Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir/' },
+      { label: 'Best Web Developer in Jammu and Kashmir', href: '/blog/best-web-developer-in-jammu-and-kashmir/' },
+      { label: 'Best Web Developer in Srinagar — TechWithHussain', href: '/blog/web-developer-srinagar-techwithhussain/' },
     ],
   },
   {
     title: 'Professional',
     color: 'var(--clr-secondary)',
     links: [
-      { label: 'Experience', href: '/experience' },
-      { label: 'Testimonials', href: '/testimonials' },
+      { label: 'Experience', href: '/experience/' },
+      { label: 'Testimonials', href: '/testimonials/' },
     ],
   },
   {
     title: 'Legal',
     color: 'var(--clr-purple)',
     links: [
-      { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Terms of Service', href: '/terms' },
-      { label: 'Sitemap', href: '/sitemap' },
+      { label: 'Privacy Policy', href: '/privacy-policy/' },
+      { label: 'Terms of Service', href: '/terms/' },
+      { label: 'Sitemap', href: '/sitemap/' },
     ],
   },
 ]
@@ -71,7 +72,7 @@ export default function SitemapPage() {
       <SEOMeta
         title="Sitemap · Tech With Hussain"
         description="Complete sitemap listing all pages of Tech With Hussain portfolio platform."
-        canonical="/sitemap"
+        canonical="/sitemap/"
         noindex={false}
       />
 

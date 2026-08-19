@@ -15,10 +15,10 @@ export default function ResumePage() {
       <SEOMeta
         title="Interactive Resume · Hussain Lone"
         description="Curriculum Vitae of Hussain Lone. Web developer, SEO expert, and AI workflow specialist in Srinagar, J&K."
-        canonical="/resume"
+        canonical="/resume/"
         schema={[
-          webPageSchema({ title: 'Interactive Resume · Hussain Lone', description: 'Curriculum Vitae of Hussain Lone.', path: '/resume' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Resume', path: '/resume' }]),
+          webPageSchema({ title: 'Interactive Resume · Hussain Lone', description: 'Curriculum Vitae of Hussain Lone.', path: '/resume/' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Resume', path: '/resume/' }]),
         ]}
       />
 

@@ -204,7 +204,7 @@ export default function ProjectsSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-lg">
-          <Link to="/projects" className="btn btn-outline btn-lg" data-cursor="hover">
+          <Link to="/projects/" className="btn btn-outline btn-lg" data-cursor="hover">
             View All Projects <ArrowRight size={16} />
           </Link>
         </div>

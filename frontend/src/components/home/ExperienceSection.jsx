@@ -99,7 +99,7 @@ export default function ExperienceSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-lg">
-          <Link to="/experience" className="btn btn-outline btn-lg" data-cursor="hover">
+          <Link to="/experience/" className="btn btn-outline btn-lg" data-cursor="hover">
             View Detailed Timeline <ArrowRight size={16} />
           </Link>
         </div>

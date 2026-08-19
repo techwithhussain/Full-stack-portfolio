@@ -23,7 +23,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG = 'seo-expert-in-jammu-and-kashmir'
-const CANONICAL = `/blog/${SLUG}`
+const CANONICAL = `/blog/${SLUG}/`
 const THUMBNAIL = '/SEO Expert in Jammu and Kashmir.webp'
 const THUMBNAIL_ENCODED = '/SEO%20Expert%20in%20Jammu%20and%20Kashmir.webp'
 const PUBLISH_DATE = '2026-08-13'
@@ -212,7 +212,7 @@ export default function SeoExpertJammuKashmirPost() {
 
                 <div className={styles.ctaBox}>
                   <p>Want to improve your website’s visibility on Google and attract more customers in Jammu and Kashmir? Get in touch with us for a clear look at your current SEO performance, technical issues, local search visibility, and opportunities for growth. We’ll help you understand what needs to be improved and which SEO strategy makes the most sense for your business.</p>
-                  <Link to="/contact" className="btn btn-primary" data-cursor="hover">
+                  <Link to="/contact/" className="btn btn-primary" data-cursor="hover">
                     Tech With Hussain <ArrowRight size={16} />
                   </Link>
                 </div>

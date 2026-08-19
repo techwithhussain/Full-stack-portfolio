@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   Download,
@@ -96,9 +97,9 @@ export default function AboutPage() {
         title="About Hussain Lone | Web Developer & SEO Expert in Srinagar, J&K"
         titleAsIs
         description="Learn about Hussain Lone (Tech With Hussain), a leading web developer in Srinagar & SEO expert in Jammu and Kashmir. Full-stack web development services, WordPress, Shopify, and digital marketing in Kashmir."
-        canonical="/about"
+        canonical="/about/"
         keywords="web developer in Srinagar, web developer in Jammu and Kashmir, website developer in Srinagar, web development company in Srinagar, web development services in Kashmir, website development company in Kashmir, SEO expert in Srinagar, SEO services in Srinagar, SEO expert in Jammu and Kashmir, WordPress developer in Srinagar, WordPress developer in Kashmir, digital marketing agency in Srinagar, digital marketing services in Kashmir, Shopify developer in Kashmir, ecommerce website development in Kashmir"
-        schema={[aboutPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
+        schema={[aboutPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])]}
       />
 
       <div className={styles.aboutPage}>
@@ -283,9 +284,9 @@ export default function AboutPage() {
                 <p>Let's map out a customized web development and SEO strategy for your brand.</p>
               </div>
               <div className={styles.ctaButtons}>
-                <a href="/contact" className="btn btn-primary btn-lg" data-cursor="hover">
+                <Link to="/contact/" className="btn btn-primary btn-lg" data-cursor="hover">
                   <Mail size={16} /> Book a Discovery Call
-                </a>
+                </Link>
                 <a
                   href="https://wa.me/916005401734"
                   target="_blank"

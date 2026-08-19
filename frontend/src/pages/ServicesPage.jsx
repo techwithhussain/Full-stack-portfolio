@@ -33,9 +33,9 @@ export default function ServicesPage() {
       <SEOMeta
         title="Web Development & SEO Services in Srinagar, Kashmir | J&K"
         description="High-performance web development services in Kashmir, SEO services in Srinagar, WordPress & Shopify development, Meta Ads & Google Ads by Hussain Lone. Rank #1 on search engines."
-        canonical="/services"
+        canonical="/services/"
         keywords="web development services in Kashmir, web developer in Srinagar, website developer in Srinagar, web development company in Srinagar, website development company in Kashmir, SEO expert in Srinagar, SEO services in Srinagar, SEO expert in Jammu and Kashmir, WordPress developer in Srinagar, WordPress developer in Kashmir, digital marketing agency in Srinagar, digital marketing services in Kashmir, Shopify developer in Kashmir, ecommerce website development in Kashmir"
-        schema={[servicesPageSchema(services), faqSchema(GENERAL_FAQS), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }])]}
+        schema={[servicesPageSchema(services), faqSchema(GENERAL_FAQS), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Services', path: '/services/' }])]}
       />
 
       <div className={styles.servicesPage}>
@@ -97,7 +97,7 @@ export default function ServicesPage() {
                       >
                         <MessageSquare size={16} /> Chat on WhatsApp
                       </a>
-                      <Link to={`/services/${srv.slug}`} className={styles.detailBtn} data-cursor="hover">
+                      <Link to={`/services/${srv.slug}/`} className={styles.detailBtn} data-cursor="hover">
                         Learn Details <ArrowRight size={14} />
                       </Link>
                     </div>

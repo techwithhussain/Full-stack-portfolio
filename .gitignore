@@ -6,6 +6,7 @@ yarn-error.log*
 
 # Temp deployment packages
 _deploy/
+publish_staging/
 *.zip
 .env
 

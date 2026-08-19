@@ -7,10 +7,10 @@ export default function PrivacyPolicyPage() {
       <SEOMeta
         title="Privacy Policy · Tech With Hussain"
         description="Privacy policy and data protection terms for Tech With Hussain — Hussain Lone."
-        canonical="/privacy-policy"
+        canonical="/privacy-policy/"
         schema={[
-          webPageSchema({ title: 'Privacy Policy · Tech With Hussain', description: 'Privacy policy for Tech With Hussain.', path: '/privacy-policy' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Privacy Policy', path: '/privacy-policy' }]),
+          webPageSchema({ title: 'Privacy Policy · Tech With Hussain', description: 'Privacy policy for Tech With Hussain.', path: '/privacy-policy/' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Privacy Policy', path: '/privacy-policy/' }]),
         ]}
       />
 

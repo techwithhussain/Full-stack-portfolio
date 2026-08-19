@@ -38,8 +38,8 @@ export default function BlogPage() {
       <SEOMeta
         title="Blog · Tech Insights Coming Soon"
         description="In-depth articles, case studies, and guides on AI workflows, SEO strategies, and modern web development are coming soon."
-        canonical="/blog"
-        schema={[blogPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }])]}
+        canonical="/blog/"
+        schema={[blogPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }])]}
       />
 
       <div className={styles.blogPage}>
@@ -64,7 +64,7 @@ export default function BlogPage() {
             <div className={styles.postsGrid}>
               {/* Blog (Newest - TechWithHussain profile) */}
               <Link
-                to="/blog/web-developer-srinagar-techwithhussain"
+                to="/blog/web-developer-srinagar-techwithhussain/"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -89,7 +89,7 @@ export default function BlogPage() {
 
               {/* Blog (Digital Marketing) */}
               <Link
-                to="/blog/digital-marketing-services-in-kashmir"
+                to="/blog/digital-marketing-services-in-kashmir/"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -114,7 +114,7 @@ export default function BlogPage() {
 
               {/* Blog 1 */}
               <Link
-                to="/blog/seo-expert-in-jammu-and-kashmir"
+                to="/blog/seo-expert-in-jammu-and-kashmir/"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -139,7 +139,7 @@ export default function BlogPage() {
 
               {/* Blog 2 */}
               <Link
-                to="/blog/how-to-choose-the-best-website-development-company-in-kashmir"
+                to="/blog/how-to-choose-the-best-website-development-company-in-kashmir/"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -164,7 +164,7 @@ export default function BlogPage() {
 
               {/* Blog 2 */}
               <Link
-                to="/blog/best-web-developer-in-jammu-and-kashmir"
+                to="/blog/best-web-developer-in-jammu-and-kashmir/"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
