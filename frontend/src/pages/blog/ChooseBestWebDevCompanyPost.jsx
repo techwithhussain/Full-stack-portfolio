@@ -163,14 +163,14 @@ export default function ChooseBestWebDevCompanyPost() {
         keywords="website development company in Kashmir, web development company in Kashmir, website development services in Kashmir, web developer in Kashmir, web developer in Srinagar, website development company in Srinagar, web design company in Kashmir, website development in Jammu and Kashmir"
         schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog' },
+          { name: 'Blog', path: '/blog/' },
           { name: 'How to Choose the Best Website Development Company in Kashmir', path: CANONICAL },
         ])]}
       />
 
       <div className={styles.postPage}>
         <div className="container">
-          <Link to="/blog" className={styles.backBtn} data-cursor="hover">
+          <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
 
@@ -197,7 +197,7 @@ export default function ChooseBestWebDevCompanyPost() {
                 <p>In Kashmir it is very difficult to find a proper website development company. Numerous web developers and agencies promise attractive websites, employ different techniques and propose different prices. Some of these developers can offer you a standard website at low prices, while others suggest an expensive website with the latest features.</p>
                 <p>The hard part is figuring out what you really need and whether the person or company you are hiring can do it right.</p>
                 <p>A website is not just another expense for a business. This is often the first place that a potential client comes to view your services, view your work, read about your business and make the decision whether they should contact you. A poorly designed or slow-loading website can leave a bad impression. However, a well-designed website can make a small business appear professional and trustworthy.</p>
-                <p>If you are looking for a <Link to="/services">web design company in Kashmir</Link>, here are few practical things worth checking before you make your decision.</p>
+                <p>If you are looking for a <Link to="/services/">web design company in Kashmir</Link>, here are few practical things worth checking before you make your decision.</p>
 
                 <h2 id="requirements">Start with your own requirements</h2>
                 <p>Before contacting a developer, think over your requirements.</p>
@@ -304,13 +304,13 @@ export default function ChooseBestWebDevCompanyPost() {
                 <p>That is a part of professional advice.</p>
 
                 <h2 id="final-thoughts">Final thoughts</h2>
-                <p>Choosing a <Link to="/services">website development company in Kashmir</Link> boils down to understanding the balance between expertise, communication, budget and support.</p>
+                <p>Choosing a <Link to="/services/">website development company in Kashmir</Link> boils down to understanding the balance between expertise, communication, budget and support.</p>
                 <p>Avoid choosing a company on the basis of lowest price and avoid choosing on the basis of a particular programming language.</p>
                 <p>Check their portfolio and test their websites, ask them about their mobile friendly design, SEO, security and support options and make sure you understand what you are paying for and that you can actually access your digital assets.</p>
                 <p>Most importantly, think of your website as a business asset rather than a one time design project</p>
                 <p>A well built website can help your business by helping customers understand what you offer, helping them find you through search engines, helping them contact you and helping them trust you.</p>
                 <p>Whether you are a local business owner in Srinagar, an online retailer, a school, a hotel, a start up or a professional service provider, you should think about choosing the right website development company in Kashmir as it will save you a lot of headaches in the future.</p>
-                <p>The best <Link to="/services">website development company in Kashmir</Link> for you, will be the one that understands your needs, creates a website that serves your customers and supports you long after launch.</p>
+                <p>The best <Link to="/services/">website development company in Kashmir</Link> for you, will be the one that understands your needs, creates a website that serves your customers and supports you long after launch.</p>
 
                 <h2 id="faqs">Frequently Asked Questions</h2>
 

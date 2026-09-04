@@ -471,7 +471,7 @@ export default function ProjectsPage() {
             <div className={styles.collabBox}>
               <h2>Have a custom software requirement?</h2>
               <p>Let's architect a solid application that handles your traffic, database structures, or AI integrations flawlessly.</p>
-              <Link to="/contact" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
+              <Link to="/contact/" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
                 Discuss Your Idea <ArrowRight size={16} />
               </Link>
             </div>

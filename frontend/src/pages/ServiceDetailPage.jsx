@@ -24,7 +24,7 @@ export default function ServiceDetailPage() {
   )
 
   if (!service) {
-    return <Navigate to="/services" replace />
+    return <Navigate to="/services/" replace />
   }
 
   const keywordsMap = {

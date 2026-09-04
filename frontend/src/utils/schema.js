@@ -109,12 +109,20 @@ export const getWebSiteEntity = () => ({
 export const breadcrumbSchema = (crumbs = []) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
-  itemListElement: crumbs.map((crumb, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: crumb.name,
-    item: crumb.path.startsWith('http') ? crumb.path : `${SITE.url}${crumb.path.startsWith('/') ? crumb.path : '/' + crumb.path}`,
-  })),
+  itemListElement: crumbs.map((crumb, i) => {
+    let fullUrl = crumb.path.startsWith('http')
+      ? crumb.path
+      : `${SITE.url}${crumb.path.startsWith('/') ? crumb.path : '/' + crumb.path}`
+    if (!fullUrl.endsWith('/')) {
+      fullUrl += '/'
+    }
+    return {
+      '@type': 'ListItem',
+      position: i + 1,
+      name: crumb.name,
+      item: fullUrl,
+    }
+  }),
 })
 
 /**

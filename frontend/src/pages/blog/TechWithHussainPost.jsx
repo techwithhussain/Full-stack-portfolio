@@ -110,14 +110,14 @@ export default function TechWithHussainPost() {
         keywords="best web developer in Jammu and Kashmir, TechWithHussain, web developer Srinagar, eCommerce website Kashmir, SEO expert Jammu Kashmir, Meta Ads Google Ads Kashmir"
         schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog' },
+          { name: 'Blog', path: '/blog/' },
           { name: 'Best Web Developer in Jammu and Kashmir — TechWithHussain', path: CANONICAL },
         ])]}
       />
 
       <div className={styles.postPage}>
         <div className="container">
-          <Link to="/blog" className={styles.backBtn} data-cursor="hover">
+          <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
 
@@ -311,7 +311,7 @@ export default function TechWithHussainPost() {
                   In the <strong>Jammu region</strong>, retail, trading, and service businesses prioritise
                   clear information, fast page loads, and easy navigation that converts visits into phone
                   calls and enquiries. The full list of available services can be found on the{' '}
-                  <Link to="/services">services page</Link>.
+                  <Link to="/services/">services page</Link>.
                 </p>
 
                 {/* ── What makes a website work ── */}
@@ -347,7 +347,7 @@ export default function TechWithHussainPost() {
                 </p>
                 <p>
                   To get an accurate quotation, reach out via{' '}
-                  <Link to="/contact">the contact page</Link> or WhatsApp to discuss your project
+                  <Link to="/contact/">the contact page</Link> or WhatsApp to discuss your project
                   requirements directly.
                 </p>
 

@@ -102,14 +102,14 @@ export default function BestWebDeveloperJammuKashmirPost() {
         keywords="best web developer in Jammu and Kashmir, web development services in Jammu and Kashmir, website designer in Srinagar, eCommerce website development Jammu, WordPress development services, SEO friendly website development"
         schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog' },
+          { name: 'Blog', path: '/blog/' },
           { name: 'Best Web Developer in Jammu And Kashmir', path: CANONICAL },
         ])]}
       />
 
       <div className={styles.postPage}>
         <div className="container">
-          <Link to="/blog" className={styles.backBtn} data-cursor="hover">
+          <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
 

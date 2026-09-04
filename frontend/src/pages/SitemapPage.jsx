@@ -1,10 +1,24 @@
 import { Link } from 'react-router-dom'
+import {
+  Compass,
+  Globe,
+  Layers,
+  FolderGit2,
+  BookOpen,
+  UserCheck,
+  ShieldCheck,
+  ArrowRight,
+} from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
+import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
+import styles from './SitemapPage.module.css'
 
 const SITEMAP_SECTIONS = [
   {
     title: 'Main Pages',
     color: 'var(--clr-primary)',
+    bgGlow: 'rgba(0, 255, 157, 0.08)',
+    icon: Globe,
     links: [
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about/' },
@@ -15,6 +29,8 @@ const SITEMAP_SECTIONS = [
   {
     title: 'Services',
     color: 'var(--clr-secondary)',
+    bgGlow: 'rgba(74, 144, 226, 0.08)',
+    icon: Layers,
     links: [
       { label: 'All Services', href: '/services/' },
       { label: 'Web Development', href: '/services/web-development/' },
@@ -28,6 +44,8 @@ const SITEMAP_SECTIONS = [
   {
     title: 'Portfolio',
     color: 'var(--clr-purple)',
+    bgGlow: 'rgba(123, 97, 255, 0.08)',
+    icon: FolderGit2,
     links: [
       { label: 'All Projects', href: '/projects/' },
       { label: 'WalnutWala — E-Commerce Store', href: '/projects/walnutwala/' },
@@ -38,11 +56,13 @@ const SITEMAP_SECTIONS = [
   {
     title: 'Blog & Resources',
     color: 'var(--clr-primary)',
+    bgGlow: 'rgba(0, 255, 157, 0.08)',
+    icon: BookOpen,
     links: [
       { label: 'All Articles', href: '/blog/' },
       { label: 'Digital Marketing Services in Kashmir', href: '/blog/digital-marketing-services-in-kashmir/' },
       { label: 'SEO Expert in Jammu and Kashmir', href: '/blog/seo-expert-in-jammu-and-kashmir/' },
-      { label: 'How to Choose the Best Website Development Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir/' },
+      { label: 'How to Choose Best Web Dev Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir/' },
       { label: 'Best Web Developer in Jammu and Kashmir', href: '/blog/best-web-developer-in-jammu-and-kashmir/' },
       { label: 'Best Web Developer in Srinagar — TechWithHussain', href: '/blog/web-developer-srinagar-techwithhussain/' },
     ],
@@ -50,72 +70,142 @@ const SITEMAP_SECTIONS = [
   {
     title: 'Professional',
     color: 'var(--clr-secondary)',
+    bgGlow: 'rgba(74, 144, 226, 0.08)',
+    icon: UserCheck,
     links: [
-      { label: 'Experience', href: '/experience/' },
-      { label: 'Testimonials', href: '/testimonials/' },
+      { label: 'Experience & Career Timeline', href: '/experience/' },
+      { label: 'Client Testimonials & Reviews', href: '/testimonials/' },
     ],
   },
   {
-    title: 'Legal',
+    title: 'Legal & Site Info',
     color: 'var(--clr-purple)',
+    bgGlow: 'rgba(123, 97, 255, 0.08)',
+    icon: ShieldCheck,
     links: [
       { label: 'Privacy Policy', href: '/privacy-policy/' },
-      { label: 'Terms of Service', href: '/terms/' },
-      { label: 'Sitemap', href: '/sitemap/' },
+      { label: 'Terms & Conditions', href: '/terms/' },
+      { label: 'HTML Sitemap', href: '/sitemap/' },
     ],
   },
 ]
 
 export default function SitemapPage() {
+  const totalSections = SITEMAP_SECTIONS.length
+  const totalPages = SITEMAP_SECTIONS.reduce((acc, curr) => acc + curr.links.length, 0)
+
   return (
     <>
       <SEOMeta
         title="Sitemap · Tech With Hussain"
-        description="Complete sitemap listing all pages of Tech With Hussain portfolio platform."
+        description="Complete visual sitemap listing all public pages, services, case studies, and guides of Tech With Hussain."
         canonical="/sitemap/"
-        noindex={false}
+        schema={[
+          webPageSchema({
+            title: 'Sitemap · Tech With Hussain',
+            description: 'Complete visual sitemap listing all public pages of Tech With Hussain.',
+            path: '/sitemap/',
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Sitemap', path: '/sitemap/' },
+          ]),
+        ]}
       />
 
-      <div style={{ paddingTop: '160px', paddingBottom: '80px' }}>
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: '48px' }}>
+      <div className={styles.sitemapPage}>
+        {/* Hero Section */}
+        <section className={styles.heroSection}>
+          <div className="container">
             <span className="section-label">Navigation Map</span>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '16px' }}>
-              Complete <span className="text-primary">Sitemap</span>
+            <h1 className={styles.mainTitle}>
+              Complete <span>Sitemap</span>
             </h1>
-            <p style={{ color: 'var(--clr-text-muted)', fontSize: 'var(--text-lg)' }}>
-              All pages of Tech With Hussain, organized by section.
+            <p className={styles.heroDesc}>
+              Explore all pages, services, portfolio case studies, and engineering resources organized by section.
             </p>
-          </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
-            {SITEMAP_SECTIONS.map((section, idx) => (
-              <div
-                key={idx}
-                className="glass-card"
-                style={{ padding: '28px', borderTop: `2px solid ${section.color}` }}
-              >
-                <h2 style={{ color: section.color, fontSize: 'var(--text-sm)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
-                  {section.title}
-                </h2>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  {section.links.map((link, li) => (
-                    <li key={li}>
-                      <Link
-                        to={link.href}
-                        style={{ color: 'var(--clr-text-muted)', fontSize: 'var(--text-sm)', transition: 'color 0.3s' }}
-                        onMouseEnter={e => e.target.style.color = section.color}
-                        onMouseLeave={e => e.target.style.color = 'var(--clr-text-muted)'}
-                      >
-                        → {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            <div className={styles.statsRow}>
+              <div className={styles.statItem}>
+                <span className={styles.statDot} />
+                <span>Sections: <strong className={styles.statValue}>{totalSections}</strong></span>
               </div>
-            ))}
+              <div className={styles.statDivider} />
+              <div className={styles.statItem}>
+                <Compass size={13} style={{ color: 'var(--clr-primary)' }} />
+                <span>Indexed Pages: <strong className={styles.statValue}>{totalPages}</strong></span>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Sitemap Grid */}
+        <section className={styles.contentSection}>
+          <div className="container">
+            <div className={styles.sitemapGrid}>
+              {SITEMAP_SECTIONS.map((section, idx) => {
+                const IconComponent = section.icon
+                return (
+                  <div
+                    key={idx}
+                    className={`glass-card ${styles.sitemapCard}`}
+                  >
+                    {/* Top glowing accent line */}
+                    <div
+                      className={styles.topAccent}
+                      style={{
+                        background: section.color,
+                        boxShadow: `0 0 14px ${section.color}`,
+                      }}
+                    />
+
+                    {/* Card Header */}
+                    <div className={styles.cardHeader}>
+                      <div className={styles.headerLeft}>
+                        <div
+                          className={styles.iconWrapper}
+                          style={{
+                            background: section.bgGlow,
+                            color: section.color,
+                            border: `1px solid ${section.color}33`,
+                          }}
+                        >
+                          <IconComponent size={18} />
+                        </div>
+                        <h2 className={styles.cardTitle} style={{ color: section.color }}>
+                          {section.title}
+                        </h2>
+                      </div>
+                      <span className={styles.countBadge}>
+                        {section.links.length} {section.links.length === 1 ? 'page' : 'pages'}
+                      </span>
+                    </div>
+
+                    {/* Links List */}
+                    <ul className={styles.linkList}>
+                      {section.links.map((link, li) => (
+                        <li key={li} className={styles.linkItem}>
+                          <Link
+                            to={link.href}
+                            className={styles.linkAnchor}
+                            data-cursor="hover"
+                          >
+                            <ArrowRight
+                              size={14}
+                              className={styles.linkArrow}
+                              style={{ color: section.color }}
+                            />
+                            <span>{link.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )

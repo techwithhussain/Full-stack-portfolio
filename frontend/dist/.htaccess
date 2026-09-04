@@ -26,7 +26,8 @@ ErrorDocument 404 /404.html
     RewriteRule ^refund-policy(\.html)?$ - [G,L,NC]
 
     # ── 2b. SPECIFIC LEGACY .HTML REDIRECTS TO TRAILING SLASH ────
-    RewriteRule ^(about|contact|projects|services|experience|resume|testimonials|blog|privacy-policy|terms|sitemap)\.html$ https://techwithhussain.online/$1/ [R=301,L,NC]
+    RewriteRule ^(about|contact|projects|services|experience|resume|testimonials|blog|privacy-policy|terms|sitemap|skills)\.html$ https://techwithhussain.online/$1/ [R=301,L,NC]
+    RewriteRule ^skills/?$ https://techwithhussain.online/#skills [R=301,L,NE]
 
     # ── 3. DIRECT BACKEND API ROUTING ────────────────────────────
     RewriteRule ^api/(.*)$ backend/api/$1 [L,QSA]

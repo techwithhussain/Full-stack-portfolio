@@ -92,7 +92,7 @@ export default function ContactPage() {
   return (
     <>
       <SEOMeta
-        title="Contact Me · Tech With Hussain"
+        title="Contact Me"
         description="Get in touch with Hussain Lone for custom AI development, WordPress setups, speed optimization audits, or retainer services."
         canonical="/contact/"
         schema={[contactPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])]}

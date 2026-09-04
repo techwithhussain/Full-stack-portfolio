@@ -105,7 +105,7 @@ export default function SEOMeta({
               '@type': 'ListItem',
               position: i + 1,
               name: b.name,
-              item: `${SITE.url}${b.path}`,
+              item: `${SITE.url}${b.path.endsWith('/') ? b.path : b.path + '/'}`,
             })),
           })}
         </script>

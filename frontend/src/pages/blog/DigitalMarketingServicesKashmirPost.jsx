@@ -174,7 +174,7 @@ export default function DigitalMarketingServicesKashmirPost() {
         keywords="digital marketing Kashmir, digital marketing services Kashmir, digital marketing agency Kashmir, SEO Kashmir, social media marketing Kashmir, PPC Kashmir, content marketing, local SEO, digital marketing company in Kashmir, PPC services Kashmir, content marketing Kashmir, website development Kashmir, digital marketing for small businesses in Kashmir"
         schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog' },
+          { name: 'Blog', path: '/blog/' },
           { name: 'Digital Marketing Services in Kashmir', path: CANONICAL },
         ])]}
       />
@@ -182,7 +182,7 @@ export default function DigitalMarketingServicesKashmirPost() {
       <div className={styles.postPage}>
         <div className="container">
           <div className={styles.articleWrapper}>
-            <Link to="/blog" className={styles.backBtn} data-cursor="hover">
+            <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
               <ArrowLeft size={16} /> Back to Blog
             </Link>
 
@@ -254,7 +254,7 @@ export default function DigitalMarketingServicesKashmirPost() {
             {/* Lead Hook Highlight Box */}
             <div className={styles.leadCallout} id="guide">
               <p className={styles.leadText}>
-                <strong><Link to="/services" className={styles.textLink}>Digital Marketing services in Kashmir</Link></strong> are becoming a necessity for businesses that want to make their mark on the online platform, stand out from the rest and connect with potential customers. With the rise of smartphones, search engines, social media, and e-commerce, the need for an online presence is increasing by the day. Be it hotels, food, education, healthcare, shopping, real estate, recruiting, or any other service vertical—every company wants to harness the power of the digital world to woo customers and boost sales.
+                <strong><Link to="/services/" className={styles.textLink}>Digital Marketing services in Kashmir</Link></strong> are becoming a necessity for businesses that want to make their mark on the online platform, stand out from the rest and connect with potential customers. With the rise of smartphones, search engines, social media, and e-commerce, the need for an online presence is increasing by the day. Be it hotels, food, education, healthcare, shopping, real estate, recruiting, or any other service vertical—every company wants to harness the power of the digital world to woo customers and boost sales.
               </p>
             </div>
 

@@ -167,7 +167,7 @@ export default function AboutPage() {
                   <a href="/resume.pdf" download className="btn btn-primary btn-lg" data-cursor="hover">
                     <Download size={18} /> Download CV
                   </a>
-                  <a href="/contact" className="btn btn-outline btn-lg" data-cursor="hover">
+                  <a href="/contact/" className="btn btn-outline btn-lg" data-cursor="hover">
                     Get In Touch
                   </a>
                 </div>
