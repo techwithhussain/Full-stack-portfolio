@@ -108,6 +108,12 @@
 
   <!-- Published Articles -->
   <url>
+    <loc>https://techwithhussain.online/blog/web-developer-in-kashmir/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://techwithhussain.online/blog/digital-marketing-services-in-kashmir/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>

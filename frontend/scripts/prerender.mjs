@@ -40,6 +40,7 @@ const STATIC_ROUTES = [
   '/services/social-media-marketing',
   '/projects',
   '/blog',
+  '/blog/web-developer-in-kashmir',
   '/blog/digital-marketing-services-in-kashmir',
   '/blog/seo-expert-in-jammu-and-kashmir',
   '/blog/best-web-developer-in-jammu-and-kashmir',

@@ -5,6 +5,7 @@
 // render pass against an in-flight import.
 export const ROUTE_LOADERS = {
   '/': () => import('@/pages/HomePage'),
+  '/blog/web-developer-in-kashmir': () => import('@/pages/blog/WebDeveloperInKashmirPost'),
   '/blog/best-web-developer-in-jammu-and-kashmir': () => import('@/pages/blog/BestWebDeveloperJammuKashmirPost'),
   '/blog/web-developer-srinagar-techwithhussain': () => import('@/pages/blog/TechWithHussainPost'),
   '/blog/digital-marketing-services-in-kashmir': () => import('@/pages/blog/DigitalMarketingServicesKashmirPost'),

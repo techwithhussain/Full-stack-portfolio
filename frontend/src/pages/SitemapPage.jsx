@@ -60,6 +60,7 @@ const SITEMAP_SECTIONS = [
     icon: BookOpen,
     links: [
       { label: 'All Articles', href: '/blog/' },
+      { label: 'Web Developer in Kashmir', href: '/blog/web-developer-in-kashmir/' },
       { label: 'Digital Marketing Services in Kashmir', href: '/blog/digital-marketing-services-in-kashmir/' },
       { label: 'SEO Expert in Jammu and Kashmir', href: '/blog/seo-expert-in-jammu-and-kashmir/' },
       { label: 'How to Choose Best Web Dev Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir/' },
