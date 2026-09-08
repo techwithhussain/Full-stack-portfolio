@@ -1,4 +1,4 @@
-name: Deploy Full Stack Portfolio to Hostinger
+name: 🚀 Build & Deploy to Hostinger
 
 on:
   push:
@@ -8,25 +8,54 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+    steps:
+      # ── 1. Code checkout ─────────────────────────────────────
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      # ── 2. Node.js setup ─────────────────────────────────────
+      - name: ⚙️ Setup Node.js 20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
           cache-dependency-path: 'frontend/package-lock.json'
 
-      - name: Install Frontend Dependencies
+      # ── 3. Install dependencies + Playwright (for prerender) ─
+      - name: 📦 Install Dependencies & Playwright Chromium
         run: |
           cd frontend
           npm ci
+          npx playwright install chromium --with-deps
 
-      - name: Build Frontend Production Assets
+      # ── 4. Build frontend (Vite + Static Prerender) ──────────
+      - name: 🔨 Build Frontend
         run: |
           cd frontend
           npm run build
+        env:
+          NODE_ENV: production
 
-      # Webhook trigger or FTP sync step can be enabled with Hostinger credentials
+      # ── 5. Copy root SEO files into dist/ ────────────────────
+      - name: 📋 Copy Root SEO & Config Files
+        run: |
+          cp .htaccess frontend/dist/.htaccess
+          cp robots.txt frontend/dist/robots.txt
+          cp sitemap.xml frontend/dist/sitemap.xml
+          cp googlelGWrPfTaqKof7IORX31wzucOg6VmouHS2417UjA_Vto.html frontend/dist/googlelGWrPfTaqKof7IORX31wzucOg6VmouHS2417UjA_Vto.html
+
+      # ── 6. Deploy dist/ → Hostinger public_html/ via FTP ─────
+      - name: 📤 FTP Deploy to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: frontend/dist/
+          server-dir: public_html/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**

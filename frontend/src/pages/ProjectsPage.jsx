@@ -301,9 +301,11 @@ export default function ProjectsPage() {
   return (
     <>
       <SEOMeta
-        title="Projects Portfolio · Hussain Lone"
-        description="Explore Hussain Lone's software development portfolio, highlighting AI workflow integrations, WordPress themes, and search engine optimization case studies."
+        title="Web Development Portfolio | Projects by Hussain Lone — Srinagar J&K"
+        titleAsIs
+        description="Explore Hussain Lone's web development portfolio — AI automation, WordPress websites, React apps & SEO case studies. Top web developer in Srinagar, Jammu & Kashmir."
         canonical="/projects/"
+        keywords="web development portfolio Kashmir, website projects Srinagar, best web developer portfolio J&K, React web apps Kashmir, WordPress portfolio Srinagar, SEO case studies Kashmir"
         schema={[projectsPageSchema(projectsList), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects/' }])]}
       />
 

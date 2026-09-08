@@ -65,11 +65,13 @@ export default function TestimonialsPage() {
   return (
     <>
       <SEOMeta
-        title="Client Testimonials · Tech With Hussain"
-        description="Read client reviews and feedback from business owners and founders who worked with Hussain Lone on web development and SEO."
+        title="Client Testimonials | Web Developer Reviews — Tech With Hussain"
+        titleAsIs
+        description="Read verified client reviews of Hussain Lone — top web developer & SEO expert in Srinagar, J&K. Feedback from Upwork, Fiverr & LinkedIn clients worldwide."
         canonical="/testimonials/"
+        keywords="web developer reviews Kashmir, client testimonials Srinagar, best web developer feedback J&K, hire web developer reviews, SEO expert testimonials Kashmir"
         schema={[
-          webPageSchema({ title: 'Client Testimonials · Tech With Hussain', description: 'Client reviews and feedback.', path: '/testimonials/' }),
+          webPageSchema({ title: 'Client Testimonials | Tech With Hussain', description: 'Client reviews and feedback.', path: '/testimonials/' }),
           breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Testimonials', path: '/testimonials/' }]),
         ]}
       />

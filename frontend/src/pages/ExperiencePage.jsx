@@ -44,9 +44,11 @@ export default function ExperiencePage() {
   return (
     <>
       <SEOMeta
-        title="Experience & Education · Hussain Lone"
-        description="Browse the detailed professional timeline of Hussain Lone. Read about freelance achievements, agency web works, and BCA curriculum details."
+        title="Web Developer Experience & Journey | Hussain Lone — Srinagar J&K"
+        titleAsIs
+        description="Browse the professional timeline of Hussain Lone — web developer & SEO expert in Srinagar, J&K. Freelance projects, agency work & BCA education in Jammu & Kashmir."
         canonical="/experience/"
+        keywords="web developer experience Kashmir, Hussain Lone career, web development work history Srinagar, freelance web developer J&K experience, SEO expert career Kashmir"
         schema={[
           webPageSchema({ title: 'Experience & Education · Hussain Lone', description: 'Professional timeline of Hussain Lone.', path: '/experience/' }),
           breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience/' }]),

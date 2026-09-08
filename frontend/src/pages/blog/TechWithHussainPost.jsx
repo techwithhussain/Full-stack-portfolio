@@ -135,7 +135,8 @@ export default function TechWithHussainPost() {
               className={styles.bannerImg}
               width="1200"
               height="675"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
 

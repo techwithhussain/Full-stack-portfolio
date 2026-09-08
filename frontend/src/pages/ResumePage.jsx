@@ -13,9 +13,11 @@ export default function ResumePage() {
   return (
     <>
       <SEOMeta
-        title="Interactive Resume · Hussain Lone"
-        description="Curriculum Vitae of Hussain Lone. Web developer, SEO expert, and AI workflow specialist in Srinagar, J&K."
+        title="CV & Resume | Hussain Lone — Web Developer & SEO Expert in J&K"
+        titleAsIs
+        description="Curriculum Vitae of Hussain Lone — web developer, SEO expert & AI workflow specialist in Srinagar, Jammu & Kashmir. Download PDF resume or view online portfolio."
         canonical="/resume/"
+        keywords="web developer resume Kashmir, Hussain Lone CV, web developer CV Srinagar, SEO expert resume J&K, hire web developer resume, freelance developer portfolio Kashmir"
         schema={[
           webPageSchema({ title: 'Interactive Resume · Hussain Lone', description: 'Curriculum Vitae of Hussain Lone.', path: '/resume/' }),
           breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Resume', path: '/resume/' }]),

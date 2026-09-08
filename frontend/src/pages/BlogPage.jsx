@@ -36,9 +36,11 @@ export default function BlogPage() {
   return (
     <>
       <SEOMeta
-        title="Blog · Tech Insights Coming Soon"
-        description="In-depth articles, case studies, and guides on AI workflows, SEO strategies, and modern web development are coming soon."
+        title="Web Development & SEO Blog | Tech With Hussain — J&K"
+        titleAsIs
+        description="Read expert articles on web development, SEO strategies, digital marketing & AI automation by Hussain Lone — Web Developer & SEO Expert in Srinagar, Jammu & Kashmir."
         canonical="/blog/"
+        keywords="web development blog Kashmir, SEO tips Jammu and Kashmir, digital marketing blog Srinagar, web developer blog J&K, WordPress tips Kashmir, SEO strategies blog, web design tutorials Kashmir"
         schema={[blogPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }])]}
       />
 

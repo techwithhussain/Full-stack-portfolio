@@ -164,9 +164,31 @@ export default function App() {
           <Routes>
             {/* ── Public Pages ── */}
             <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
+            {/* Trailing-slash routes (canonical form, served by Apache after .htaccess redirect) */}
+            <Route path="/about/" element={<PageWrapper><AboutPage /></PageWrapper>} />
+            <Route path="/services/" element={<PageWrapper><ServicesPage /></PageWrapper>} />
+            <Route path="/skills/" element={<PageWrapper><HomePage canonical="/skills" /></PageWrapper>} />
+            <Route path="/services/:slug/" element={<PageWrapper><ServiceDetailPage /></PageWrapper>} />
+            <Route path="/projects/" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
+            <Route path="/projects/:slug/" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />
+            <Route path="/blog/" element={<PageWrapper><BlogPage /></PageWrapper>} />
+            <Route path="/blog/web-developer-in-kashmir/" element={<PageWrapper><WebDeveloperInKashmirPost /></PageWrapper>} />
+            <Route path="/blog/digital-marketing-services-in-kashmir/" element={<PageWrapper><DigitalMarketingServicesKashmirPost /></PageWrapper>} />
+            <Route path="/blog/best-web-developer-in-jammu-and-kashmir/" element={<PageWrapper><BestWebDeveloperJammuKashmirPost /></PageWrapper>} />
+            <Route path="/blog/how-to-choose-the-best-website-development-company-in-kashmir/" element={<PageWrapper><ChooseBestWebDevCompanyPost /></PageWrapper>} />
+            <Route path="/blog/seo-expert-in-jammu-and-kashmir/" element={<PageWrapper><SeoExpertJammuKashmirPost /></PageWrapper>} />
+            <Route path="/blog/web-developer-srinagar-techwithhussain/" element={<PageWrapper><TechWithHussainPost /></PageWrapper>} />
+            <Route path="/blog/:slug/" element={<PageWrapper><BlogPostPage /></PageWrapper>} />
+            <Route path="/testimonials/" element={<PageWrapper><TestimonialsPage /></PageWrapper>} />
+            <Route path="/experience/" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
+            <Route path="/resume/" element={<PageWrapper><ResumePage /></PageWrapper>} />
+            <Route path="/contact/" element={<PageWrapper><ContactPage /></PageWrapper>} />
+            <Route path="/privacy-policy/" element={<PageWrapper><PrivacyPage /></PageWrapper>} />
+            <Route path="/terms/" element={<PageWrapper><TermsPage /></PageWrapper>} />
+            <Route path="/sitemap/" element={<PageWrapper><SitemapPage /></PageWrapper>} />
+            {/* Non-trailing-slash aliases → redirect handled by .htaccess, but keep React fallback */}
             <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
             <Route path="/services" element={<PageWrapper><ServicesPage /></PageWrapper>} />
-            <Route path="/skills" element={<PageWrapper><HomePage canonical="/skills" /></PageWrapper>} />
             <Route path="/services/:slug" element={<PageWrapper><ServiceDetailPage /></PageWrapper>} />
             <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
             <Route path="/projects/:slug" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />

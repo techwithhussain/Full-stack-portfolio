@@ -92,9 +92,11 @@ export default function ContactPage() {
   return (
     <>
       <SEOMeta
-        title="Contact Me"
-        description="Get in touch with Hussain Lone for custom AI development, WordPress setups, speed optimization audits, or retainer services."
+        title="Hire Web Developer in Srinagar | Contact Tech With Hussain J&K"
+        titleAsIs
+        description="Contact Hussain Lone — top-rated web developer & SEO expert in Srinagar, J&K. Available for web development, SEO, Meta Ads & digital marketing projects in Kashmir and worldwide."
         canonical="/contact/"
+        keywords="hire web developer Srinagar, contact web developer Kashmir, hire SEO expert J&K, web development services contact, freelance web developer Kashmir, web designer Srinagar contact"
         schema={[contactPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])]}
       />
 

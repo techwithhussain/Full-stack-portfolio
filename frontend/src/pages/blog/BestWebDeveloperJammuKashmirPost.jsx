@@ -125,7 +125,8 @@ export default function BestWebDeveloperJammuKashmirPost() {
               className={styles.bannerImg}
               width="1672"
               height="941"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
 
