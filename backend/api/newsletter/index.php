@@ -3,7 +3,7 @@
  * Newsletter Subscribe API
  * POST /api/newsletter/index.php
  *
- * Saves subscriber to DB and emails instant lead notification to lonezakir124@gmail.com
+ * Saves subscriber to DB and emails instant lead notification to contact@techwithhussain.online
  */
 
 require_once __DIR__ . '/../config/cors.php';
@@ -18,7 +18,7 @@ $source = sanitize($body['source'] ?? $_POST['source'] ?? 'footer');
 
 if (!valid_email($email)) error('A valid email address is required.', 422);
 
-$ownerEmail = 'lonezakir124@gmail.com';
+$ownerEmail = 'contact@techwithhussain.online';
 $subId = 0;
 $isResubscribe = false;
 

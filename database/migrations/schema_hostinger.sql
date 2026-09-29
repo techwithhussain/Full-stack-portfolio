@@ -31,13 +31,13 @@ INSERT IGNORE INTO `site_settings` (`setting_key`, `setting_val`) VALUES
   ('site_url',             'https://techwithhussain.online'),
   ('site_tagline',         'Full Stack Developer & AI Automation Expert'),
   ('owner_name',           'Hussain Lone'),
-  ('owner_email',          'lonezakir124@gmail.com'),
+  ('owner_email',          'contact@techwithhussain.online'),
   ('whatsapp_number',      '916005401734'),
   ('phone',                '+91 6005401734'),
   ('location',             'Srinagar, J&K, India'),
   ('smtp_host',            'smtp.hostinger.com'),
   ('smtp_port',            '465'),
-  ('smtp_email',           'lonezakir124@gmail.com'),
+  ('smtp_email',           'contact@techwithhussain.online'),
   ('smtp_encryption',      'ssl'),
   ('social_facebook',      'https://www.facebook.com/techwithhussain'),
   ('social_instagram',     'https://www.instagram.com/tech.withhussain'),
@@ -91,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `services` (
   `title`         VARCHAR(255)   NOT NULL,
   `slug`          VARCHAR(255)   NOT NULL UNIQUE,
   `icon`          VARCHAR(100)   DEFAULT NULL,               -- lucide icon name
+  `color`         VARCHAR(50)    DEFAULT NULL,
   `short_desc`    TEXT           DEFAULT NULL,
   `description`   LONGTEXT       DEFAULT NULL,
   `packages`      JSON           DEFAULT NULL,               -- [{name,price,features}]

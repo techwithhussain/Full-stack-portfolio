@@ -44,7 +44,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 style={{ color: 'var(--clr-text)', fontSize: 'var(--text-xl)', marginBottom: '12px' }}>6. Contact</h2>
-            <p>For terms-related questions, email: lonezakir124@gmail.com</p>
+            <p>For terms-related questions, email: contact@techwithhussain.online</p>
           </section>
         </div>
       </div>

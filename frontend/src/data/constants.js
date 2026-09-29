@@ -5,7 +5,7 @@ export const SITE = {
   title: 'Full Stack Developer & AI Automation Expert | Srinagar, Kashmir',
   description: 'Portfolio of Hussain Lone — Freelance Full Stack Developer, AI Automation Expert & SEO Specialist in Srinagar, Kashmir, J&K. High-performance web apps & digital solutions.',
   url: 'https://techwithhussain.online',
-  email: 'lonezakir124@gmail.com',
+  email: 'contact@techwithhussain.online',
   phone: '+91 6005401734',
   whatsapp: 'https://wa.me/916005401734',
   whatsappNumber: '916005401734',

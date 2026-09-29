@@ -55,7 +55,7 @@ function PageWrapper({ children }) {
       <motion.div
         key={location.pathname}
         variants={pageVariants}
-        initial="initial"
+        initial={isPrerenderedLoad ? false : 'initial'}
         animate="animate"
         exit="exit"
       >

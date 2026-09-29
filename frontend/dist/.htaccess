@@ -29,6 +29,14 @@ ErrorDocument 404 /404.html
     RewriteRule ^(about|contact|projects|services|experience|resume|testimonials|blog|privacy-policy|terms|sitemap|skills)\.html$ https://techwithhussain.online/$1/ [R=301,L,NC]
     RewriteRule ^skills/?$ https://techwithhussain.online/#skills [R=301,L,NE]
 
+    # ── 2c. LEGACY SERVICE ALIAS 301 REDIRECTS ───────────────────
+    RewriteRule ^services/wordpress-development/?$ https://techwithhussain.online/services/web-development/ [R=301,L,NC]
+    RewriteRule ^services/ai-development/?$ https://techwithhussain.online/services/application-development/ [R=301,L,NC]
+    RewriteRule ^services/ai-web-development/?$ https://techwithhussain.online/services/application-development/ [R=301,L,NC]
+    RewriteRule ^services/seo-full-project/?$ https://techwithhussain.online/services/seo-services/ [R=301,L,NC]
+    RewriteRule ^services/content-creation/?$ https://techwithhussain.online/services/social-media-marketing/ [R=301,L,NC]
+    RewriteRule ^services/website-optimization/?$ https://techwithhussain.online/services/web-development/ [R=301,L,NC]
+
     # ── 3. DIRECT BACKEND API ROUTING ────────────────────────────
     RewriteRule ^api/(.*)$ backend/api/$1 [L,QSA]
 

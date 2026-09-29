@@ -67,6 +67,8 @@ export default function ProjectDetailPage() {
       })
       .catch(() => {
         if (fallbackMatch) {
+          const isWalnut = fallbackMatch.slug.includes('walnut')
+          const isGuru = fallbackMatch.slug.includes('guru')
           setProject({
             title: fallbackMatch.title,
             category: fallbackMatch.category,
@@ -74,18 +76,22 @@ export default function ProjectDetailPage() {
             image: fallbackMatch.thumbnail,
             tech: fallbackMatch.technologies,
             problem: fallbackMatch.description,
-            solution: 'Designed and developed custom WooCommerce platform, integrated payment gateway, and optimized Core Web Vitals with technical schema for #1 Google rank.',
+            solution: isWalnut
+              ? 'Designed and developed custom WooCommerce platform, integrated payment gateway, and optimized Core Web Vitals with technical schema for #1 Google rank.'
+              : isGuru
+              ? 'Engineered high-performance web architecture, conversion-focused UI design, and lead capture workflows with optimized Core Web Vitals.'
+              : 'Developed custom responsive educational portal with online admission workflows, notice board, and fast mobile performance.',
             results: fallbackMatch.results.map(r => `${r.value} ${r.label}`),
             liveUrl: fallbackMatch.liveUrl,
             githubUrl: fallbackMatch.githubUrl,
-            client: 'WalnutWala Kashmir',
+            client: fallbackMatch.title.split('—')[0].trim(),
             timeline: 'Recent Project',
-            role: 'E-Commerce Developer & SEO Specialist',
-            review: {
+            role: fallbackMatch.category === 'WordPress' ? 'WordPress & SEO Specialist' : 'Lead Full-Stack Web Developer',
+            review: isWalnut ? {
               quote: 'Hussain developed our website walnutwala.com and optimized our SEO. We saw tremendous growth in online orders and top Google rankings within months!',
               author: 'WalnutWala Team',
               title: 'Owner, WalnutWala.com'
-            }
+            } : null
           })
         } else {
           setNotFound(true)

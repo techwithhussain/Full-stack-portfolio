@@ -3,7 +3,7 @@
  * Contact Form API
  * POST /api/contact/index.php
  *
- * Saves message to DB & sends lead notification email directly to lonezakir124@gmail.com
+ * Saves message to DB & sends lead notification email directly to contact@techwithhussain.online
  */
 
 require_once __DIR__ . '/../config/cors.php';
@@ -56,7 +56,7 @@ try {
 }
 
 // ── Send Email Alert to Owner ───────────────────────────────
-$ownerEmail = 'lonezakir124@gmail.com';
+$ownerEmail = 'contact@techwithhussain.online';
 $emailSubject = "📬 NEW LEAD: Inquiry from $name ($phone)";
 
 $emailBodyHtml = "
