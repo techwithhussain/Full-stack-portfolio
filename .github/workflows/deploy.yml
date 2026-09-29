@@ -45,8 +45,11 @@ jobs:
           cp sitemap.xml frontend/dist/sitemap.xml
           cp googlelGWrPfTaqKof7IORX31wzucOg6VmouHS2417UjA_Vto.html frontend/dist/googlelGWrPfTaqKof7IORX31wzucOg6VmouHS2417UjA_Vto.html
 
-      # ── 6. Deploy dist/ → Hostinger public_html/ via FTP ─────
+      # ── 6. Deploy dist/ → Hostinger via FTP (Only runs if FTP secrets are set) ──
       - name: 📤 FTP Deploy to Hostinger
+        if: ${{ env.FTP_SERVER != '' }}
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
