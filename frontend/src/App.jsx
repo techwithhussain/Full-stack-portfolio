@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense, lazy } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { AnimatePresence, motion } from 'framer-motion'
 import axios from 'axios'
@@ -167,7 +167,8 @@ export default function App() {
             {/* Trailing-slash routes (canonical form, served by Apache after .htaccess redirect) */}
             <Route path="/about/" element={<PageWrapper><AboutPage /></PageWrapper>} />
             <Route path="/services/" element={<PageWrapper><ServicesPage /></PageWrapper>} />
-            <Route path="/skills/" element={<PageWrapper><HomePage canonical="/skills" /></PageWrapper>} />
+            <Route path="/skills/" element={<Navigate to="/" replace />} />
+            <Route path="/skills" element={<Navigate to="/" replace />} />
             <Route path="/services/:slug/" element={<PageWrapper><ServiceDetailPage /></PageWrapper>} />
             <Route path="/projects/" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
             <Route path="/projects/:slug/" element={<PageWrapper><ProjectDetailPage /></PageWrapper>} />

@@ -19,7 +19,6 @@ export const ROUTE_LOADERS = {
   '/services/meta-ads': () => import('@/pages/ServiceDetailPage'),
   '/services/google-ads': () => import('@/pages/ServiceDetailPage'),
   '/services/social-media-marketing': () => import('@/pages/ServiceDetailPage'),
-  '/skills': () => import('@/pages/HomePage'),
   '/projects': () => import('@/pages/ProjectsPage'),
   '/projects/walnutwala': () => import('@/pages/ProjectDetailPage'),
   '/projects/guru-digital-advertising': () => import('@/pages/ProjectDetailPage'),
