@@ -18,6 +18,7 @@ import {
 import SEOMeta from '@/components/common/SEOMeta'
 import { aboutPageSchema, breadcrumbSchema } from '@/utils/schema'
 import styles from './AboutPage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const JOURNEY_STEPS = [
   {
@@ -81,6 +82,7 @@ const VALUES = [
 ]
 
 export default function AboutPage() {
+  usePageReady()
   const containerVariants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.1 } },
@@ -94,12 +96,12 @@ export default function AboutPage() {
   return (
     <>
       <SEOMeta
-        title="About Hussain Lone | Web Developer & SEO Expert in Srinagar, J&K"
+        title="About Hussain Lone | Web Developer & SEO Expert in J&K"
         titleAsIs
         description="Learn about Hussain Lone (Tech With Hussain), a leading web developer in Srinagar & SEO expert in Jammu and Kashmir. Full-stack web development services, WordPress, Shopify, and digital marketing in Kashmir."
-        canonical="/about/"
+        canonical="/about"
         keywords="web developer in Srinagar, web developer in Jammu and Kashmir, website developer in Srinagar, web development company in Srinagar, web development services in Kashmir, website development company in Kashmir, SEO expert in Srinagar, SEO services in Srinagar, SEO expert in Jammu and Kashmir, WordPress developer in Srinagar, WordPress developer in Kashmir, digital marketing agency in Srinagar, digital marketing services in Kashmir, Shopify developer in Kashmir, ecommerce website development in Kashmir"
-        schema={[aboutPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])]}
+        schema={[aboutPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
       />
 
       <div className={styles.aboutPage}>
@@ -167,7 +169,7 @@ export default function AboutPage() {
                   <a href="/resume.pdf" download className="btn btn-primary btn-lg" data-cursor="hover">
                     <Download size={18} /> Download CV
                   </a>
-                  <a href="/contact/" className="btn btn-outline btn-lg" data-cursor="hover">
+                  <a href="/contact" className="btn btn-outline btn-lg" data-cursor="hover">
                     Get In Touch
                   </a>
                 </div>
@@ -284,7 +286,7 @@ export default function AboutPage() {
                 <p>Let's map out a customized web development and SEO strategy for your brand.</p>
               </div>
               <div className={styles.ctaButtons}>
-                <Link to="/contact/" className="btn btn-primary btn-lg" data-cursor="hover">
+                <Link to="/contact" className="btn btn-primary btn-lg" data-cursor="hover">
                   <Mail size={16} /> Book a Discovery Call
                 </Link>
                 <a

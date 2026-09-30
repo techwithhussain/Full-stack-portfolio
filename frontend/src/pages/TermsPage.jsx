@@ -1,16 +1,18 @@
 import SEOMeta from '@/components/common/SEOMeta'
 import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
+import { usePageReady } from '@/hooks/usePageReady'
 
 export default function TermsPage() {
+  usePageReady()
   return (
     <>
       <SEOMeta
-        title="Terms &amp; Conditions · Tech With Hussain"
+        title="Terms & Conditions"
         description="Terms of service and service agreement conditions for Tech With Hussain."
-        canonical="/terms/"
+        canonical="/terms"
         schema={[
-          webPageSchema({ title: 'Terms & Conditions · Tech With Hussain', description: 'Terms of service for Tech With Hussain.', path: '/terms/' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Terms & Conditions', path: '/terms/' }]),
+          webPageSchema({ title: 'Terms & Conditions · Tech With Hussain', description: 'Terms of service for Tech With Hussain.', path: '/terms' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Terms & Conditions', path: '/terms' }]),
         ]}
       />
 

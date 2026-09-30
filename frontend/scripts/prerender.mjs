@@ -19,7 +19,7 @@
 
 import { chromium } from 'playwright'
 import { spawn, spawnSync } from 'node:child_process'
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -27,35 +27,36 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const DIST_DIR = join(__dirname, '..', 'dist')
 const PORT = 4173
 const BASE_URL = `http://127.0.0.1:${PORT}`
+const SITE_URL = 'https://techwithhussain.online'
 
 const STATIC_ROUTES = [
   '/',
-  '/about/',
-  '/services/',
-  '/services/web-development/',
-  '/services/seo-services/',
-  '/services/application-development/',
-  '/services/meta-ads/',
-  '/services/google-ads/',
-  '/services/social-media-marketing/',
-  '/projects/',
-  '/projects/walnutwala/',
-  '/projects/guru-digital-advertising/',
-  '/projects/gurukul-vidya-peeth/',
-  '/blog/',
-  '/blog/web-developer-in-kashmir/',
-  '/blog/digital-marketing-services-in-kashmir/',
-  '/blog/seo-expert-in-jammu-and-kashmir/',
-  '/blog/best-web-developer-in-jammu-and-kashmir/',
-  '/blog/how-to-choose-the-best-website-development-company-in-kashmir/',
-  '/blog/web-developer-srinagar-techwithhussain/',
-  '/testimonials/',
-  '/experience/',
-  '/resume/',
-  '/contact/',
-  '/privacy-policy/',
-  '/terms/',
-  '/sitemap/',
+  '/about',
+  '/services',
+  '/services/web-development',
+  '/services/seo-services',
+  '/services/application-development',
+  '/services/meta-ads',
+  '/services/google-ads',
+  '/services/social-media-marketing',
+  '/projects',
+  '/projects/walnutwala',
+  '/projects/guru-digital-advertising',
+  '/projects/gurukul-vidya-peeth',
+  '/blog',
+  '/blog/web-developer-in-kashmir',
+  '/blog/digital-marketing-services-in-kashmir',
+  '/blog/seo-expert-in-jammu-and-kashmir',
+  '/blog/best-web-developer-in-jammu-and-kashmir',
+  '/blog/how-to-choose-the-best-website-development-company-in-kashmir',
+  '/blog/web-developer-srinagar-techwithhussain',
+  '/testimonials',
+  '/experience',
+  '/resume',
+  '/contact',
+  '/privacy-policy',
+  '/terms',
+  '/sitemap',
 ]
 
 // Any nonexistent path hits App.jsx's catch-all `*` route (NotFoundPage).
@@ -80,14 +81,37 @@ function waitForServer(url, timeoutMs = 30000) {
 }
 
 async function renderRoute(page, route) {
-  await page.goto(`${BASE_URL}${route}`, { waitUntil: 'domcontentloaded' })
-  // Wait for App.jsx's readiness flag (set once the loading gate clears and
-  // the route has actually rendered) instead of guessing a fixed delay.
-  await page.waitForFunction(() => window.__APP_READY__ === true, { timeout: 15000 })
-  // Small buffer so the page-transition entrance animation (framer-motion,
-  // ~350ms) has settled before we snapshot — avoids baking in a mid-animation
-  // inline `style` (opacity/transform) that would mismatch on client hydration.
-  await page.waitForTimeout(600)
+  // Block external API calls that return 502 during prerender.
+  await page.route('**/api/**', r => r.abort())
+
+  // 'load' fires after all module scripts (including the React bundle) have
+  // executed. dist/index.html is the fresh 8KB Vite template (empty #root),
+  // so main.jsx calls createRoot().render() — React's concurrent mode.
+  await page.goto(`${BASE_URL}${route}`, { waitUntil: 'load' })
+
+  // window.__APP_READY__ is set by usePageReady() hooks inside each page
+  // component, 200ms after the component mounts. This fires only AFTER:
+  //   createRoot render → loading state timer (~400ms) → Routes render →
+  //   Suspense resolves lazy chunk → page mounts → usePageReady fires.
+  // It is the most reliable signal that real page content is in the DOM.
+  await page.waitForFunction(
+    () => window.__APP_READY__ === true,
+    { timeout: 25000 }
+  )
+
+  // Extra settle: __APP_READY__ fires from the loading-gate rAF in App.jsx.
+  // Helmet injects route-specific canonical/title AFTER Suspense resolves and
+  // the page component mounts (which happens after __APP_READY__).
+  // 1500ms covers: lazy chunk download (~0ms local) + component mount + Helmet.
+  await page.waitForTimeout(1500)
+
+  const info = await page.evaluate(() => ({
+    childCount: document.getElementById('root')?.childElementCount ?? -1,
+    title: document.title,
+    canonical: document.querySelector('link[rel="canonical"]')?.href ?? '',
+  }))
+  console.log(`[prerender] ${route}:`, JSON.stringify(info))
+
   return page.content()
 }
 
@@ -133,31 +157,35 @@ async function main() {
     console.log('[prerender] preview server ready')
 
     browser = await chromium.launch()
-    const page = await browser.newPage()
-    // Make this capture pass render through the exact same branch a real
-    // hydration of the resulting static file will use (see App.jsx's
-    // isPrerenderedLoad) — same code path, not just an equivalent one, so
-    // there's nothing for hydration to mismatch on (e.g. framer-motion's
-    // entrance animation is skipped consistently on both sides instead of
-    // settling into two subtly different inline-style outcomes).
-    await page.addInitScript(() => {
-      window.__FORCE_STATIC_RENDER__ = true
-    })
 
-    // Render every route first and hold the results in memory — vite preview
-    // is serving straight from dist/, so writing a route's output to disk
-    // before the loop finishes would corrupt later routes: vite's SPA
-    // fallback would start serving that already-React-rendered file (with
-    // its own baked-in <title>/head tags) instead of the original CSR
-    // template, and the next route's Helmet tags would stack on top of it
-    // instead of replacing it.
+    // Save the fresh Vite template (empty #root). Restore it before every
+    // route so main.jsx always sees hasChildNodes()=false → createRoot().
+    const templatePath = join(DIST_DIR, 'index.html')
+    const originalTemplate = readFileSync(templatePath, 'utf-8')
+
     const rendered = []
     for (const route of STATIC_ROUTES) {
+      // Restore empty template so Vite preview serves a clean SPA shell.
+      writeFileSync(templatePath, originalTemplate, 'utf-8')
+
+      // Fresh page per route — no cross-route JS/React state contamination.
+      const page = await browser.newPage()
+      page.on('console', msg => { if (msg.type() === 'error') console.error('[browser]', msg.text()) })
+      page.on('pageerror', err => console.error('[page-error]', err.message))
+
       const html = await renderRoute(page, route)
+      await page.close()
       rendered.push([route, html])
       console.log(`[prerender] rendered ${route}`)
     }
-    const notFoundHtml = await renderRoute(page, NOT_FOUND_PROBE_ROUTE)
+
+    // Probe for 404 content
+    writeFileSync(templatePath, originalTemplate, 'utf-8')
+    const page404 = await browser.newPage()
+    page404.on('console', msg => { if (msg.type() === 'error') console.error('[browser]', msg.text()) })
+    page404.on('pageerror', err => console.error('[page-error]', err.message))
+    const notFoundHtml = await renderRoute(page404, NOT_FOUND_PROBE_ROUTE)
+    await page404.close()
 
     await browser.close()
 

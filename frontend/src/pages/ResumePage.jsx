@@ -4,8 +4,10 @@ import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 import { SITE } from '@/data/constants'
 import { getEmail } from '@/utils/obfuscateEmail'
 import styles from './ResumePage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 export default function ResumePage() {
+  usePageReady()
   const handlePrint = () => {
     window.print()
   }
@@ -13,14 +15,14 @@ export default function ResumePage() {
   return (
     <>
       <SEOMeta
-        title="CV & Resume | Hussain Lone — Web Developer & SEO Expert in J&K"
+        title="Resume & CV | Hussain Lone — Web Developer & SEO Expert"
         titleAsIs
         description="Curriculum Vitae of Hussain Lone — web developer, SEO expert & AI workflow specialist in Srinagar, Jammu & Kashmir. Download PDF resume or view online portfolio."
-        canonical="/resume/"
+        canonical="/resume"
         keywords="web developer resume Kashmir, Hussain Lone CV, web developer CV Srinagar, SEO expert resume J&K, hire web developer resume, freelance developer portfolio Kashmir"
         schema={[
-          webPageSchema({ title: 'Interactive Resume · Hussain Lone', description: 'Curriculum Vitae of Hussain Lone.', path: '/resume/' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Resume', path: '/resume/' }]),
+          webPageSchema({ title: 'Interactive Resume · Hussain Lone', description: 'Curriculum Vitae of Hussain Lone.', path: '/resume' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Resume', path: '/resume' }]),
         ]}
       />
 

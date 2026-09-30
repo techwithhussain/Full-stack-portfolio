@@ -3,6 +3,7 @@ import { Briefcase, GraduationCap, Calendar, Compass, ArrowRight, CheckCircle2 }
 import SEOMeta from '@/components/common/SEOMeta'
 import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 import styles from './ExperiencePage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const WORK_ITEMS = [
   {
@@ -41,17 +42,18 @@ const WORK_ITEMS = [
 ]
 
 export default function ExperiencePage() {
+  usePageReady()
   return (
     <>
       <SEOMeta
-        title="Web Developer Experience & Journey | Hussain Lone — Srinagar J&K"
+        title="Web Developer Experience | Hussain Lone — Srinagar, J&K"
         titleAsIs
-        description="Browse the professional timeline of Hussain Lone — web developer & SEO expert in Srinagar, J&K. Freelance projects, agency work & BCA education in Jammu & Kashmir."
-        canonical="/experience/"
+        description="Professional timeline of Hussain Lone — web developer & SEO expert in Srinagar, J&K. Freelance projects, agency work & engineering background."
+        canonical="/experience"
         keywords="web developer experience Kashmir, Hussain Lone career, web development work history Srinagar, freelance web developer J&K experience, SEO expert career Kashmir"
         schema={[
-          webPageSchema({ title: 'Experience & Education · Hussain Lone', description: 'Professional timeline of Hussain Lone.', path: '/experience/' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience/' }]),
+          webPageSchema({ title: 'Experience & Education · Hussain Lone', description: 'Professional timeline of Hussain Lone.', path: '/experience' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }]),
         ]}
       />
 
@@ -114,7 +116,7 @@ export default function ExperiencePage() {
             <div className={styles.ctaBox}>
               <h2>Ready to scale your digital presence?</h2>
               <p>Let's talk about how my skills in development, automation, and SEO can grow your business.</p>
-              <Link to="/contact/" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
+              <Link to="/contact" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
                 Connect with Hussain <ArrowRight size={16} />
               </Link>
             </div>

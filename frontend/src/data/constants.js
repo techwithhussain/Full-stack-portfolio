@@ -23,12 +23,12 @@ export const API_BASE = '/api'
 
 export const NAV_LINKS = [
   { label: 'Home',           href: '/' },
-  { label: 'About',          href: '/about/' },
-  { label: 'Services',       href: '/services/' },
-  { label: 'Projects',       href: '/projects/' },
-  { label: 'Blog',           href: '/blog/' },
-  { label: 'Experience',     href: '/experience/' },
-  { label: 'Contact',        href: '/contact/' },
+  { label: 'About',          href: '/about' },
+  { label: 'Services',       href: '/services' },
+  { label: 'Projects',       href: '/projects' },
+  { label: 'Blog',           href: '/blog' },
+  { label: 'Experience',     href: '/experience' },
+  { label: 'Contact',        href: '/contact' },
 ]
 
 export const SERVICE_SLUGS = [

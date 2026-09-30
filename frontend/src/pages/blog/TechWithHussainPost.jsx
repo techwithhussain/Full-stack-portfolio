@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
 import SocialShare from '@/components/common/SocialShare'
 import { SITE } from '@/data/constants'
 import { breadcrumbSchema } from '@/utils/schema'
 import styles from './BestWebDeveloperJammuKashmirPost.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const TOC_SECTIONS = [
   { id: 'quick-answer',   label: 'Quick Answer' },
@@ -18,7 +19,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG         = 'web-developer-srinagar-techwithhussain'
-const CANONICAL    = `/blog/${SLUG}/`
+const CANONICAL    = `/blog/${SLUG}`
 const THUMBNAIL    = '/TechWithHussain.webp'
 const PUBLISH_DATE = '2026-08-17'
 
@@ -98,6 +99,7 @@ const faqPageSchema = {
 }
 
 export default function TechWithHussainPost() {
+  usePageReady()
   return (
     <>
       <SEOMeta
@@ -110,14 +112,14 @@ export default function TechWithHussainPost() {
         keywords="best web developer in Jammu and Kashmir, TechWithHussain, web developer Srinagar, eCommerce website Kashmir, SEO expert Jammu Kashmir, Meta Ads Google Ads Kashmir"
         schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog/' },
+          { name: 'Blog', path: '/blog' },
           { name: 'Best Web Developer in Jammu and Kashmir — TechWithHussain', path: CANONICAL },
         ])]}
       />
 
       <div className={styles.postPage}>
         <div className="container">
-          <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
+          <Link to="/blog" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
 
@@ -222,7 +224,7 @@ export default function TechWithHussainPost() {
                   will not rank on Google, and a site with no marketing strategy will sit idle with no
                   traffic. If you want to understand how marketing and web development work together,
                   the guide on{' '}
-                  <Link to="/blog/digital-marketing-services-in-kashmir/">
+                  <Link to="/blog/digital-marketing-services-in-kashmir">
                     digital marketing services in Kashmir
                   </Link>{' '}
                   covers this in detail.
@@ -233,7 +235,7 @@ export default function TechWithHussainPost() {
                   Creating an online store means more than listing products — there must be a smooth
                   checkout process, secure payment integration, and a structured site that search engines
                   can crawl and rank. You can review{' '}
-                  <Link to="/projects/">past projects</Link> to see the range of work delivered.
+                  <Link to="/projects">past projects</Link> to see the range of work delivered.
                 </p>
 
                 {/* ── Services ── */}
@@ -261,7 +263,7 @@ export default function TechWithHussainPost() {
                   service covers site structure, on-page optimisation, page speed improvements, and
                   content strategy. For businesses that want to understand what this involves in more
                   depth, this guide on finding the right{' '}
-                  <Link to="/blog/seo-expert-in-jammu-and-kashmir/">
+                  <Link to="/blog/seo-expert-in-jammu-and-kashmir">
                     SEO expert in Jammu and Kashmir
                   </Link>{' '}
                   is a good starting point.
@@ -312,7 +314,7 @@ export default function TechWithHussainPost() {
                   In the <strong>Jammu region</strong>, retail, trading, and service businesses prioritise
                   clear information, fast page loads, and easy navigation that converts visits into phone
                   calls and enquiries. The full list of available services can be found on the{' '}
-                  <Link to="/services/">services page</Link>.
+                  <Link to="/services">services page</Link>.
                 </p>
 
                 {/* ── What makes a website work ── */}
@@ -348,7 +350,7 @@ export default function TechWithHussainPost() {
                 </p>
                 <p>
                   To get an accurate quotation, reach out via{' '}
-                  <Link to="/contact/">the contact page</Link> or WhatsApp to discuss your project
+                  <Link to="/contact">the contact page</Link> or WhatsApp to discuss your project
                   requirements directly.
                 </p>
 
@@ -429,7 +431,7 @@ export default function TechWithHussainPost() {
                     Ready to get a fast, mobile-friendly, and SEO-ready website for your business in
                     Jammu &amp; Kashmir? Get in touch with TechWithHussain today.
                   </p>
-                  <Link to="/contact/" className="btn btn-primary" data-cursor="hover">
+                  <Link to="/contact" className="btn btn-primary" data-cursor="hover">
                     Get a Free Quote <ArrowRight size={16} />
                   </Link>
                 </div>

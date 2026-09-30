@@ -5,6 +5,7 @@ import { servicePageSchema, breadcrumbSchema, faqSchema } from '@/utils/schema'
 import ServiceIcon from '@/components/common/ServiceIcon'
 import { DEFAULT_SERVICES } from '@/data/servicesData'
 import styles from './ServiceDetailPage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const SLUG_ALIAS_MAP = {
   'ai-development': 'application-development',
@@ -16,6 +17,7 @@ const SLUG_ALIAS_MAP = {
 }
 
 export default function ServiceDetailPage() {
+  usePageReady()
   const { slug } = useParams()
   
   const targetSlug = SLUG_ALIAS_MAP[slug] || slug
@@ -24,7 +26,7 @@ export default function ServiceDetailPage() {
   )
 
   if (!service) {
-    return <Navigate to="/services/" replace />
+    return <Navigate to="/services" replace />
   }
 
   const keywordsMap = {
@@ -38,20 +40,27 @@ export default function ServiceDetailPage() {
 
   const metaKeywords = keywordsMap[service.slug] || 'web development services in Kashmir, web developer in Srinagar, SEO expert in Srinagar'
 
+  const servicePageTitle = service.slug === 'meta-ads'
+    ? 'Meta Ads (Facebook & Instagram) in Kashmir | Tech With Hussain'
+    : service.slug === 'seo-services'
+    ? 'Search Engine Optimization (SEO) | Tech With Hussain'
+    : `${service.title} in Kashmir | Tech With Hussain`
+
   return (
     <>
       <SEOMeta
-        title={`${service.title} | Tech With Hussain Srinagar J&K`}
+        title={servicePageTitle}
+        titleAsIs
         description={service.description || service.short_desc}
-        canonical={`/services/${service.slug}/`}
+        canonical={`/services/${service.slug}`}
         keywords={metaKeywords}
         schema={[
           servicePageSchema({ title: service.title, slug: service.slug, description: service.description || service.short_desc }),
           faqSchema(service.faqs ? service.faqs.map(f => ({ question: f.q, answer: f.a })) : []),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services/' },
-            { name: service.title, path: `/services/${service.slug}/` },
+            { name: 'Services', path: '/services' },
+            { name: service.title, path: `/services/${service.slug}` },
           ]),
         ]}
       />
@@ -59,7 +68,7 @@ export default function ServiceDetailPage() {
       <div className={styles.serviceDetail}>
         <div className="container">
           {/* Back Button */}
-          <Link to="/services/" className={styles.backBtn} data-cursor="hover">
+          <Link to="/services" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to All Services
           </Link>
 

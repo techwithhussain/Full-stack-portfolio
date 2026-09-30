@@ -6,6 +6,7 @@ import SEOMeta from '@/components/common/SEOMeta'
 import { contactPageSchema, breadcrumbSchema } from '@/utils/schema'
 import { SITE } from '@/data/constants'
 import styles from './ContactPage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const SERVICE_OPTIONS = [
   'AI Web Development',
@@ -36,6 +37,7 @@ const FAQS = [
 ]
 
 export default function ContactPage() {
+  usePageReady()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
   const [selectedFile, setSelectedFile] = useState(null)
@@ -92,12 +94,12 @@ export default function ContactPage() {
   return (
     <>
       <SEOMeta
-        title="Hire Web Developer in Srinagar | Contact Tech With Hussain J&K"
+        title="Hire Web Developer in Srinagar | Tech With Hussain"
         titleAsIs
-        description="Contact Hussain Lone — top-rated web developer & SEO expert in Srinagar, J&K. Available for web development, SEO, Meta Ads & digital marketing projects in Kashmir and worldwide."
-        canonical="/contact/"
+        description="Hire Hussain Lone — top web developer & SEO expert in Srinagar, J&K. Available for web development, SEO, Meta Ads & digital marketing in Kashmir."
+        canonical="/contact"
         keywords="hire web developer Srinagar, contact web developer Kashmir, hire SEO expert J&K, web development services contact, freelance web developer Kashmir, web designer Srinagar contact"
-        schema={[contactPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])]}
+        schema={[contactPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]}
       />
 
       <div className={styles.contactPage}>

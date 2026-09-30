@@ -8,6 +8,7 @@ import axios from 'axios'
 import styles from './ProjectsPage.module.css'
 
 import { PROJECTS_DATA } from '@/data/projectsData'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const CATEGORIES = [
   { id: 'all',            label: 'All Projects' },
@@ -30,6 +31,7 @@ const getResultIcon = (label) => {
 }
 
 export default function ProjectsPage() {
+  usePageReady()
   const [searchQuery, setSearchQuery] = useState('')
   const [activeTab, setActiveTab] = useState('all')
   const [sortBy, setSortBy] = useState('default')
@@ -301,12 +303,12 @@ export default function ProjectsPage() {
   return (
     <>
       <SEOMeta
-        title="Web Development Portfolio | Projects by Hussain Lone — Srinagar J&K"
+        title="Web Development Portfolio | Hussain Lone — Srinagar, J&K"
         titleAsIs
-        description="Explore Hussain Lone's web development portfolio — AI automation, WordPress websites, React apps & SEO case studies. Top web developer in Srinagar, Jammu & Kashmir."
-        canonical="/projects/"
+        description="Explore Hussain Lone's web development portfolio — WordPress, React apps & SEO case studies by the leading web developer in Srinagar, Jammu & Kashmir."
+        canonical="/projects"
         keywords="web development portfolio Kashmir, website projects Srinagar, best web developer portfolio J&K, React web apps Kashmir, WordPress portfolio Srinagar, SEO case studies Kashmir"
-        schema={[projectsPageSchema(projectsList), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects/' }])]}
+        schema={[projectsPageSchema(projectsList), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])]}
       />
 
       <div className={styles.projectsPage}>
@@ -473,7 +475,7 @@ export default function ProjectsPage() {
             <div className={styles.collabBox}>
               <h2>Have a custom software requirement?</h2>
               <p>Let's architect a solid application that handles your traffic, database structures, or AI integrations flawlessly.</p>
-              <Link to="/contact/" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
+              <Link to="/contact" className="btn btn-primary btn-lg mt-sm" data-cursor="hover">
                 Discuss Your Idea <ArrowRight size={16} />
               </Link>
             </div>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import {
   Compass,
   Globe,
@@ -12,6 +12,7 @@ import {
 import SEOMeta from '@/components/common/SEOMeta'
 import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 import styles from './SitemapPage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const SITEMAP_SECTIONS = [
   {
@@ -21,9 +22,9 @@ const SITEMAP_SECTIONS = [
     icon: Globe,
     links: [
       { label: 'Home', href: '/' },
-      { label: 'About', href: '/about/' },
-      { label: 'Contact', href: '/contact/' },
-      { label: 'Resume', href: '/resume/' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Resume', href: '/resume' },
     ],
   },
   {
@@ -32,13 +33,13 @@ const SITEMAP_SECTIONS = [
     bgGlow: 'rgba(74, 144, 226, 0.08)',
     icon: Layers,
     links: [
-      { label: 'All Services', href: '/services/' },
-      { label: 'Web Development', href: '/services/web-development/' },
-      { label: 'SEO Services', href: '/services/seo-services/' },
-      { label: 'Application Development', href: '/services/application-development/' },
-      { label: 'Meta Ads', href: '/services/meta-ads/' },
-      { label: 'Google Ads', href: '/services/google-ads/' },
-      { label: 'Social Media Marketing', href: '/services/social-media-marketing/' },
+      { label: 'All Services', href: '/services' },
+      { label: 'Web Development', href: '/services/web-development' },
+      { label: 'SEO Services', href: '/services/seo-services' },
+      { label: 'Application Development', href: '/services/application-development' },
+      { label: 'Meta Ads', href: '/services/meta-ads' },
+      { label: 'Google Ads', href: '/services/google-ads' },
+      { label: 'Social Media Marketing', href: '/services/social-media-marketing' },
     ],
   },
   {
@@ -47,10 +48,10 @@ const SITEMAP_SECTIONS = [
     bgGlow: 'rgba(123, 97, 255, 0.08)',
     icon: FolderGit2,
     links: [
-      { label: 'All Projects', href: '/projects/' },
-      { label: 'WalnutWala — E-Commerce Store', href: '/projects/walnutwala/' },
-      { label: 'Guru Digital Advertising', href: '/projects/guru-digital-advertising/' },
-      { label: 'Gurukul Vidya Peeth Portal', href: '/projects/gurukul-vidya-peeth/' },
+      { label: 'All Projects', href: '/projects' },
+      { label: 'WalnutWala — E-Commerce Store', href: '/projects/walnutwala' },
+      { label: 'Guru Digital Advertising', href: '/projects/guru-digital-advertising' },
+      { label: 'Gurukul Vidya Peeth Portal', href: '/projects/gurukul-vidya-peeth' },
     ],
   },
   {
@@ -59,13 +60,13 @@ const SITEMAP_SECTIONS = [
     bgGlow: 'rgba(0, 255, 157, 0.08)',
     icon: BookOpen,
     links: [
-      { label: 'All Articles', href: '/blog/' },
-      { label: 'Web Developer in Kashmir', href: '/blog/web-developer-in-kashmir/' },
-      { label: 'Digital Marketing Services in Kashmir', href: '/blog/digital-marketing-services-in-kashmir/' },
-      { label: 'SEO Expert in Jammu and Kashmir', href: '/blog/seo-expert-in-jammu-and-kashmir/' },
-      { label: 'How to Choose Best Web Dev Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir/' },
-      { label: 'Best Web Developer in Jammu and Kashmir', href: '/blog/best-web-developer-in-jammu-and-kashmir/' },
-      { label: 'Best Web Developer in Srinagar — TechWithHussain', href: '/blog/web-developer-srinagar-techwithhussain/' },
+      { label: 'All Articles', href: '/blog' },
+      { label: 'Web Developer in Kashmir', href: '/blog/web-developer-in-kashmir' },
+      { label: 'Digital Marketing Services in Kashmir', href: '/blog/digital-marketing-services-in-kashmir' },
+      { label: 'SEO Expert in Jammu and Kashmir', href: '/blog/seo-expert-in-jammu-and-kashmir' },
+      { label: 'How to Choose Best Web Dev Company in Kashmir', href: '/blog/how-to-choose-the-best-website-development-company-in-kashmir' },
+      { label: 'Best Web Developer in Jammu and Kashmir', href: '/blog/best-web-developer-in-jammu-and-kashmir' },
+      { label: 'Best Web Developer in Srinagar — TechWithHussain', href: '/blog/web-developer-srinagar-techwithhussain' },
     ],
   },
   {
@@ -74,8 +75,8 @@ const SITEMAP_SECTIONS = [
     bgGlow: 'rgba(74, 144, 226, 0.08)',
     icon: UserCheck,
     links: [
-      { label: 'Experience & Career Timeline', href: '/experience/' },
-      { label: 'Client Testimonials & Reviews', href: '/testimonials/' },
+      { label: 'Experience & Career Timeline', href: '/experience' },
+      { label: 'Client Testimonials & Reviews', href: '/testimonials' },
     ],
   },
   {
@@ -84,14 +85,15 @@ const SITEMAP_SECTIONS = [
     bgGlow: 'rgba(123, 97, 255, 0.08)',
     icon: ShieldCheck,
     links: [
-      { label: 'Privacy Policy', href: '/privacy-policy/' },
-      { label: 'Terms & Conditions', href: '/terms/' },
-      { label: 'HTML Sitemap', href: '/sitemap/' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms & Conditions', href: '/terms' },
+      { label: 'HTML Sitemap', href: '/sitemap' },
     ],
   },
 ]
 
 export default function SitemapPage() {
+  usePageReady()
   const totalSections = SITEMAP_SECTIONS.length
   const totalPages = SITEMAP_SECTIONS.reduce((acc, curr) => acc + curr.links.length, 0)
 
@@ -100,16 +102,16 @@ export default function SitemapPage() {
       <SEOMeta
         title="Sitemap · Tech With Hussain"
         description="Complete visual sitemap listing all public pages, services, case studies, and guides of Tech With Hussain."
-        canonical="/sitemap/"
+        canonical="/sitemap"
         schema={[
           webPageSchema({
             title: 'Sitemap · Tech With Hussain',
             description: 'Complete visual sitemap listing all public pages of Tech With Hussain.',
-            path: '/sitemap/',
+            path: '/sitemap',
           }),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
-            { name: 'Sitemap', path: '/sitemap/' },
+            { name: 'Sitemap', path: '/sitemap' },
           ]),
         ]}
       />

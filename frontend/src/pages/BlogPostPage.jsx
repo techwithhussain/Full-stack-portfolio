@@ -1,19 +1,21 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { ArrowLeft, Clock, Sparkles } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
+import { usePageReady } from '@/hooks/usePageReady'
 
 export default function BlogPostPage() {
+  usePageReady()
   return (
     <>
       <SEOMeta
         title="Article Coming Soon · Tech With Hussain"
         description="This article is currently being drafted and will be available soon."
-        canonical="/blog/"
+        canonical="/blog"
       />
 
       <div style={{ paddingTop: '140px', paddingBottom: '80px' }}>
         <div className="container">
-          <Link to="/blog/" className="btn btn-outline btn-sm" style={{ marginBottom: 32, gap: 8 }} data-cursor="hover">
+          <Link to="/blog" className="btn btn-outline btn-sm" style={{ marginBottom: 32, gap: 8 }} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
 
@@ -71,7 +73,7 @@ export default function BlogPostPage() {
               I am putting the finishing touches on this in-depth guide. Subscribe on the main blog page to be notified as soon as it goes live!
             </p>
 
-            <Link to="/blog/" className="btn btn-primary" data-cursor="hover">
+            <Link to="/blog" className="btn btn-primary" data-cursor="hover">
               Go to Blog Hub
             </Link>
           </div>

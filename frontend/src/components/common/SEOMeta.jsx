@@ -28,15 +28,15 @@ export default function SEOMeta({
   const metaDesc  = truncateForSEO(description || SITE.tagline, 160)
   const ogImg     = ogImage || `${SITE.url}/og-default.png`
 
-  // Format canonical URL: HTTPS, NON-WWW, homepage ending with '/', subpages ending with trailing slash
+  // Format canonical URL: HTTPS, NON-WWW, homepage keeps '/', subpages use NO trailing slash
   const getCanonicalUrl = () => {
     if (noIndex) return undefined
     let path = canonical !== undefined ? canonical : location.pathname
     if (!path) path = '/'
     if (!path.startsWith('/')) path = '/' + path
     if (path === '/') return 'https://techwithhussain.online/'
-    // Ensure single trailing slash for subpages
-    path = path.replace(/\/+$/, '') + '/'
+    // Remove any trailing slash for subpages (non-trailing-slash canonical policy)
+    path = path.replace(/\/+$/, '')
     return `https://techwithhussain.online${path}`
   }
 
@@ -101,12 +101,15 @@ export default function SEOMeta({
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
-            itemListElement: breadcrumbs.map((b, i) => ({
-              '@type': 'ListItem',
-              position: i + 1,
-              name: b.name,
-              item: `${SITE.url}${b.path.endsWith('/') ? b.path : b.path + '/'}`,
-            })),
+            itemListElement: breadcrumbs.map((b, i) => {
+              const bPath = b.path === '/' ? '/' : b.path.replace(/\/+$/, '')
+              return {
+                '@type': 'ListItem',
+                position: i + 1,
+                name: b.name,
+                item: `${SITE.url}${bPath}`,
+              }
+            }),
           })}
         </script>
       )}

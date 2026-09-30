@@ -90,7 +90,7 @@ export default function ServicesSection() {
         </motion.div>
 
         <div className="text-center mt-lg">
-          <Link to="/services/" className="btn btn-primary btn-lg" data-cursor="hover">
+          <Link to="/services" className="btn btn-primary btn-lg" data-cursor="hover">
             Explore All Services & Capabilities <ArrowRight size={16} />
           </Link>
         </div>

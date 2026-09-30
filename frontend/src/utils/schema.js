@@ -2,7 +2,7 @@ import { SITE, SOCIAL } from '@/data/constants'
 
 /**
  * Unified JSON-LD Schema.org Architecture for Tech With Hussain
- * Base Entity IDs (Stable URLs matching canonical structure):
+ * Base Entity IDs (Stable URLs matching canonical NON-TRAILING-SLASH structure):
  * - Website:  https://techwithhussain.online/#website
  * - Person:   https://techwithhussain.online/#person
  * - Business: https://techwithhussain.online/#business
@@ -104,18 +104,18 @@ export const getWebSiteEntity = () => ({
 })
 
 /**
- * Breadcrumb Schema Generator
+ * Breadcrumb Schema Generator — uses NON-TRAILING-SLASH canonical URLs
  */
 export const breadcrumbSchema = (crumbs = []) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: crumbs.map((crumb, i) => {
-    let fullUrl = crumb.path.startsWith('http')
+    let rawPath = crumb.path.startsWith('http')
       ? crumb.path
-      : `${SITE.url}${crumb.path.startsWith('/') ? crumb.path : '/' + crumb.path}`
-    if (!fullUrl.endsWith('/')) {
-      fullUrl += '/'
-    }
+      : crumb.path.startsWith('/') ? crumb.path : '/' + crumb.path
+    // Enforce non-trailing-slash for all paths except root homepage
+    if (rawPath !== '/') rawPath = rawPath.replace(/\/+$/, '')
+    const fullUrl = rawPath.startsWith('http') ? rawPath : `${SITE.url}${rawPath}`
     return {
       '@type': 'ListItem',
       position: i + 1,
@@ -164,8 +164,8 @@ export const servicesPageSchema = (services = []) => ({
   '@graph': [
     {
       '@type': 'CollectionPage',
-      '@id': `${SITE.url}/services/#webpage`,
-      url: `${SITE.url}/services/`,
+      '@id': `${SITE.url}/services#webpage`,
+      url: `${SITE.url}/services`,
       name: 'Web Dev & SEO Services in Kashmir, J&K',
       description: 'Web development, SEO, Meta Ads & digital marketing services in Srinagar, J&K from Hussain Lone.',
       isPartOf: { '@id': ENTITY_IDS.website },
@@ -178,7 +178,7 @@ export const servicesPageSchema = (services = []) => ({
               '@type': 'ListItem',
               position: idx + 1,
               name: s.title || s.name,
-              url: s.slug ? `${SITE.url}/services/${s.slug}/` : `${SITE.url}/services/`,
+              url: s.slug ? `${SITE.url}/services/${s.slug}` : `${SITE.url}/services`,
               description: s.description || s.short_desc || '',
             })),
           },
@@ -195,10 +195,10 @@ export const servicePageSchema = (service) => ({
   '@graph': [
     {
       '@type': 'Service',
-      '@id': `${SITE.url}/services/${service.slug}/#service`,
+      '@id': `${SITE.url}/services/${service.slug}#service`,
       name: service.title,
       description: service.description || service.short_desc || '',
-      url: `${SITE.url}/services/${service.slug}/`,
+      url: `${SITE.url}/services/${service.slug}`,
       serviceType: service.title,
       provider: { '@id': ENTITY_IDS.business },
       areaServed: [
@@ -218,8 +218,8 @@ export const projectsPageSchema = (projects = []) => ({
   '@graph': [
     {
       '@type': 'CollectionPage',
-      '@id': `${SITE.url}/projects/#webpage`,
-      url: `${SITE.url}/projects/`,
+      '@id': `${SITE.url}/projects#webpage`,
+      url: `${SITE.url}/projects`,
       name: 'Projects Portfolio · Hussain Lone',
       description: 'Explore web development, WordPress e-commerce, and SEO project case studies.',
       isPartOf: { '@id': ENTITY_IDS.website },
@@ -234,7 +234,7 @@ export const projectsPageSchema = (projects = []) => ({
               item: {
                 '@type': p.category === 'WordPress' ? 'WebSite' : 'CreativeWork',
                 name: p.title,
-                url: p.liveUrl || `${SITE.url}/projects/`,
+                url: p.liveUrl || `${SITE.url}/projects`,
                 description: p.desc || p.excerpt || '',
               },
             })),
@@ -252,10 +252,10 @@ export const blogPageSchema = (posts = []) => ({
   '@graph': [
     {
       '@type': 'Blog',
-      '@id': `${SITE.url}/blog/#blog`,
-      url: `${SITE.url}/blog/`,
-      name: 'Blog · Tech Insights Coming Soon',
-      description: 'Articles on web development, SEO strategies, Meta Ads, and digital growth in Kashmir.',
+      '@id': `${SITE.url}/blog#blog`,
+      url: `${SITE.url}/blog`,
+      name: 'Tech With Hussain Blog — Web Development & SEO Insights from Kashmir',
+      description: 'Expert articles on web development, SEO, digital marketing, WordPress, and AI tools — written by Hussain Lone, web developer & SEO specialist in Srinagar, J&K.',
       isPartOf: { '@id': ENTITY_IDS.website },
       publisher: { '@id': ENTITY_IDS.business },
     },
@@ -266,7 +266,7 @@ export const blogPageSchema = (posts = []) => ({
             itemListElement: posts.map((post, idx) => ({
               '@type': 'ListItem',
               position: idx + 1,
-              url: `${SITE.url}/blog/${post.slug}/`,
+              url: `${SITE.url}/blog/${post.slug}`,
               name: post.title,
             })),
           },
@@ -288,7 +288,7 @@ export const blogPostSchema = (post) => {
     '@graph': [
       {
         '@type': 'BlogPosting',
-        '@id': `${SITE.url}/blog/${post.slug}/#post`,
+        '@id': `${SITE.url}/blog/${post.slug}#post`,
         headline: post.title,
         description: post.excerpt || post.description || '',
         image: thumbUrl,
@@ -296,8 +296,8 @@ export const blogPostSchema = (post) => {
         publisher: { '@id': ENTITY_IDS.business },
         datePublished: post.datePublished || post.published_at || '2026-08-04',
         ...(post.dateModified || post.updated_at ? { dateModified: post.dateModified || post.updated_at } : {}),
-        url: `${SITE.url}/blog/${post.slug}/`,
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${post.slug}/` },
+        url: `${SITE.url}/blog/${post.slug}`,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${post.slug}` },
       },
     ],
   }
@@ -311,8 +311,8 @@ export const contactPageSchema = () => ({
   '@graph': [
     {
       '@type': 'ContactPage',
-      '@id': `${SITE.url}/contact/#webpage`,
-      url: `${SITE.url}/contact/`,
+      '@id': `${SITE.url}/contact#webpage`,
+      url: `${SITE.url}/contact`,
       name: 'Contact Me · Tech With Hussain',
       description: 'Get in touch with Hussain Lone for custom web development, SEO audits, or digital marketing in Srinagar, J&K.',
       isPartOf: { '@id': ENTITY_IDS.website },
@@ -324,19 +324,23 @@ export const contactPageSchema = () => ({
 /**
  * General WebPage Schema (Legal & Utility Pages)
  */
-export const webPageSchema = ({ title, description, path }) => ({
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': `${SITE.url}${path}#webpage`,
-      url: `${SITE.url}${path}`,
-      name: title,
-      description: description,
-      isPartOf: { '@id': ENTITY_IDS.website },
-    },
-  ],
-})
+export const webPageSchema = ({ title, description, path }) => {
+  // Ensure non-trailing-slash for all paths except root
+  const cleanPath = path === '/' ? '/' : path.replace(/\/+$/, '')
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE.url}${cleanPath}#webpage`,
+        url: `${SITE.url}${cleanPath}`,
+        name: title,
+        description: description,
+        isPartOf: { '@id': ENTITY_IDS.website },
+      },
+    ],
+  }
+}
 
 /**
  * FAQ Schema (Only rendered when FAQ questions are visible on page)
@@ -359,6 +363,10 @@ export const personSchema = () => getPersonEntity()
 export const websiteSchema = () => getWebSiteEntity()
 export const localBusinessSchema = () => getBusinessEntity()
 export const professionalServiceSchema = () => getBusinessEntity()
+// ⚠️  IMPORTANT: Only include aggregateRatingSchema() in a page's schema prop
+// when the ratingValue and reviewCount reflect REAL, verifiable reviews visible
+// on that page. Using fabricated or static numbers violates Google's schema
+// guidelines and risks a manual action.
 export const aggregateRatingSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'AggregateRating',
@@ -368,4 +376,3 @@ export const aggregateRatingSchema = () => ({
   bestRating: '5',
   worstRating: '1',
 })
-

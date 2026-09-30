@@ -3,6 +3,7 @@ import { Star, Quote, Play, CheckCircle2, MessageSquare, ArrowRight } from 'luci
 import SEOMeta from '@/components/common/SEOMeta'
 import { webPageSchema, breadcrumbSchema } from '@/utils/schema'
 import styles from './TestimonialsPage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const REVIEWS = [
   {
@@ -62,17 +63,18 @@ const REVIEWS = [
 ]
 
 export default function TestimonialsPage() {
+  usePageReady()
   return (
     <>
       <SEOMeta
-        title="Client Testimonials | Web Developer Reviews — Tech With Hussain"
+        title="Client Reviews & Testimonials | Tech With Hussain"
         titleAsIs
-        description="Read verified client reviews of Hussain Lone — top web developer & SEO expert in Srinagar, J&K. Feedback from Upwork, Fiverr & LinkedIn clients worldwide."
-        canonical="/testimonials/"
+        description="Verified client reviews of Hussain Lone — top web developer & SEO expert in Srinagar, J&K. Upwork, Fiverr & LinkedIn client feedback worldwide."
+        canonical="/testimonials"
         keywords="web developer reviews Kashmir, client testimonials Srinagar, best web developer feedback J&K, hire web developer reviews, SEO expert testimonials Kashmir"
         schema={[
-          webPageSchema({ title: 'Client Testimonials | Tech With Hussain', description: 'Client reviews and feedback.', path: '/testimonials/' }),
-          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Testimonials', path: '/testimonials/' }]),
+          webPageSchema({ title: 'Client Testimonials | Tech With Hussain', description: 'Client reviews and feedback.', path: '/testimonials' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Testimonials', path: '/testimonials' }]),
         ]}
       />
 
@@ -164,7 +166,7 @@ export default function TestimonialsPage() {
               <h2>Ready to be my next success story?</h2>
               <p>Let's schedule a call to explore how we can automate your tasks and rank your platform.</p>
               <div className={styles.ctaActions}>
-                <Link to="/contact/" className="btn btn-primary btn-lg" data-cursor="hover">
+                <Link to="/contact" className="btn btn-primary btn-lg" data-cursor="hover">
                   Book Discovery Session <ArrowRight size={16} />
                 </Link>
                 <button

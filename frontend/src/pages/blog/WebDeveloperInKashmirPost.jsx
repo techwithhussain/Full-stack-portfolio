@@ -5,6 +5,7 @@ import SocialShare from '@/components/common/SocialShare'
 import { SITE } from '@/data/constants'
 import { breadcrumbSchema } from '@/utils/schema'
 import styles from './BestWebDeveloperJammuKashmirPost.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const TOC_SECTIONS = [
   { id: 'why-need', label: 'Why Does Your Business Need a Professional Website?' },
@@ -20,7 +21,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG = 'web-developer-in-kashmir'
-const CANONICAL = `/blog/${SLUG}/`
+const CANONICAL = `/blog/${SLUG}`
 const THUMBNAIL = '/web-developer-in-kashmir.webp'
 const PUBLISH_DATE = '2026-09-07'
 
@@ -92,10 +93,11 @@ const faqPageSchema = {
 }
 
 export default function WebDeveloperInKashmirPost() {
+  usePageReady()
   return (
     <>
       <SEOMeta
-        title="Web Developer in Kashmir – Professional Website Development Services | Tech With Hussain"
+        title="Web Developer in Kashmir: Complete Guide | Tech With Hussain"
         titleAsIs
         description="Looking for a reliable web developer in Kashmir? Discover professional website design, development, SEO-friendly websites and digital solutions for businesses in Kashmir."
         canonical={CANONICAL}
@@ -107,7 +109,7 @@ export default function WebDeveloperInKashmirPost() {
           faqPageSchema,
           breadcrumbSchema([
             { name: 'Home', path: '/' },
-            { name: 'Blog', path: '/blog/' },
+            { name: 'Blog', path: '/blog' },
             { name: 'Web Developer in Kashmir', path: CANONICAL },
           ]),
         ]}
@@ -115,7 +117,7 @@ export default function WebDeveloperInKashmirPost() {
 
       <div className={styles.postPage}>
         <div className="container">
-          <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
+          <Link to="/blog" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
 
@@ -233,7 +235,7 @@ export default function WebDeveloperInKashmirPost() {
                 <p>
                   A large percentage of visitors access websites through smartphones. That's why a
                   professional{' '}
-                  <Link to="/blog/web-developer-srinagar-techwithhussain/">
+                  <Link to="/blog/web-developer-srinagar-techwithhussain">
                     web developer in Kashmir
                   </Link>{' '}
                   should make sure the website works properly across:
@@ -372,7 +374,7 @@ export default function WebDeveloperInKashmirPost() {
                 <p>
                   Don't choose a developer only because they offer the cheapest price. Before hiring
                   a{' '}
-                  <Link to="/blog/how-to-choose-the-best-website-development-company-in-kashmir/">
+                  <Link to="/blog/how-to-choose-the-best-website-development-company-in-kashmir">
                     web developer in Kashmir
                   </Link>
                   , look closely at these crucial factors:
@@ -492,7 +494,7 @@ export default function WebDeveloperInKashmirPost() {
                 </p>
                 <p>
                   If you are looking for a reliable{' '}
-                  <Link to="/blog/best-web-developer-in-jammu-and-kashmir/">
+                  <Link to="/blog/best-web-developer-in-jammu-and-kashmir">
                     web developer in Kashmir
                   </Link>{' '}
                   for your business, portfolio, e-commerce store, or custom web application,{' '}
@@ -518,7 +520,7 @@ export default function WebDeveloperInKashmirPost() {
                     Discuss your project directly with Hussain — fast delivery, custom design, and
                     SEO-ready architecture built for growth.
                   </p>
-                  <Link to="/contact/" className="btn btn-primary" data-cursor="hover">
+                  <Link to="/contact" className="btn btn-primary" data-cursor="hover">
                     Get a Free Consultation <ArrowRight size={16} />
                   </Link>
                 </div>

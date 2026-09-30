@@ -6,8 +6,10 @@ import SEOMeta from '@/components/common/SEOMeta'
 import { blogPageSchema, breadcrumbSchema } from '@/utils/schema'
 import axios from 'axios'
 import styles from './BlogPage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 export default function BlogPage() {
+  usePageReady()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState(null) // 'loading' | 'success' | 'error'
   const [msg, setMsg] = useState('')
@@ -38,10 +40,10 @@ export default function BlogPage() {
       <SEOMeta
         title="Web Development & SEO Blog | Tech With Hussain — J&K"
         titleAsIs
-        description="Read expert articles on web development, SEO strategies, digital marketing & AI automation by Hussain Lone — Web Developer & SEO Expert in Srinagar, Jammu & Kashmir."
-        canonical="/blog/"
+        description="Expert articles on web development, SEO strategies & digital growth by Hussain Lone — Web Developer & SEO Expert in Srinagar, Jammu & Kashmir."
+        canonical="/blog"
         keywords="web development blog Kashmir, SEO tips Jammu and Kashmir, digital marketing blog Srinagar, web developer blog J&K, WordPress tips Kashmir, SEO strategies blog, web design tutorials Kashmir"
-        schema={[blogPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }])]}
+        schema={[blogPageSchema(), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }])]}
       />
 
       <div className={styles.blogPage}>
@@ -66,7 +68,7 @@ export default function BlogPage() {
             <div className={styles.postsGrid}>
               {/* Blog (Newest - Web Developer in Kashmir) */}
               <Link
-                to="/blog/web-developer-in-kashmir/"
+                to="/blog/web-developer-in-kashmir"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -91,7 +93,7 @@ export default function BlogPage() {
 
               {/* Blog (TechWithHussain profile) */}
               <Link
-                to="/blog/web-developer-srinagar-techwithhussain/"
+                to="/blog/web-developer-srinagar-techwithhussain"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -116,7 +118,7 @@ export default function BlogPage() {
 
               {/* Blog (Digital Marketing) */}
               <Link
-                to="/blog/digital-marketing-services-in-kashmir/"
+                to="/blog/digital-marketing-services-in-kashmir"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -141,7 +143,7 @@ export default function BlogPage() {
 
               {/* Blog 1 */}
               <Link
-                to="/blog/seo-expert-in-jammu-and-kashmir/"
+                to="/blog/seo-expert-in-jammu-and-kashmir"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -166,7 +168,7 @@ export default function BlogPage() {
 
               {/* Blog 2 */}
               <Link
-                to="/blog/how-to-choose-the-best-website-development-company-in-kashmir/"
+                to="/blog/how-to-choose-the-best-website-development-company-in-kashmir"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >
@@ -191,7 +193,7 @@ export default function BlogPage() {
 
               {/* Blog 2 */}
               <Link
-                to="/blog/best-web-developer-in-jammu-and-kashmir/"
+                to="/blog/best-web-developer-in-jammu-and-kashmir"
                 className={`glass-card ${styles.postCard}`}
                 data-cursor="hover"
               >

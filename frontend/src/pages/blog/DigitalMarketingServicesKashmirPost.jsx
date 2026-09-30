@@ -31,6 +31,7 @@ import SocialShare from '@/components/common/SocialShare'
 import { SITE } from '@/data/constants'
 import { breadcrumbSchema } from '@/utils/schema'
 import styles from './DigitalMarketingPost.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const TOC_SECTIONS = [
   { id: 'guide', label: 'Complete Guide & Overview' },
@@ -50,7 +51,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG = 'digital-marketing-services-in-kashmir'
-const CANONICAL = `/blog/${SLUG}/`
+const CANONICAL = `/blog/${SLUG}`
 const THUMBNAIL = '/digital-marketing-services-in-kashmir.webp'
 const PUBLISH_DATE = '2026-08-15'
 
@@ -160,12 +161,13 @@ const faqPageSchema = {
 }
 
 export default function DigitalMarketingServicesKashmirPost() {
+  usePageReady()
   const [isTocOpen, setIsTocOpen] = useState(true)
 
   return (
     <>
       <SEOMeta
-        title="Digital Marketing Services in Kashmir | Grow Your Business Online"
+        title="Digital Marketing Services in Kashmir | Tech With Hussain"
         titleAsIs
         description="Get professional digital marketing services in Kashmir including SEO, social media, PPC, content marketing and website optimization to grow your business online."
         canonical={CANONICAL}
@@ -174,7 +176,7 @@ export default function DigitalMarketingServicesKashmirPost() {
         keywords="digital marketing Kashmir, digital marketing services Kashmir, digital marketing agency Kashmir, SEO Kashmir, social media marketing Kashmir, PPC Kashmir, content marketing, local SEO, digital marketing company in Kashmir, PPC services Kashmir, content marketing Kashmir, website development Kashmir, digital marketing for small businesses in Kashmir"
         schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog/' },
+          { name: 'Blog', path: '/blog' },
           { name: 'Digital Marketing Services in Kashmir', path: CANONICAL },
         ])]}
       />
@@ -182,7 +184,7 @@ export default function DigitalMarketingServicesKashmirPost() {
       <div className={styles.postPage}>
         <div className="container">
           <div className={styles.articleWrapper}>
-            <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
+            <Link to="/blog" className={styles.backBtn} data-cursor="hover">
               <ArrowLeft size={16} /> Back to Blog
             </Link>
 
@@ -254,7 +256,7 @@ export default function DigitalMarketingServicesKashmirPost() {
             {/* Lead Hook Highlight Box */}
             <div className={styles.leadCallout} id="guide">
               <p className={styles.leadText}>
-                <strong><Link to="/services/" className={styles.textLink}>Digital Marketing services in Kashmir</Link></strong> are becoming a necessity for businesses that want to make their mark on the online platform, stand out from the rest and connect with potential customers. With the rise of smartphones, search engines, social media, and e-commerce, the need for an online presence is increasing by the day. Be it hotels, food, education, healthcare, shopping, real estate, recruiting, or any other service vertical—every company wants to harness the power of the digital world to woo customers and boost sales.
+                <strong><Link to="/services" className={styles.textLink}>Digital Marketing services in Kashmir</Link></strong> are becoming a necessity for businesses that want to make their mark on the online platform, stand out from the rest and connect with potential customers. With the rise of smartphones, search engines, social media, and e-commerce, the need for an online presence is increasing by the day. Be it hotels, food, education, healthcare, shopping, real estate, recruiting, or any other service vertical—every company wants to harness the power of the digital world to woo customers and boost sales.
               </p>
             </div>
 
@@ -330,7 +332,7 @@ export default function DigitalMarketingServicesKashmirPost() {
             <div className={styles.serviceDetailCard} id="seo-services">
               <h3 className={styles.cardHeading}>Search Engine Optimization (SEO) Services in Kashmir</h3>
               <p className={styles.paragraph}>
-                <Link to="/blog/seo-expert-in-jammu-and-kashmir/" className={styles.textLink}>Search Engine Optimization (SEO)</Link> is the most vital element of digital marketing. SEO is defined as a systematic process that makes it possible to improve the digital presence of a company so that it appears on the first page when searching for a specific product or service.
+                <Link to="/blog/seo-expert-in-jammu-and-kashmir" className={styles.textLink}>Search Engine Optimization (SEO)</Link> is the most vital element of digital marketing. SEO is defined as a systematic process that makes it possible to improve the digital presence of a company so that it appears on the first page when searching for a specific product or service.
               </p>
               <p className={styles.paragraph}>
                 Local SEO is essential for all companies in Jammu and Kashmir since it enables them to be found by nearby customers. This is the primary reason why every business owner should consider local SEO one of the most important activities. Whether it is a hotel in Srinagar or a travel agent, everything will be brought to the attention of people actively searching in Jammu, Kashmir, and across the globe.
@@ -424,7 +426,7 @@ export default function DigitalMarketingServicesKashmirPost() {
               A proper website is the cornerstone of a successful marketing campaign. Your website is your storefront online, telling all about what you offer, products or services, and other necessary data such as contact information and company branding.
             </p>
             <p className={styles.paragraph}>
-              Digital marketing services offered in Kashmir also consist of <Link to="/blog/best-web-developer-in-jammu-and-kashmir/" className={styles.textLink}>optimizing a website</Link> in a manner that makes it more convenient to use across different devices, easy to navigate, quick to load, and designed to increase conversion rates.
+              Digital marketing services offered in Kashmir also consist of <Link to="/blog/best-web-developer-in-jammu-and-kashmir" className={styles.textLink}>optimizing a website</Link> in a manner that makes it more convenient to use across different devices, easy to navigate, quick to load, and designed to increase conversion rates.
             </p>
             <p className={styles.paragraph}>
               Having an organized website is vital in order to make sure that it functions properly. The website should be created in such a way that it conveys the value of the company, contains the necessary information, and induces the desired customer response.
@@ -555,7 +557,7 @@ export default function DigitalMarketingServicesKashmirPost() {
                 <div className={styles.faqCard}>
                   <h3 className={styles.faqQuestion}>What Are Digital Marketing Services in Kashmir?</h3>
                   <p className={styles.faqAnswer}>
-                    Digital marketing services Kashmir entails marketing activities that are done online to promote business products and services. Search engine optimization, social media marketing, content marketing, online ads, <Link to="/blog/best-web-developer-in-jammu-and-kashmir/" className={styles.textLink}>website development</Link>, email marketing, and local search optimization are among the online marketing activities that may be used. Digital marketing services help companies to advertise their goods and services, as well as increase their exposure to local and worldwide clients.
+                    Digital marketing services Kashmir entails marketing activities that are done online to promote business products and services. Search engine optimization, social media marketing, content marketing, online ads, <Link to="/blog/best-web-developer-in-jammu-and-kashmir" className={styles.textLink}>website development</Link>, email marketing, and local search optimization are among the online marketing activities that may be used. Digital marketing services help companies to advertise their goods and services, as well as increase their exposure to local and worldwide clients.
                   </p>
                 </div>
 
@@ -597,7 +599,7 @@ export default function DigitalMarketingServicesKashmirPost() {
                 <div className={styles.faqCard}>
                   <h3 className={styles.faqQuestion}>What Is the Role of SEO in Digital Marketing Services?</h3>
                   <p className={styles.faqAnswer}>
-                    <Link to="/blog/seo-expert-in-jammu-and-kashmir/" className={styles.textLink}>SEO</Link> ensures that your business website appears on the top page of Google when potential clients search for terms like "best hotels in Srinagar" or "handicrafts in Kashmir". It provides consistent organic leads without paying for every single click.
+                    <Link to="/blog/seo-expert-in-jammu-and-kashmir" className={styles.textLink}>SEO</Link> ensures that your business website appears on the top page of Google when potential clients search for terms like "best hotels in Srinagar" or "handicrafts in Kashmir". It provides consistent organic leads without paying for every single click.
                   </p>
                 </div>
 
@@ -638,7 +640,7 @@ export default function DigitalMarketingServicesKashmirPost() {
               <p className={styles.ctaDescription}>
                 Want to reach more customers in Kashmir and beyond? Get a tailored digital marketing strategy covering SEO, social media marketing, content marketing, paid advertising, and website optimization.
               </p>
-              <Link to="/contact/" className={styles.ctaBtn} data-cursor="hover">
+              <Link to="/contact" className={styles.ctaBtn} data-cursor="hover">
                 Get a Free Consultation <ArrowRight size={18} />
               </Link>
               <p className={styles.ctaSubtext}>

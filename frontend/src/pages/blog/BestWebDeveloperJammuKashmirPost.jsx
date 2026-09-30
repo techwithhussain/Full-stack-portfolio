@@ -5,6 +5,7 @@ import SocialShare from '@/components/common/SocialShare'
 import { SITE, SOCIAL } from '@/data/constants'
 import { breadcrumbSchema } from '@/utils/schema'
 import styles from './BestWebDeveloperJammuKashmirPost.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 const TOC_SECTIONS = [
   { id: 'importance', label: 'Why You Need a Website' },
@@ -20,7 +21,7 @@ const TOC_SECTIONS = [
 ]
 
 const SLUG = 'best-web-developer-in-jammu-and-kashmir'
-const CANONICAL = `/blog/${SLUG}/`
+const CANONICAL = `/blog/${SLUG}`
 const THUMBNAIL = '/best-web-developer-jammu-kashmir.webp'
 const PUBLISH_DATE = '2026-08-04'
 
@@ -90,10 +91,11 @@ const faqPageSchema = {
 }
 
 export default function BestWebDeveloperJammuKashmirPost() {
+  usePageReady()
   return (
     <>
       <SEOMeta
-        title="Best Web Developer in Jammu and Kashmir | Web Development Services"
+        title="Best Web Developer in Jammu and Kashmir | Tech With Hussain"
         titleAsIs
         description="Looking for the best web developer in Jammu and Kashmir? Here's what qualities to look for, which services matter, and what to check before you hire one."
         canonical={CANONICAL}
@@ -102,14 +104,14 @@ export default function BestWebDeveloperJammuKashmirPost() {
         keywords="best web developer in Jammu and Kashmir, web development services in Jammu and Kashmir, website designer in Srinagar, eCommerce website development Jammu, WordPress development services, SEO friendly website development"
         schema={[blogPostingSchema, faqPageSchema, breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog/' },
+          { name: 'Blog', path: '/blog' },
           { name: 'Best Web Developer in Jammu And Kashmir', path: CANONICAL },
         ])]}
       />
 
       <div className={styles.postPage}>
         <div className="container">
-          <Link to="/blog/" className={styles.backBtn} data-cursor="hover">
+          <Link to="/blog" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
 
@@ -385,7 +387,7 @@ export default function BestWebDeveloperJammuKashmirPost() {
               <h3>Ready to Build a Website That Works for Your Business?</h3>
               <div className={styles.ctaBox}>
                 <p>If you are searching for the Best Web Developer to create a business website for your local business, start-up, educational institute, travel agency, hotel, or eCommerce store, it is the perfect time to invest in a professional website. A professional website not only looks good but also delivers outstanding results for your business.</p>
-                <Link to="/contact/" className="btn btn-primary" data-cursor="hover">
+                <Link to="/contact" className="btn btn-primary" data-cursor="hover">
                   Talk to Tech With Hussain <ArrowRight size={16} />
                 </Link>
               </div>

@@ -3,8 +3,10 @@ import { motion } from 'framer-motion'
 import { Home, ArrowLeft } from 'lucide-react'
 import SEOMeta from '@/components/common/SEOMeta'
 import styles from './NotFoundPage.module.css'
+import { usePageReady } from '@/hooks/usePageReady'
 
 export default function NotFoundPage() {
+  usePageReady()
   return (
     <>
       <SEOMeta title="404 — Page Not Found" noIndex />

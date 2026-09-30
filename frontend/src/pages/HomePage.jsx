@@ -9,12 +9,14 @@ import ExperienceSection from '@/components/home/ExperienceSection'
 import BlogPreview from '@/components/home/BlogPreview'
 import ContactSection from '@/components/home/ContactSection'
 import { homePageSchema } from '@/utils/schema'
+import { usePageReady } from '@/hooks/usePageReady'
 
 export default function HomePage({ canonical = '/' }) {
+  usePageReady()
   return (
     <>
       <SEOMeta
-        title="Best Web Developer &amp; SEO Expert in J&amp;K"
+        title="Best Web Developer & SEO Expert in J&K"
         description="Top-rated web developer &amp; SEO expert in Srinagar, J&amp;K. Web development, SEO, Meta Ads &amp; digital marketing. Trusted by 30+ clients worldwide."
         canonical={canonical}
         schema={[homePageSchema()]}

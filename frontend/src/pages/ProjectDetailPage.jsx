@@ -10,8 +10,10 @@ import styles from './ProjectDetailPage.module.css'
 // Projects loaded dynamically from DB
 
 import { PROJECTS_DATA } from '@/data/projectsData'
+import { usePageReady } from '@/hooks/usePageReady'
 
 export default function ProjectDetailPage() {
+  usePageReady()
   const { slug } = useParams()
   const [project, setProject] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -108,12 +110,21 @@ export default function ProjectDetailPage() {
     return <Navigate to="/404" replace />
   }
 
+  const projectPageTitle = slug === 'walnutwala'
+    ? 'WalnutWala E-Commerce Case Study | Tech With Hussain'
+    : slug === 'guru-digital-advertising'
+    ? 'Guru Digital Advertising Case Study | Tech With Hussain'
+    : slug === 'gurukul-vidya-peeth'
+    ? 'Gurukul Vidya Peeth School Portal Case Study | Tech With Hussain'
+    : `${project.title.split('—')[0].trim()} Case Study | Tech With Hussain`
+
   return (
     <>
       <SEOMeta
-        title={`${project.title} · Case Study`}
+        title={projectPageTitle}
+        titleAsIs
         description={project.excerpt || project.desc}
-        canonical={`/projects/${slug}/`}
+        canonical={`/projects/${slug}`}
         ogImage={project.image ? `https://techwithhussain.online${project.image}` : undefined}
         schema={[
           {
@@ -121,13 +132,13 @@ export default function ProjectDetailPage() {
             '@type': project.category === 'WordPress' ? 'WebSite' : 'CreativeWork',
             name: project.title,
             description: project.problem || project.desc,
-            url: `https://techwithhussain.online/projects/${slug}/`,
+            url: `https://techwithhussain.online/projects/${slug}`,
             author: { '@id': 'https://techwithhussain.online/#person' },
           },
           breadcrumbSchema([
             { name: 'Home', path: '/' },
-            { name: 'Projects', path: '/projects/' },
-            { name: project.title, path: `/projects/${slug}/` },
+            { name: 'Projects', path: '/projects' },
+            { name: project.title, path: `/projects/${slug}` },
           ]),
         ]}
       />
@@ -135,7 +146,7 @@ export default function ProjectDetailPage() {
       <div className={styles.projectDetail}>
         <div className="container">
           {/* Back button */}
-          <Link to="/projects/" className={styles.backBtn} data-cursor="hover">
+          <Link to="/projects" className={styles.backBtn} data-cursor="hover">
             <ArrowLeft size={16} /> Back to Projects
           </Link>
 
